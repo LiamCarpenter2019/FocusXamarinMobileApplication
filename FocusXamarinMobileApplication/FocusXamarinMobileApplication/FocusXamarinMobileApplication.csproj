@@ -16,6 +16,18 @@
     <ItemGroup>
       <Compile Remove="Services\OfflineDataStore.cs" />
       <Compile Remove="ViewModels\ItemDetailPageViewModel.cs" />
+      <Compile Remove="Views\AboutPage.xaml.cs" />
+      <Compile Remove="Views\MapDrawingComboPage.xaml.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Remove="Views\AboutPage.xaml" />
+      <EmbeddedResource Remove="Views\DamageDetails.xaml" />
+      <EmbeddedResource Remove="Views\DamageDetails2.xaml" />
+      <EmbeddedResource Remove="Views\DesignMap.xaml" />
+      <EmbeddedResource Remove="Views\EditInjuredPerson.xaml" />
+      <EmbeddedResource Remove="Views\MapDrawingCombo.xaml" />
+      <EmbeddedResource Remove="Views\MapDrawingComboPage.xaml" />
+      <EmbeddedResource Remove="Views\Notes.xaml" />
     </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MethodTimer.Fody" Version="3.2.1" />
@@ -43,9 +55,6 @@
     <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2578" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Views\AboutPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\AddChamberPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -85,15 +94,6 @@
     <EmbeddedResource Update="Views\DailySiteInspectionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DamageDetails.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\DamageDetails2.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\DesignMap.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\DesignMapPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -104,9 +104,6 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DocumentViewPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\EditInjuredPerson.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EditInjuredPersonPage.xaml">
@@ -160,12 +157,6 @@
     <EmbeddedResource Update="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MapDrawingCombo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\MapDrawingComboPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\MapWithPinsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -191,9 +182,6 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\NewItemPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Notes.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OrderBookItemPage.xaml">
