@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class InputMeasurePage : ContentPage, IFormsPage
 {
@@ -12,7 +12,7 @@ public partial class InputMeasurePage : ContentPage, IFormsPage
 
         NavigationalParameters.ReturnPage = "";
 
-        _vm = App.ViewModelLocator.InputMeasurePageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.InputMeasurePageViewModel;
 
         BindingContext = _vm;
     }

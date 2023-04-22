@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class SelectDamageDetailsPage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class SelectDamageDetailsPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.SelectDamageDetailsPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SelectDamageDetailsPageViewModel;
 
         BindingContext = _vm;
     }

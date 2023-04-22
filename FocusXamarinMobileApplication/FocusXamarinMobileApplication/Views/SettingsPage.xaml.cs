@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class SettingsPage : ContentPage
 {
@@ -8,7 +8,7 @@ public partial class SettingsPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.SettingsPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SettingsPageViewModel;
 
         BindingContext = _vm;
     }

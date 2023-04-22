@@ -1,12 +1,4 @@
-﻿using FocusXamarinForms20082020V1.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using FocusXamarinForms20082020V1.Helpers;
-
-namespace FocusXamarinForms20082020V1.Views
+﻿namespace FocusXamarinMobileApplication.Views
 {
     public partial class MenuPage : ContentPage
     {
@@ -46,7 +38,7 @@ namespace FocusXamarinForms20082020V1.Views
             var signout = await DisplayAlert("Sign out?", "Do you want to sign out?", "Yes", "No");
             if (signout)
             {
-                await (Application.Current as App).SignOut();
+                await (Application.Current as Microsoft.SharePoint.Client.App).SignOut();
             }
         }
 
@@ -60,7 +52,7 @@ namespace FocusXamarinForms20082020V1.Views
                 }
                 else
                 {
-                    await (Application.Current as App).SignIn();
+                    await (Application.Current as Microsoft.SharePoint.Client.App).SignIn();
                 }
             }
             catch (Exception ex)

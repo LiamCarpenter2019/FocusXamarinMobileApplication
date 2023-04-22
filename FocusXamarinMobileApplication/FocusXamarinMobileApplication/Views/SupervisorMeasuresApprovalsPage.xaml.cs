@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class SupervisorMeasuresApprovalsPage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class SupervisorMeasuresApprovalsPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.SupervisorMeasuresApprovalsPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SupervisorMeasuresApprovalsPageViewModel;
 
         BindingContext = _vm;
     }

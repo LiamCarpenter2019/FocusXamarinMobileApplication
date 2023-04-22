@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class ProvingPage : ContentPage, IFormsPage
 {
@@ -9,7 +9,7 @@ public partial class ProvingPage : ContentPage, IFormsPage
         InitializeComponent();
 
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.ProvingPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ProvingPageViewModel;
         BindingContext = _vm;
     }
 

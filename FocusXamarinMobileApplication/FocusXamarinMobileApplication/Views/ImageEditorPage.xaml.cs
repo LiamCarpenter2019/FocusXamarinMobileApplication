@@ -4,7 +4,7 @@ using Syncfusion.SfImageEditor.XForms;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class ImageEditorPage : ContentPage, IFormsPage
 {
@@ -16,7 +16,7 @@ public partial class ImageEditorPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.ImageEditorPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ImageEditorPageViewModel;
 
         BindingContext = _vm;
     }

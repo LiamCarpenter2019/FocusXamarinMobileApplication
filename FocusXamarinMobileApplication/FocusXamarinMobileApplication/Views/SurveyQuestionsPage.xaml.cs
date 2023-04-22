@@ -1,13 +1,12 @@
 ﻿#region
 
-using FocusXamarinForms20082020V1.Helpers;
 using Syncfusion.ListView.XForms;
 using Device = Xamarin.Forms.Device;
 using ScrollToPosition = Xamarin.Forms.ScrollToPosition;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class SurveyQuestionsPage : ContentPage, IFormsPage
 {
@@ -21,7 +20,7 @@ public partial class SurveyQuestionsPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.SurveyQuestionsPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SurveyQuestionsPageViewModel;
 
         BindingContext = _vm;
 

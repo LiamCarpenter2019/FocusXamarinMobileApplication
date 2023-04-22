@@ -6,7 +6,7 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              xmlns:helpers="clr-namespace:FocusXamarinForms20082020V1.Helpers;assembly=FocusXamarinForms20082020V1"
 
-             x:Class="FocusXamarinForms20082020V1.Views.TimesheetSelectionPage">
+             x:Class="FocusXamarinMobileApplication.Views.TimesheetSelectionPage">
     <ContentPage.Resources>
         <ResourceDictionary Source="StyleResource.xaml" />
     </ContentPage.Resources>

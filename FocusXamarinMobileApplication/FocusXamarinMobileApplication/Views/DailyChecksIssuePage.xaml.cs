@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class DailyChecksIssuePage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class DailyChecksIssuePage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.DailyChecksIssuePageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DailyChecksIssuePageViewModel;
 
         BindingContext = _vm;
     }

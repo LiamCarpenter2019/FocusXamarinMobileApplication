@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class PlantTransferInPage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class PlantTransferInPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.PlantTansferInPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PlantTansferInPageViewModel;
 
         BindingContext = _vm;
 

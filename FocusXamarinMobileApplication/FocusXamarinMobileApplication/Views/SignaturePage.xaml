@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
-             NavigationPage.HasNavigationBar="false" x:Class="FocusXamarinForms20082020V1.Views.SignaturePage">
+             NavigationPage.HasNavigationBar="false" x:Class="FocusXamarinMobileApplication.Views.SignaturePage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" BackgroundColor="#1E2351" Padding="10" VerticalOptions="FillAndExpand">
             <StackLayout FlexLayout.Basis="15%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">

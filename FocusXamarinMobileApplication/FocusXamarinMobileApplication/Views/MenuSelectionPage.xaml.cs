@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class MenuSelectionPage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class MenuSelectionPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.MenuSelectionPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MenuSelectionPageViewModel;
 
         BindingContext = _vm;
     }

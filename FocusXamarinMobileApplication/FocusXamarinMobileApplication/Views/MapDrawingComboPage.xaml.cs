@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class MapDrawingComboPage : ContentPage
 {
@@ -9,7 +9,7 @@ public partial class MapDrawingComboPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.FormsMapPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.FormsMapPageViewModel;
         BindingContext = _vm;
         MoveToPosition(null, null);
 

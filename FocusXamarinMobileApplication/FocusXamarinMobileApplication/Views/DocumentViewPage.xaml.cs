@@ -4,7 +4,7 @@ using Syncfusion.SfPdfViewer.XForms;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class DocumentViewPage : ContentPage, IFormsPage
 {
@@ -14,7 +14,7 @@ public partial class DocumentViewPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.DocumentViewPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DocumentViewPageViewModel;
         BindingContext = _vm;
         pdfViewerControl.DocumentSaveInitiated += pdfViewerControl_DocumentSaveInitiated;
     }

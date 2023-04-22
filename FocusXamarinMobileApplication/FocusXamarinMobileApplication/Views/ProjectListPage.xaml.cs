@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class ProjectListPage : ContentPage, IFormsPage
 {
@@ -6,7 +6,7 @@ public partial class ProjectListPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.SelectProjectPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SelectProjectPageViewModel;
 
         BindingContext = _vm;
 

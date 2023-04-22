@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class FormsCommentPage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class FormsCommentPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.FormsCommentPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.FormsCommentPageViewModel;
 
         BindingContext = _vm;
     }

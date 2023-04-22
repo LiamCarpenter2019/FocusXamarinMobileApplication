@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class ServicesCrossedPage : ContentPage
 {
@@ -8,7 +8,7 @@ public partial class ServicesCrossedPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.ServicesCrossedPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ServicesCrossedPageViewModel;
 
         BindingContext = _vm;
 

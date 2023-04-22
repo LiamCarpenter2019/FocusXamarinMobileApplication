@@ -4,7 +4,7 @@ using Person = FocusXamarinForms20082020V1.Models.Person;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class DiarySelectionPage : ContentPage, IFormsPage
 {
@@ -17,7 +17,7 @@ public partial class DiarySelectionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.DiarySelectPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DiarySelectPageViewModel;
         BindingContext = _vm;
     }
 

@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class SupervisorProjectPage : ContentPage
 {
@@ -10,7 +10,7 @@ public partial class SupervisorProjectPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.SupervisorProjectPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SupervisorProjectPageViewModel;
 
         BindingContext = _vm;
 

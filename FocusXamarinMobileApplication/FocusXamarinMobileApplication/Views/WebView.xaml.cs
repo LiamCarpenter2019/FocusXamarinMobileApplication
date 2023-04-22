@@ -1,7 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
-
-namespace FocusXamarinForms_V1_21_07_2020.ViewModels
+﻿namespace FocusXamarinMobileApplication.Views
 {
     public partial class WebView : ContentPage
     {

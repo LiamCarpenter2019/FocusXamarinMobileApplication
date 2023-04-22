@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class TeamOptionsPage : ContentPage, IFormsPage
 {
@@ -6,7 +6,7 @@ public partial class TeamOptionsPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.TeamOptionsPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.TeamOptionsPageViewModel;
 
         BindingContext = _vm;
     }

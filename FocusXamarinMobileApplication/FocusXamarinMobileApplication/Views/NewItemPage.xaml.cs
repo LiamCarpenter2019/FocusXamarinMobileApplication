@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using FocusXamarinForms20082020V1.Models;
-
-namespace FocusXamarinForms20082020V1.Views
+﻿namespace FocusXamarinMobileApplication.Views
 {
     public partial class NewItemPage : ContentPage
     {

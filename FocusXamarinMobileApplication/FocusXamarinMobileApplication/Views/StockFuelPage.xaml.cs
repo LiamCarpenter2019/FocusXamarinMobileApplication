@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class StockFuelPage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class StockFuelPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.StockFuelPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.StockFuelPageViewModel;
         BindingContext = _vm;
     }
 

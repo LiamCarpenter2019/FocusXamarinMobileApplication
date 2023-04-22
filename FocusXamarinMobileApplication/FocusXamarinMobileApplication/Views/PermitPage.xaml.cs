@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class PermitPage : ContentPage, IFormsPage
 {
@@ -9,7 +9,7 @@ public partial class PermitPage : ContentPage, IFormsPage
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
 
-        BindingContext = App.ViewModelLocator.PermitPageViewModel;
+        BindingContext = Microsoft.SharePoint.Client.App.ViewModelLocator.PermitPageViewModel;
     }
 
     public void RefreshPage()

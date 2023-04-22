@@ -4,7 +4,7 @@ using View = Xamarin.Forms.View;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class CameraViewPage : ContentPage, IFormsPage
 {
@@ -16,7 +16,7 @@ public partial class CameraViewPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.PhotoPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PhotoPageViewModel;
         BindingContext = _vm;
         PhotoList = new List<Pictures4Tablet>();
         //AddImageButton.WidthRequest = ButtonWidth;

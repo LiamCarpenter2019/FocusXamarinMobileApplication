@@ -4,7 +4,7 @@ using Syncfusion.SfPdfViewer.XForms;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class ToolboxTalkDocumentViewPage : ContentPage, IFormsPage
 {
@@ -16,7 +16,7 @@ public partial class ToolboxTalkDocumentViewPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.ToolboxTalkDocumentPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ToolboxTalkDocumentPageViewModel;
 
         BindingContext = _vm;
 

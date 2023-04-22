@@ -3,7 +3,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="FocusXamarinForms20082020V1.Views.CalibrationPage">
+    x:Class="FocusXamarinMobileApplication.Views.CalibrationPage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62" Padding="10,5,10,5"
                     FlexLayout.Basis="100%">

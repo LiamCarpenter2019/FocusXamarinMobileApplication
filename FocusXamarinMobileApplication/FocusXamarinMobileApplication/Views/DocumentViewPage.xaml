@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
              NavigationPage.HasNavigationBar="false"
-             x:Class="FocusXamarinForms20082020V1.Views.DocumentViewPage">
+             x:Class="FocusXamarinMobileApplication.Views.DocumentViewPage">
     <ContentPage.Content>
         <FlexLayout Direction="Row" BackgroundColor="#1E2351" Padding="10" AlignContent="Center">
             <StackLayout Orientation="Vertical" FlexLayout.Basis="100%" Padding="10">

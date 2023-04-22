@@ -4,7 +4,7 @@ using Photo = FocusXamarinForms20082020V1.Models.Photo;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class RegisterNewEventPage : ContentPage, IFormsPage
 {
@@ -18,7 +18,7 @@ public partial class RegisterNewEventPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.RegisterNewEventPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.RegisterNewEventPageViewModel;
 
         BindingContext = _vm;
     }
