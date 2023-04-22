@@ -2,7 +2,6 @@
 
 #endregion
 
-using System.Text.Json.Serialization;
 
 namespace FocusXamarinMobileApplication.Models;
 
@@ -36,9 +35,9 @@ public class ClaimedNotesFile : BusinessEntityBase
     public string StartAddress { get; set; } = "";
     public string EndAddress { get; set; } = "";
 
-    [JsonIgnore] public string StartAbbreviationId { get; set; } = "0";
+    [Newtonsoft.Json.JsonIgnore] public string StartAbbreviationId { get; set; } = "0";
 
-    [JsonIgnore] public string EndAbbreviationId { get; set; } = "0";
+    [Newtonsoft.Json.JsonIgnore] public string EndAbbreviationId { get; set; } = "0";
 
     [JsonIgnore] public int StartEndpointId { get; set; } = 0;
 

@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 public class Gang
 {

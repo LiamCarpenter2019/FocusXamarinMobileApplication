@@ -1,9 +1,4 @@
-﻿#region
-
-using ItemTappedEventArgs = Syncfusion.ListView.XForms.ItemTappedEventArgs;
-
-#endregion
-
+﻿
 namespace FocusXamarinMobileApplication.Views;
 
 public partial class TimesheetSelectionPage : ContentPage, IFormsPage

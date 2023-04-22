@@ -1,10 +1,4 @@
-﻿#region
-
-#endregion
-
-using System.Text.Json.Serialization;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 //[Table("JobData")]
 public class JobData4Tablet : BusinessEntityBase

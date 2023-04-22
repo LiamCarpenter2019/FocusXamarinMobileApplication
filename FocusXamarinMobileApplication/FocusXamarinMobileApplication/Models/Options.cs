@@ -1,8 +1,4 @@
-﻿#region
-
-#endregion
-
-using System.Text.Json.Serialization;
+﻿
 
 namespace FocusXamarinMobileApplication.Models;
 
