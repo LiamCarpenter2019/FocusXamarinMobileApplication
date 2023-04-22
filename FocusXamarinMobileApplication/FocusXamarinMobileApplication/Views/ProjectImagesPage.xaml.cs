@@ -1,5 +1,6 @@
 ﻿#region
 
+using Syncfusion.SfImageEditor.XForms;
 using Device = Xamarin.Forms.Device;
 using Image = Xamarin.Forms.Image;
 

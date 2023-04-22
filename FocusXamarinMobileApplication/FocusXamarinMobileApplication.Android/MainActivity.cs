@@ -1,4 +1,6 @@
-﻿namespace FocusXamarinMobileApplication.Droid;
+﻿using Xamarin;
+
+namespace FocusXamarinMobileApplication.Droid;
 
 [Activity(Label = "FocusXamarinForms20082020V1", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
     ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode |

@@ -2,6 +2,8 @@
 
 #endregion
 
+using Syncfusion.SfPdfViewer.XForms;
+
 namespace FocusXamarinMobileApplication.Views;
 
 public partial class DocumentViewPage : ContentPage, IFormsPage

@@ -146,6 +146,9 @@
     <PackageReference Include="PCLStorage">
       <Version>1.0.2</Version>
     </PackageReference>
+    <PackageReference Include="signaturepad">
+      <Version>1.5.3</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Licensing">
       <Version>21.1.41</Version>
     </PackageReference>

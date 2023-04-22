@@ -224,7 +224,6 @@ public class ViewModelLocator
         SimpleIoc.Default.Register<InvestigateDamagePageViewModel>();
         SimpleIoc.Default.Register<InvestigateDamagePageViewModel>();
         SimpleIoc.Default.Register<InvestigationDetail2PageViewModel>();
-        SimpleIoc.Default.Register<ItemDetailPageViewModel>();
         SimpleIoc.Default.Register<LoginPageViewModel>();
         SimpleIoc.Default.Register<MainListPageViewModel>();
         SimpleIoc.Default.Register<MeasureApprovalPageViewModel>();
@@ -692,15 +691,6 @@ public class ViewModelLocator
         }
     }
 
-    public ItemDetailPageViewModel ItemDetailPageViewModel
-    {
-        get
-        {
-            if (!SimpleIoc.Default.IsRegistered<ItemDetailPageViewModel>())
-                SimpleIoc.Default.Register<ItemDetailPageViewModel>();
-            return SimpleIoc.Default.GetInstance<ItemDetailPageViewModel>();
-        }
-    }
 
     public LoginPageViewModel LoginPageViewModel
     {

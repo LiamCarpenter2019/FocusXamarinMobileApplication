@@ -2,6 +2,8 @@
 
 #endregion
 
+using Syncfusion.SfImageEditor.XForms;
+
 namespace FocusXamarinMobileApplication.Views;
 
 public partial class ImageEditorPage : ContentPage, IFormsPage

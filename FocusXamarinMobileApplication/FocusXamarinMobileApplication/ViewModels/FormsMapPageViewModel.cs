@@ -1,5 +1,6 @@
 ﻿#region
 
+using Curnow.Biz.What3WordsV3Net;
 using Location = Xamarin.Essentials.Location;
 
 #endregion
