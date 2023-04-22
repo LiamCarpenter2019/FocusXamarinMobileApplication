@@ -1,17 +1,5 @@
 ﻿#region
 
-using System;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Microsoft.AppCenter.Analytics;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
-using Xamarin.Forms;
-
 #endregion
 
 namespace FocusXamarinMobileApplication.ViewModels;

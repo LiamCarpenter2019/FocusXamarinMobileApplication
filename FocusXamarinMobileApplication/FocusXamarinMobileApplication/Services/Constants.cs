@@ -1,13 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using Microsoft.AppCenter.Analytics;
-using SQLite;
-
-namespace FocusXamarinMobileApplication.Services;
+﻿namespace FocusXamarinMobileApplication.Services;
 
 public class Constants : IConstants
 {

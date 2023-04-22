@@ -1,9 +1,4 @@
-﻿using System.Linq;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class SelectStreetPage : ContentPage, IFormsPage
 {

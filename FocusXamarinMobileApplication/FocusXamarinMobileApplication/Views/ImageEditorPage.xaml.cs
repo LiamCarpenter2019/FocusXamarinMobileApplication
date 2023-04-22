@@ -1,12 +1,5 @@
 ﻿#region
 
-using System;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Syncfusion.SfImageEditor.XForms;
-using Xamarin.Forms;
-
 #endregion
 
 namespace FocusXamarinMobileApplication.Views;

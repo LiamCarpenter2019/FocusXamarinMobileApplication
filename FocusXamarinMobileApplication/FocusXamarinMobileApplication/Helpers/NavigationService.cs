@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using GalaSoft.MvvmLight.Views;
-using Xamarin.Forms;
-
 namespace FocusXamarinMobileApplication.Helpers;
 
 public class NavigationService : INavigationService

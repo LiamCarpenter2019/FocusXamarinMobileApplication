@@ -2,15 +2,6 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using FocusXamarinMobileApplication.database;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-
 namespace FocusXamarinMobileApplication.ViewModels;
 
 public class FormsCommentPageViewModel : FBaseViewModel, INotifyPropertyChanged

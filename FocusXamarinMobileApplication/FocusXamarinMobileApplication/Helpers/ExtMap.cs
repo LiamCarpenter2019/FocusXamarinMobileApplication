@@ -1,7 +1,5 @@
 ﻿#region
 
-using System;
-using Xamarin.Forms.Maps;
 using Map = Xamarin.Forms.Maps.Map;
 
 #endregion

@@ -1,8 +1,5 @@
 ﻿#region
 
-using System.Collections.Generic;
-using System.ComponentModel;
-using FocusXamarinMobileApplication.Models;
 using Photo = FocusXamarinMobileApplication.Models.Photo;
 
 #endregion

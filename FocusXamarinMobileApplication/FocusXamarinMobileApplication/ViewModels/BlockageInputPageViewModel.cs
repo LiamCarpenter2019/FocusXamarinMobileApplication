@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using MethodTimer;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class BlockageInputPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

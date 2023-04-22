@@ -1,16 +1,5 @@
 ﻿#region
 
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using MethodTimer;
-using Microsoft.AppCenter.Analytics;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
-using Xamarin.Forms;
 //using Syncfusion.XlsIO.Parser.Biff_Records;
 using Audit = FocusXamarinMobileApplication.Models.Audit;
 using Location = FocusXamarinMobileApplication.Models.Location;

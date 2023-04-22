@@ -1,10 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using FocusXamarinMobileApplication.Models;
-
-namespace FocusXamarinMobileApplication.Helpers;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
 public class AddressPicker : INotifyPropertyChanged
 {

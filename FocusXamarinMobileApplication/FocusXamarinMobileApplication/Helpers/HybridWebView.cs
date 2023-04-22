@@ -1,9 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
-namespace FocusXamarinMobileApplication.Helpers;
-
-public class HybridWebView : WebView
+public class HybridWebView : Xamarin.Forms.WebView
 {
     public static readonly BindableProperty UriProperty = BindableProperty.Create(
         "Uri",

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Microsoft.AppCenter.Analytics;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class DfePageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

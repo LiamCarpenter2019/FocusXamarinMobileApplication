@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using MethodTimer;
-using Xamarin.Essentials;
-
-namespace FocusXamarinMobileApplication.Services;
+﻿namespace FocusXamarinMobileApplication.Services;
 
 public class AzureDataStore : IDataStore<Item>
 {

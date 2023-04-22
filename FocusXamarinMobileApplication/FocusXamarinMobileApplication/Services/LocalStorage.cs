@@ -1,16 +1,5 @@
 ﻿#region
 
-using System;
-using System.IO;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using MethodTimer;
-using Microsoft.AppCenter.Analytics;
-using PCLStorage;
 using FileAccess = PCLStorage.FileAccess;
 using FileSystem = PCLStorage.FileSystem;
 using List = Microsoft.SharePoint.Client.List;

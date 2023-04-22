@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-
 namespace FocusXamarinMobileApplication.ViewModels;
 
 public class VisitorLogPageViewModel : FBaseViewModel, INotifyPropertyChanged

@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class OSMappingPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

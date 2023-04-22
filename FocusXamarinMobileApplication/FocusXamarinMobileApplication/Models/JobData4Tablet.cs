@@ -2,11 +2,7 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using FocusXamarinMobileApplication.database;
-using SQLite;
 
 namespace FocusXamarinMobileApplication.Models;
 

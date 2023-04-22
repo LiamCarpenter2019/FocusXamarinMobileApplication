@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Views;
-
-namespace FocusXamarinMobileApplication.ViewModels
+﻿namespace FocusXamarinMobileApplication.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {

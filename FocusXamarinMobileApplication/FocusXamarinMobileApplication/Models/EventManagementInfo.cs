@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 public class EventManagementInfo
 {

@@ -1,9 +1,4 @@
-﻿using FocusXamarinMobileApplication.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Services.Interfaces;
+﻿namespace FocusXamarinMobileApplication.Services.Interfaces;
 
 public interface IAssignments
 {

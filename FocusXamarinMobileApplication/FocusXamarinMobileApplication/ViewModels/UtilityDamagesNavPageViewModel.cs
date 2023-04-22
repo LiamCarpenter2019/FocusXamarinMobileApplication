@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class UtilityDamagesNavPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

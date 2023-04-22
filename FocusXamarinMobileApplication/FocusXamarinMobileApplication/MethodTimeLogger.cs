@@ -1,9 +1,4 @@
-﻿using System;
-using System.Reflection;
-using FocusXamarinMobileApplication.Helpers;
-using Microsoft.AppCenter.Analytics;
-
-namespace FocusXamarinMobileApplication;
+﻿namespace FocusXamarinMobileApplication;
 
 public static class MethodTimeLogger
 {

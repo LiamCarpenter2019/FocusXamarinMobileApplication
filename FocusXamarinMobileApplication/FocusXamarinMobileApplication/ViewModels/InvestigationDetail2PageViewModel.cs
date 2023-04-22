@@ -1,13 +1,5 @@
 ﻿#region
 
-using System;
-using System.ComponentModel;
-using System.Linq;
-using FocusXamarinMobileApplication.database;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Microsoft.AppCenter.Analytics;
 using Event = FocusXamarinMobileApplication.Models.Event;
 using Person = FocusXamarinMobileApplication.Models.Person;
 

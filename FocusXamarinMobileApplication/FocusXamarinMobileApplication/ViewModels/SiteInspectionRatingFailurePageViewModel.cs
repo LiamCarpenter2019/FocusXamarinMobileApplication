@@ -1,13 +1,5 @@
 ﻿#region
 
-using System;
-using System.ComponentModel;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using Person = FocusXamarinMobileApplication.Models.Person;
 
 #endregion

@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class MeasureApprovalPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

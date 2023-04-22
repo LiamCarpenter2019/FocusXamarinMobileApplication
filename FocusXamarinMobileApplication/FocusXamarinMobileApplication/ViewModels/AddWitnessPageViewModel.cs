@@ -1,11 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using MethodTimer;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class AddWitnessPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

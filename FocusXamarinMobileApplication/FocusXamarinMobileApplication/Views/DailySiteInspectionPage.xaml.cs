@@ -1,9 +1,4 @@
-﻿using System;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.ViewModels;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class DailySiteInspectionPage : ContentPage
 {

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-using FocusXamarinMobileApplication.ViewModels;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 public class NotesViewModel : FBaseViewModel, INotifyPropertyChanged
 {

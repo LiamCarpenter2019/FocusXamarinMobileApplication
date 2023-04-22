@@ -1,13 +1,5 @@
 ﻿#region
 
-using System;
-using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Microsoft.AppCenter.Analytics;
-using Syncfusion.ListView.XForms;
-using Xamarin.Forms;
 using Device = Xamarin.Forms.Device;
 using ScrollToPosition = Xamarin.Forms.ScrollToPosition;
 

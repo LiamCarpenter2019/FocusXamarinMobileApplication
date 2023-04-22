@@ -1,17 +1,6 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Models;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 using Location = Xamarin.Essentials.Location;
 
 #endregion

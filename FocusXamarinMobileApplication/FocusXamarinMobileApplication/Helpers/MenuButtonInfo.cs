@@ -1,5 +1,3 @@
-using GalaSoft.MvvmLight.Command;
-
 namespace FocusXamarinMobileApplication.Helpers;
 
 public class MenuButtonInfo

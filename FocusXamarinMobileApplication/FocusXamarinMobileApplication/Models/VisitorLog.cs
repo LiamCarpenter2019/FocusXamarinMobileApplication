@@ -1,9 +1,5 @@
 ﻿#region
 
-using System;
-using FocusXamarinMobileApplication.database;
-using FocusXamarinMobileApplication.Services;
-using SQLite;
 using Constants = FocusXamarinMobileApplication.Services.Constants;
 
 #endregion

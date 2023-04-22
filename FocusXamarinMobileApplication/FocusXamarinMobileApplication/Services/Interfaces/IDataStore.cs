@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace FocusXamarinMobileApplication.Services.Interfaces;
+﻿namespace FocusXamarinMobileApplication.Services.Interfaces;
 
 public interface IDataStore<T>
 {

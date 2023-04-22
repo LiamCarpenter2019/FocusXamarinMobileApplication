@@ -1,0 +1,50 @@
+#region
+
+global using System;
+global using System.Collections.Concurrent;
+global using System.Collections.Generic;
+global using System.Collections.ObjectModel;
+global using System.ComponentModel;
+global using System.Diagnostics;
+global using System.Globalization;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.IO;
+global using System.Linq;
+global using System.Net;
+global using System.Net.Http;
+global using System.Net.Http.Headers;
+global using System.Reflection;
+global using System.Runtime.CompilerServices;
+global using System.Security;
+global using System.Text;
+global using System.Text.Json;
+global using System.Threading;
+global using System.Threading.Tasks;
+global using System.Web;
+global using FocusXamarinMobileApplication.database;
+global using FocusXamarinMobileApplication.Helpers;
+global using FocusXamarinMobileApplication.Models;
+global using FocusXamarinMobileApplication.Services;
+global using FocusXamarinMobileApplication.Services.Interfaces;
+global using FocusXamarinMobileApplication.ViewModels;
+global using FocusXamarinMobileApplication.Views;
+global using GalaSoft.MvvmLight.Command;
+global using GalaSoft.MvvmLight.Ioc;
+global using GalaSoft.MvvmLight.Views;
+global using MethodTimer;
+global using Microsoft.AppCenter.Analytics;
+global using Microsoft.Graph;
+global using Microsoft.Identity.Client;
+global using Microsoft.SharePoint.Client;
+global using Microsoft.WindowsAzure.Storage;
+global using Newtonsoft.Json;
+global using PCLStorage;
+global using Plugin.Connectivity;
+global using SQLite;
+global using Xamarin.Essentials;
+global using Xamarin.Forms;
+global using Xamarin.Forms.Maps;
+global using Xamarin.Forms.Xaml;
+global using JsonSerializer = System.Text.Json.JsonSerializer;
+
+#endregion

@@ -2,11 +2,6 @@
 
 #endregion
 
-using System;
-using System.IO;
-using FocusXamarinMobileApplication.database;
-using SQLite;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class Pictures4Tablet : BusinessEntityBase

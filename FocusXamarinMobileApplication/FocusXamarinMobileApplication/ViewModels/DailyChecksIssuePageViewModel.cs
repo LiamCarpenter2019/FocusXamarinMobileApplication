@@ -1,10 +1,4 @@
-﻿using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-using MethodTimer;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class DailyChecksIssuePageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

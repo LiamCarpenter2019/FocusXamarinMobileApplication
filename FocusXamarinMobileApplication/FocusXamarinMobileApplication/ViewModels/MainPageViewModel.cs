@@ -1,8 +1,4 @@
-﻿using System.ComponentModel;
-using FocusXamarinMobileApplication.Services;
-using GalaSoft.MvvmLight.Views;
-
-namespace FocusXamarinMobileApplication.ViewModels
+﻿namespace FocusXamarinMobileApplication.ViewModels
 {
     public class MainPageViewModel : FBaseViewModel, INotifyPropertyChanged
     {

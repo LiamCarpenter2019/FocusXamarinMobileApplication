@@ -2,14 +2,6 @@
 
 #endregion
 
-using System;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.database;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-using SQLite;
-using Xamarin.Forms;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class AuthorisationDetail : BusinessEntityBase

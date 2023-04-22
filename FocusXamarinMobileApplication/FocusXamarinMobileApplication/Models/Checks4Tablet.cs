@@ -2,8 +2,6 @@
 
 #endregion
 
-using FocusXamarinMobileApplication.database;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class Checks4Tablet : BusinessEntityBase

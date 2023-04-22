@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.ViewModels;
-using Microsoft.AppCenter.Analytics;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class MapWithPinsPage : ContentPage
 {

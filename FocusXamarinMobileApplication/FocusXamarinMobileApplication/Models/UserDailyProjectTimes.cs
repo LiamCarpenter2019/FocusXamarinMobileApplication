@@ -2,12 +2,6 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using FocusXamarinMobileApplication.database;
-using SQLite;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class UserDailyProjectTimes : BusinessEntityBase

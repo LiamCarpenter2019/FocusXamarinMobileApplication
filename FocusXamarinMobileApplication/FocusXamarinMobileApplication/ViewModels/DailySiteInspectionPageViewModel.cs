@@ -1,16 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Microsoft.AppCenter.Analytics;
-using Xamarin.Essentials;
 using Location = Xamarin.Essentials.Location;
 using Person = FocusXamarinMobileApplication.Models.Person;
 

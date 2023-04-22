@@ -1,10 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Xamarin.Forms;
 using Photo = FocusXamarinMobileApplication.Models.Photo;
 
 #endregion

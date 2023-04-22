@@ -1,11 +1,4 @@
-﻿using System;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Microsoft.AppCenter.Analytics;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class RatingSurveyQuestionsPage : ContentPage, IFormsPage
 {

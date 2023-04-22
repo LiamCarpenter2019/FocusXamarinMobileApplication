@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class AboutPage : ContentPage
 {

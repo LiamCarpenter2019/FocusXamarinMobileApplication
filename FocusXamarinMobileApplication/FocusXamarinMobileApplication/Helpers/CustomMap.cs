@@ -1,14 +1,6 @@
-﻿#region
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
-
-#endregion
-
-using System.Collections.Generic;
-using Xamarin.Forms.Maps;
-
-namespace FocusXamarinMobileApplication.Helpers;
-
-public class CustomMap : Map
+public class CustomMap : Xamarin.Forms.Maps.Map
 {
     public List<CustomPin> CustomPins { get; set; }
 }

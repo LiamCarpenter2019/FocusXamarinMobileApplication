@@ -1,10 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-using MethodTimer;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class CommercialListPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

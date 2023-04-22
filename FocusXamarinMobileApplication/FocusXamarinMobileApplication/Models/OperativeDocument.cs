@@ -1,6 +1,4 @@
-﻿using SQLite;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 [Table("Document")]
 public class OperativeDocument

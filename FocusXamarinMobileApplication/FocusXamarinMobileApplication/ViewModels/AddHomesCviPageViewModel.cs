@@ -1,6 +1,4 @@
-﻿using MethodTimer;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class AddHomesCviPageViewModel : FBaseViewModel
 {

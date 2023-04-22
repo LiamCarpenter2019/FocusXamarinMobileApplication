@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-using FocusXamarinMobileApplication.ViewModels;
-using FocusXamarinMobileApplication.Views;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Views;
-
-namespace FocusXamarinMobileApplication.Models
+﻿namespace FocusXamarinMobileApplication.Models
 {
     public class MenuViewModel : FBaseViewModel
     {

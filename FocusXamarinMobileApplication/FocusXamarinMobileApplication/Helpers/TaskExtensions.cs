@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-
 namespace FocusXamarinMobileApplication.Helpers;
 
 public static class TaskExtensions

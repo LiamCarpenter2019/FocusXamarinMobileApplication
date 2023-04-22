@@ -1,12 +1,5 @@
 ﻿#region
 
-using System;
-using System.ComponentModel;
-using FocusXamarinMobileApplication.database;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Microsoft.AppCenter.Analytics;
 using Constants = FocusXamarinMobileApplication.Services.Constants;
 
 #endregion

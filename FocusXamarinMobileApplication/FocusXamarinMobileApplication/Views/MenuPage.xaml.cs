@@ -1,12 +1,4 @@
-﻿using FocusXamarinMobileApplication.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using FocusXamarinMobileApplication.Helpers;
-
-namespace FocusXamarinMobileApplication.Views
+﻿namespace FocusXamarinMobileApplication.Views
 {
     public partial class MenuPage : ContentPage
     {

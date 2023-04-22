@@ -2,9 +2,6 @@
 
 #endregion
 
-using System;
-using FocusXamarinMobileApplication.database;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class ServicesCrossed4Tablet : BusinessEntityBase

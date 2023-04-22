@@ -1,17 +1,5 @@
 ﻿#region
 
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using MethodTimer;
-using Microsoft.AppCenter.Analytics;
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Constants = FocusXamarinMobileApplication.Services.Constants;
 
 #endregion

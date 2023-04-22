@@ -1,11 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
 using Event = FocusXamarinMobileApplication.Models.Event;
 
 #endregion

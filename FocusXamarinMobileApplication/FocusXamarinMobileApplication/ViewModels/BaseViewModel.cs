@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class BaseViewModel : INotifyPropertyChanged
 {

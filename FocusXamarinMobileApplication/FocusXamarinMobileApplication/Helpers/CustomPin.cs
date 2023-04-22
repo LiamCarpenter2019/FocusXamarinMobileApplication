@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms.Maps;
-
-namespace FocusXamarinMobileApplication.Helpers;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
 public class CustomPin : Pin
 {

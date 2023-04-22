@@ -1,10 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.IO;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class ToolboxTalkDocumentPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

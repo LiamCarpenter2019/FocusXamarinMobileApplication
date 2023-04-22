@@ -1,12 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-
-namespace FocusXamarinMobileApplication.Views
+﻿namespace FocusXamarinMobileApplication.Views
 {
     public partial class ItemDetailPage : ContentPage
     {

@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 public class ProjectList : ContentPage
 {

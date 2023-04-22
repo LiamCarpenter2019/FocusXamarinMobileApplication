@@ -1,12 +1,5 @@
 ﻿#region
 
-using System.IO;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Syncfusion.SfPdfViewer.XForms;
-using Xamarin.Forms;
-
 #endregion
 
 namespace FocusXamarinMobileApplication.Views;

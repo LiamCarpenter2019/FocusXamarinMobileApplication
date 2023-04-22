@@ -2,10 +2,6 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using FocusXamarinMobileApplication.database;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class VMtotalProjectInfo : BusinessEntityBase

@@ -1,8 +1,6 @@
 ﻿#region
 
 using System.Collections;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 using Location = FocusXamarinMobileApplication.Models.Location;
 

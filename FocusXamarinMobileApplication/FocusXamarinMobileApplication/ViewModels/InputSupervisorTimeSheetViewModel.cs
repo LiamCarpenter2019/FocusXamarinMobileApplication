@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Views;
-using FocusXamarinMobileApplication.Services;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Views;
-
-namespace FocusXamarinMobileApplication.ViewModels
+﻿namespace FocusXamarinMobileApplication.ViewModels
 {
     public class InputSupervisorTimeSheetViewModel : FBaseViewModel
     {

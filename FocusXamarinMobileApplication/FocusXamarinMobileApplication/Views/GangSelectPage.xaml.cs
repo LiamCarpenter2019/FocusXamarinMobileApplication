@@ -2,10 +2,6 @@
 
 #endregion
 
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.ViewModels;
-using Xamarin.Forms;
-
 namespace FocusXamarinMobileApplication.Views;
 
 public partial class GangSelectPage : ContentPage

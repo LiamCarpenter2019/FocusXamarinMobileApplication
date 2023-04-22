@@ -2,9 +2,6 @@
 
 #endregion
 
-using FocusXamarinMobileApplication.database;
-using SQLite;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class PublicUtilityDamageQuestion : BusinessEntityBase

@@ -2,10 +2,6 @@
 
 #endregion
 
-using System.Collections.Generic;
-using FocusXamarinMobileApplication.database;
-using SQLite;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class CableStockAudit : BusinessEntityBase

@@ -1,10 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using FocusXamarinMobileApplication.Models;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Helpers;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
 public class QuestionTemplateSelector : DataTemplateSelector
 {

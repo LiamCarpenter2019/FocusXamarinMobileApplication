@@ -3,7 +3,6 @@
 #endregion
 
 using System.Text.Json.Serialization;
-using FocusXamarinMobileApplication.database;
 
 namespace FocusXamarinMobileApplication.Models;
 

@@ -2,10 +2,6 @@
 
 #endregion
 
-using System;
-using FocusXamarinMobileApplication.database;
-using Xamarin.Forms;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class InvestigationAnswer : BusinessEntityBase

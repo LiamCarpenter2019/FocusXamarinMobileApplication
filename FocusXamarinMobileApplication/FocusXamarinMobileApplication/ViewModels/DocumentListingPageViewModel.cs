@@ -1,18 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using MethodTimer;
-using Microsoft.AppCenter.Analytics;
-using Xamarin.Forms;
 using Constants = FocusXamarinMobileApplication.Services.Constants;
 
 #endregion

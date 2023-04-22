@@ -1,22 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Microsoft.AppCenter;
+﻿using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Syncfusion.Licensing;
 using Application = Xamarin.Forms.Application;
 using Constants = FocusXamarinMobileApplication.Services.Constants;
-using FocusXamarinMobileApplication.database;
-using FocusXamarinMobileApplication.Helpers;
-using Microsoft.Identity.Client;
-using FocusXamarinMobileApplication.Services;
-using Microsoft.Graph;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Views;
-using Microsoft.AppCenter.Analytics;
 
 namespace FocusXamarinMobileApplication
 {

@@ -1,11 +1,5 @@
 ﻿#region
 
-using System;
-using System.IO;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.ViewModels;
-using Syncfusion.SfImageEditor.XForms;
-using Xamarin.Forms;
 using Device = Xamarin.Forms.Device;
 using Image = Xamarin.Forms.Image;
 

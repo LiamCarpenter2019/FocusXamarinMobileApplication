@@ -1,9 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Models;
 using Person = FocusXamarinMobileApplication.Models.Person;
 
 #endregion

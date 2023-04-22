@@ -2,12 +2,6 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using FocusXamarinMobileApplication.database;
-using FocusXamarinMobileApplication.Helpers;
-using SQLite;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class DigPermit : BusinessEntityBase

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Globalization;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace FocusXamarinMobileApplication.Helpers;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
 public class BoolToValueConverter : IValueConverter
 {

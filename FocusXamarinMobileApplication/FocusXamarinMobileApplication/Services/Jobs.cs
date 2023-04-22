@@ -1,18 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using MethodTimer;
-using Microsoft.AppCenter.Analytics;
-using Xamarin.Essentials;
 using Audit = FocusXamarinMobileApplication.Models.Audit;
 using Event = FocusXamarinMobileApplication.Models.Event;
 using Location = FocusXamarinMobileApplication.Models.Location;

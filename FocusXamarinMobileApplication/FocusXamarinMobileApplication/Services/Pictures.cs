@@ -1,15 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using FocusXamarinMobileApplication.Services.Interfaces;
-using MethodTimer;
-using Microsoft.AppCenter.Analytics;
 using Image = Xamarin.Forms.Image;
 
 #endregion

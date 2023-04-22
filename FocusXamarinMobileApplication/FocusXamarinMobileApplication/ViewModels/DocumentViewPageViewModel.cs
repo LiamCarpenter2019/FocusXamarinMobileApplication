@@ -1,12 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-using System.IO;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Microsoft.AppCenter.Analytics;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class DocumentViewPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {

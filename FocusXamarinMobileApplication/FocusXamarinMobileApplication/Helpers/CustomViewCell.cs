@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Helpers;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
 public class CustomViewCell : ContentPage
 {

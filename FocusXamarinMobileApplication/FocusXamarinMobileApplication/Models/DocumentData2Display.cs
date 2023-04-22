@@ -1,9 +1,4 @@
-﻿using System;
-using FocusXamarinMobileApplication.Helpers;
-using SQLite;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 public class DocumentData2Display
 {

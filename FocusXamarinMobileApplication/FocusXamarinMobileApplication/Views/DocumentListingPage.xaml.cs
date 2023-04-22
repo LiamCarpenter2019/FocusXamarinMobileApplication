@@ -1,10 +1,5 @@
 ﻿#region
 
-using System;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Xamarin.Forms;
 using Device = Xamarin.Forms.Device;
 
 #endregion

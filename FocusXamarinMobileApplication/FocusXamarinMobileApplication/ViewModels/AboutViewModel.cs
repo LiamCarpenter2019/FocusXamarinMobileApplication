@@ -1,8 +1,6 @@
 ﻿#region
 
 using System.Windows.Input;
-using MethodTimer;
-using Xamarin.Essentials;
 
 #endregion
 

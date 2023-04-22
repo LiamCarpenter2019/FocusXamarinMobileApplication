@@ -1,6 +1,4 @@
-﻿using FocusXamarinMobileApplication.Models;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public class ItemDetailPageViewModel : BaseViewModel
 {

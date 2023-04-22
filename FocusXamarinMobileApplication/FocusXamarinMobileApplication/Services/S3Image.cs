@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace FocusXamarinMobileApplication.Services;
+﻿namespace FocusXamarinMobileApplication.Services;
 
 //[Serializable]
 public class S3Image : IDisposable

@@ -1,15 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using MethodTimer;
-using Microsoft.Graph;
-using Microsoft.Identity.Client;
-
-namespace FocusXamarinMobileApplication.Services;
+﻿namespace FocusXamarinMobileApplication.Services;
 
 public class AuthenticationService
 {

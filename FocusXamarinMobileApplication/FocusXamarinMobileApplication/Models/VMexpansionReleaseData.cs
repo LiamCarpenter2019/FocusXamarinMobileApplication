@@ -2,12 +2,6 @@
 
 #endregion
 
-using System;
-using System.Linq;
-using FocusXamarinMobileApplication.database;
-using SQLite;
-using Xamarin.Forms;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class VMexpansionReleaseData : BusinessEntityBase

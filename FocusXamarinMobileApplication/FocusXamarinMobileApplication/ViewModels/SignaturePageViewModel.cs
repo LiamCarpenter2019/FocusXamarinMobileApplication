@@ -1,17 +1,6 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using Xamarin.Essentials;
 using Event = FocusXamarinMobileApplication.Models.Event;
 using Location = Xamarin.Essentials.Location;
 using Person = FocusXamarinMobileApplication.Models.Person;

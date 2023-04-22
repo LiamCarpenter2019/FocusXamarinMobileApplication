@@ -4,8 +4,6 @@
 
 #endregion
 
-using FocusXamarinMobileApplication.database;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class Abbreviations : BusinessEntityBase

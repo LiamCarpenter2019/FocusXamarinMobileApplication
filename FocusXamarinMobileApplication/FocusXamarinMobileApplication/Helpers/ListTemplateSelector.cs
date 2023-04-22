@@ -1,7 +1,4 @@
-﻿using FocusXamarinMobileApplication.Models;
-using Xamarin.Forms;
-
-namespace FocusXamarinMobileApplication.Helpers;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
 public class ListTemplateSelector : DataTemplateSelector
 {

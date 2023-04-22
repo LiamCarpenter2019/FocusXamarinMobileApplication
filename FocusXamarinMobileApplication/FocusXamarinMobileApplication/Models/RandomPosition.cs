@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 internal static class RandomPosition
 {

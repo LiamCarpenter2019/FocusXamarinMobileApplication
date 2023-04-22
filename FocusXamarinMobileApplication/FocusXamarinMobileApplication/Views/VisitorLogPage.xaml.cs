@@ -1,11 +1,5 @@
 #region
 
-using System;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using SignaturePad.Forms;
-using Xamarin.Forms;
-
 #endregion
 
 namespace FocusXamarinMobileApplication.Views;

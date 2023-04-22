@@ -2,10 +2,6 @@
 
 #endregion
 
-using FocusXamarinMobileApplication.database;
-using SQLite;
-using Xamarin.Forms;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class CableRuns : BusinessEntityBase

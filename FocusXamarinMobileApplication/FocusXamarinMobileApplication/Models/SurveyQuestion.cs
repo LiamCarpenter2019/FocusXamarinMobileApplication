@@ -2,10 +2,6 @@
 
 #endregion
 
-using System.ComponentModel;
-using FocusXamarinMobileApplication.database;
-using SQLite;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class SurveyQuestion : BusinessEntityBase, INotifyPropertyChanged

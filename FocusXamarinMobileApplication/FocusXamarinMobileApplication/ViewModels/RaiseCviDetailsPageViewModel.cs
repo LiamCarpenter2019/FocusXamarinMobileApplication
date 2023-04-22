@@ -1,12 +1,6 @@
 ﻿#region
 
-using System;
-using System.ComponentModel;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
 
 #endregion
 

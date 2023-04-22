@@ -1,7 +1,5 @@
 ﻿#region
 
-using System.Threading.Tasks;
-using MethodTimer;
 using Application = Xamarin.Forms.Application;
 
 #endregion

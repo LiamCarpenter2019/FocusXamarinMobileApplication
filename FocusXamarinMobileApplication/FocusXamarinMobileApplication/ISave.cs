@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Threading.Tasks;
-
-namespace FocusXamarinMobileApplication;
+﻿namespace FocusXamarinMobileApplication;
 
 public interface ISave
 {

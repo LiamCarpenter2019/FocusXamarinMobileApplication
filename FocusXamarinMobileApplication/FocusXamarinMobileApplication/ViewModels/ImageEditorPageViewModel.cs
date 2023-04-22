@@ -1,10 +1,5 @@
 ﻿#region
 
-using System.ComponentModel;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Services;
-using PCLStorage;
-using Xamarin.Forms;
 using FileSystem = PCLStorage.FileSystem;
 
 #endregion

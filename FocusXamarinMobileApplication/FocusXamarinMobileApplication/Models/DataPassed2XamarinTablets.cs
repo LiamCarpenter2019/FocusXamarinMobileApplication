@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace FocusXamarinMobileApplication.Models;
 
 public class DataPassed2XamarinTablets

@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using FocusXamarinMobileApplication.database;
-
-namespace FocusXamarinMobileApplication.Models;
+﻿namespace FocusXamarinMobileApplication.Models;
 
 public class Street : BusinessEntityBase
 {

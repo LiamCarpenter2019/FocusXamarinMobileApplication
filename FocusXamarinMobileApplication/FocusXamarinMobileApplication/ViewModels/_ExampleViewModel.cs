@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using FocusXamarinMobileApplication.Services;
-
-namespace FocusXamarinMobileApplication.ViewModels;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public partial class ExampleViewModel : FBaseViewModel, INotifyPropertyChanged
 {

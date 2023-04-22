@@ -1,14 +1,5 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.Services;
-using FocusXamarinMobileApplication.ViewModels;
-using Xamarin.Forms;
 using View = Xamarin.Forms.View;
 
 #endregion

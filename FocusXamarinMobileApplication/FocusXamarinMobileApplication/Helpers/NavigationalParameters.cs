@@ -1,17 +1,6 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using FocusXamarinMobileApplication.Models;
-using FocusXamarinMobileApplication.ViewModels;
-using Microsoft.Graph.Models;
 using Plugin.Permissions;
-using Xamarin.Essentials;
-using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 using Audit = FocusXamarinMobileApplication.Models.Audit;
 using Constants = FocusXamarinMobileApplication.Services.Constants;
 using Event = FocusXamarinMobileApplication.Models.Event;
