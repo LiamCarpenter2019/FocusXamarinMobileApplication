@@ -57,7 +57,7 @@
     <MtouchInterpreter>-all</MtouchInterpreter>
     <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
     <MtouchProfiling>true</MtouchProfiling>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignProvision>VS: com.harmonix.focusmobilexamarinv1 Development</CodesignProvision>
     <OptimizePNGs>true</OptimizePNGs>
     <LangVersion>10</LangVersion>
   </PropertyGroup>

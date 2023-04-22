@@ -1,6 +1,6 @@
 ﻿#region
 
-using Photo = FocusXamarinForms20082020V1.Models.Photo;
+using Photo = FocusXamarinMobileApplication.Models.Photo;
 
 #endregion
 

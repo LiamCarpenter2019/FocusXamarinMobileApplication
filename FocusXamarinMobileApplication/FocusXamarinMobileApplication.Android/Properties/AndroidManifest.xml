@@ -24,7 +24,7 @@
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-feature android:name="android.hardware.camera" android:required="false" />
-	<application android:label="FocusXamarinForms20082020V1.Android" android:theme="@style/MainTheme">
+	<application android:label="FocusXamarinMobileApplication.Android" android:theme="@style/MainTheme">
 		<activity android:name="microsoft.identity.client.BrowserTabActivity">
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />

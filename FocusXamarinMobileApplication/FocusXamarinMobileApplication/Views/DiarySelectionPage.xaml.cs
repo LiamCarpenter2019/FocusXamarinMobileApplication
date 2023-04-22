@@ -1,6 +1,6 @@
 ﻿#region
 
-using Person = FocusXamarinForms20082020V1.Models.Person;
+using Person = FocusXamarinMobileApplication.Models.Person;
 
 #endregion
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AppCenter;
+﻿using FocusXamarinMobileApplication.Views;
+using Microsoft.AppCenter;
 using Microsoft.AppCenter.Crashes;
 using Syncfusion.Licensing;
 using Application = Xamarin.Forms.Application;
@@ -65,7 +66,7 @@ namespace FocusXamarinMobileApplication
         public AuthenticationResult result { get; private set; }
 
         public static ViewModelLocator ViewModelLocator =>
-            _viewModelLocator ?? (_viewModelLocator = new ViewModelLocator());
+            _viewModelLocator ??= new ViewModelLocator();
 
         private static ViewModelLocator _viewModelLocator;
 
