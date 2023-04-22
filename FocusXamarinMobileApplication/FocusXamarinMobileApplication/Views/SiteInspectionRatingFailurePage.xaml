@@ -3,7 +3,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
-             x:Class="FocusXamarinMobileApplication.Views.SiteInspectionRatingFailurePage">
+             x:Class="FocusXamarinForms20082020V1.Views.SiteInspectionRatingFailurePage">
     <ContentPage.Content>
         <ScrollView BackgroundColor="#1E2351" Padding="10">
             <FlexLayout Direction="Column" FlexLayout.Basis="95%" Padding="10">

@@ -2,6 +2,6 @@
 
 namespace FocusXamarinMobileApplication.Helpers;
 
-public class PdfWebView : WebView_
+public class PdfWebView : WebView
 {
 }

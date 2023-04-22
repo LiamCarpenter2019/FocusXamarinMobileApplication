@@ -2,12 +2,10 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
-             x:Class="FocusXamarinMobileApplication.Views.AboutPage"
-             xmlns:vm="clr-namespace:FocusXamarinMobileApplication.ViewModels"
-             xmlns:viewModels="clr-namespace:FocusXamarinMobileApplication.ViewModels;assembly=FocusXamarinMobileApplication"
-             Title="{Binding Title}">
+             x:Class="FocusXamarinForms20082020V1.Views.AboutPage"
+             xmlns:vm="clr-namespace:FocusXamarinForms20082020V1.ViewModels" Title="{Binding Title}">
     <ContentPage.BindingContext>
-        <viewModels:AboutViewModel />
+        <vm:AboutViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>

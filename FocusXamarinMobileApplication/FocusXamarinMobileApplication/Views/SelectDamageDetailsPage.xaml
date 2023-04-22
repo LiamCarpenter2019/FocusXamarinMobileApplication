@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
-             x:Class="FocusXamarinMobileApplication.Views.SelectDamageDetailsPage">
+             x:Class="FocusXamarinForms20082020V1.Views.SelectDamageDetailsPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" BackgroundColor="#292F62" Padding="10,10,10,10">
             <StackLayout Orientation="Horizontal" HeightRequest="30">

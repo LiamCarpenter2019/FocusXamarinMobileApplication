@@ -1,6 +1,6 @@
 ﻿namespace FocusXamarinMobileApplication.Helpers;
 
-public class HybridWebView : WebView_
+public class HybridWebView : WebView
 {
     public static readonly BindableProperty UriProperty = BindableProperty.Create(
         "Uri",
