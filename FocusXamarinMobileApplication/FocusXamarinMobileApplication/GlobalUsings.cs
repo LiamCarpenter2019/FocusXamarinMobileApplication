@@ -45,7 +45,4 @@ global using Xamarin.Essentials;
 global using Xamarin.Forms;
 global using Xamarin.Forms.Maps;
 global using Xamarin.Forms.Xaml;
-global using JsonSerializer = System.Text.Json.JsonSerializer;
-global using WebView_ = FocusXamarinMobileApplication.Views.WebView;
-
 #endregion

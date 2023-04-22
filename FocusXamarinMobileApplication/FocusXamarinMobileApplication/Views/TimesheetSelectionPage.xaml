@@ -4,9 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
-             xmlns:helpers="clr-namespace:FocusXamarinForms20082020V1.Helpers;assembly=FocusXamarinForms20082020V1"
+             xmlns:helpers="clr-namespace:FocusXamarinMobileApplication.Helpers;assembly=FocusXamarinMobileApplication"
 
-             x:Class="FocusXamarinForms20082020V1.Views.TimesheetSelectionPage">
+             x:Class="FocusXamarinMobileApplication.Views.TimesheetSelectionPage">
     <ContentPage.Resources>
         <ResourceDictionary Source="StyleResource.xaml" />
     </ContentPage.Resources>
