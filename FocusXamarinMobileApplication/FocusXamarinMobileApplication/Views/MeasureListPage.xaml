@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.MeasureListPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" FlexLayout.Basis="100%" BackgroundColor="#1E2351" Padding="10">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="5%" IsVisible="{Binding ShowSection1}">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding ProjectName}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding ProjectDate}" TextColor="White" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Measures" TextColor="White" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         IsVisible="{Binding ShowSection2}">
+                <Button Margin="2"
+                        Text="{Binding ButtonText}"
+                        BackgroundColor="Gray"
+                        TextColor="Black"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        HorizontalOptions="Start"
+                        Command="{Binding Cancel}" />
+                <Button Margin="2"
+                        Text="Add Lateral Connection"
+                        BackgroundColor="Gray"
+                        TextColor="Black"
+                        HeightRequest="40"
+                        HorizontalOptions="EndAndExpand"
+                        WidthRequest="200"
+                        IsVisible="false"
+                        Command="{Binding AddLateralMeasure}" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" IsVisible="{Binding ShowSection3}">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Search" TextColor="White" HorizontalOptions="Start" Padding="10" />
+                    <Entry TextColor="White"
+                           BackgroundColor="#1A142E"
+                           Text="{Binding SearchText}"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="70%" IsVisible="{Binding ShowSection4}">
+                <ListView x:Name="listView"
+                          ItemsSource="{Binding ProjectWorksList}"
+                          ItemSelected="ProjectWorkItemSelected"
+                          HasUnevenRows="true"
+                          RowHeight="100"
+                          SeparatorColor="White"
+                          HeightRequest="500"
+                          BackgroundColor="#1A142E">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Background="{Binding }">
+                                    <StackLayout Orientation="Horizontal" Margin="5">
+                                        <Label Text="{Binding Header}" TextColor="Green" FlexLayout.Basis="20%" />
+                                        <Label Text="{Binding Description}" TextColor="White" FlexLayout.Basis="80%" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Margin="5">
+                                        <Label Text="Qty" TextColor="Green" FlexLayout.Basis="20%" />
+                                        <Label Text="{Binding Qty}" TextColor="White" FlexLayout.Basis="20%" />
+                                        <Label Text="{Binding BaseUnit}" TextColor="White" FlexLayout.Basis="60%" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowSection5}" />
+
+
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FocusXamarinMobileApplication.Views.AddChamberPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#292F62">
+            <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="20">
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="10%" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal" HeightRequest="20">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="white" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="white" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowSection4}" Orientation="Horizontal"
+                             VerticalOptions="EndAndExpand">
+                    <Button HeightRequest="50" Margin="2" Text="X" BackgroundColor="Red" WidthRequest="50"
+                            TextColor="White"
+                            Command="{Binding DeleteCommand}" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="45%" Orientation="Vertical" Padding="10"
+                             HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowSection2}">
+                    <Label Text="Reference" TextColor="White" />
+                    <Entry Text="{Binding Chamber.StreetName, Mode=TwoWay}" BackgroundColor="#1A142E" TextColor="White" />
+                    <Label Text="Type" TextColor="White" HorizontalTextAlignment="Center" />
+                    <Picker ItemsSource="{Binding PoleTypes}"
+                            SelectedItem="{Binding SelectedPoleType}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            BackgroundColor="#1A142E"
+                            TextColor="White" />
+                    <StackLayout Orientation="Horizontal" FlexLayout.Basis="100%" HorizontalOptions="FillAndExpand">
+                        <StackLayout FlexLayout.Basis="33%" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                            <Label Text="Internal length in mm" TextColor="White" />
+                            <Entry Text="{Binding Length, Mode=TwoWay}" HorizontalTextAlignment="Center"
+                                   BackgroundColor="#1A142E" Keyboard="Numeric" TextColor="White" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="34%" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Label Text="Internal width in mm" TextColor="White" />
+                            <Entry Text="{Binding Width, Mode=TwoWay}" HorizontalTextAlignment="Center"
+                                   BackgroundColor="#1A142E" Keyboard="Numeric" TextColor="White" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="33%" Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                            <Label Text="Internal depth in mm" TextColor="White" />
+                            <Entry Text="{Binding Depth, Mode=TwoWay}" HorizontalTextAlignment="Center"
+                                   BackgroundColor="#1A142E" Keyboard="Numeric" TextColor="White" />
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Descripton of surface type" TextColor="White" />
+                    <Entry Text="{Binding Chamber.SurfaceType, Mode=TwoWay}" BackgroundColor="#1A142E"
+                           TextColor="White" />
+                    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                        <Label Text="Location" TextColor="White" />
+                        <StackLayout Orientation="Horizontal">
+                            <Entry Text="{Binding CabDetail.Location, Mode=TwoWay}" TextColor="White"
+                                   WidthRequest="500"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="#1A142E" />
+                            <ImageButton BackgroundColor="Transparent" x:Name="btnGps" Source="{Binding GpsImage}"
+                                         Command="{Binding GpsCommand}"
+                                         HorizontalOptions="EndAndExpand"
+                                         HeightRequest="40" WidthRequest="50" />
+                            <ImageButton BackgroundColor="Transparent" x:Name="btnPhoto" Source="{Binding CameraImage}"
+                                         Command="{Binding PictureCommand}"
+                                         HorizontalOptions="End"
+                                         HeightRequest="40" WidthRequest="50" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="35%" Margin="5" Orientation="Vertical"
+                             IsVisible="{Binding ShowSection3}">
+                    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                        <Label Text="Comments" TextColor="White" />
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                            <Editor Text="{Binding Chamber.Comments, Mode=TwoWay}" TextColor="White"
+                                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="#1A142E" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowSection4}" Orientation="Horizontal"
+                             VerticalOptions="EndAndExpand">
+                    <Button HeightRequest="40" Margin="2" HorizontalOptions="FillAndExpand" Text="Save"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding SaveCommand}" />
+                </StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsLoading}" Color="White" />
+
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

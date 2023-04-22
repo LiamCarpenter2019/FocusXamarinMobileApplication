@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.DocumentViewPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Row" BackgroundColor="#1E2351" Padding="10" AlignContent="Center">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="100%" Padding="10">
+                <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button HorizontalOptions="Start" HeightRequest="40" WidthRequest="100"
+                                IsVisible="{Binding ShowBackButton}" Text="Back" BackgroundColor="Gray"
+                                TextColor="White" Command="{Binding Cancel}" />
+                        <Button Text="Survey" HeightRequest="40" WidthRequest="100"
+                                IsVisible="{Binding ShowSurveyQuestionsButton}" HorizontalOptions="Start" Margin="2"
+                                BackgroundColor="Gray" TextColor="White" x:Name="btnSurveyQuestions"
+                                Command="{Binding GoToSurvey}" />
+                        <Button Text="Mapping" HeightRequest="40" WidthRequest="100"
+                                IsVisible="{Binding ShowMappingButton}" HorizontalOptions="Start" Margin="2"
+                                BackgroundColor="Gray" TextColor="White" x:Name="btnDesign"
+                                Command="{Binding GoToMapping}" />
+                        <Button Text="Location Map" HeightRequest="40" WidthRequest="100"
+                                IsVisible="{Binding ShowMapButton}" HorizontalOptions="Start" Margin="2"
+                                BackgroundColor="Gray" TextColor="White" x:Name="btnLocation"
+                                Command="{Binding GoToMap}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="55%" Orientation="Vertical" IsVisible="{Binding ShowSection2}">
+                    <syncfusion:SfPdfViewer x:Name="pdfViewerControl" BackgroundColor="White"
+                                            InputFileStream="{Binding PdfDocumentStream}" />
+                    <StackLayout IsVisible="{Binding ToolboxTalk}" Orientation="Horizontal">
+                        <Button HorizontalOptions="FillAndExpand" HeightRequest="40" FlexLayout.Basis="50%"
+                                Text="Signatures" BackgroundColor="LightGray" TextColor="White"
+                                Command="{Binding Submit}" />
+                        <Button HorizontalOptions="FillAndExpand" HeightRequest="40" FlexLayout.Basis="50%"
+                                Text="Close" BackgroundColor="Red" TextColor="White" Command="{Binding Cancel}" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

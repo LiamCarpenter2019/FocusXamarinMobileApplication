@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.ProvingPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="10" FlexLayout.Basis="100%">
+            <StackLayout Orientation="Horizontal" HeightRequest="30">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand"
+                       FontSize="Large" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                       FontSize="Large" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5">
+                <Button Text="Back" Command="{Binding GoBack}" HorizontalOptions="StartAndExpand"
+                        HeightRequest="50"
+                        WidthRequest="100" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="10%" Orientation="Horizontal" Padding="5">
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="30%" HorizontalOptions="FillAndExpand">
+                    <Label Text="Cable Run Point A" TextColor="White" />
+                    <Entry Text="{Binding CableRunPointA, Mode=TwoWay}" HorizontalOptions="FillAndExpand"
+                           BackgroundColor="#1A142E" TextColor="White" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="30%" HorizontalOptions="FillAndExpand">
+                    <Label Text="Cable Run Point B" TextColor="White" />
+                    <Entry Text="{Binding CableRunPointB, Mode=TwoWay}" HorizontalOptions="FillAndExpand"
+                           BackgroundColor="#1A142E" TextColor="White" />
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="30%" HorizontalOptions="FillAndExpand">
+                    <Label Text="Approx Distance" TextColor="White" />
+                    <Entry Text="{Binding ApproxDistance, Mode=TwoWay}" HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric" BackgroundColor="#1A142E" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="10%" HorizontalOptions="EndAndExpand">
+                    <Button FlexLayout.Basis="50%" Margin="2" VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="FillAndExpand" Text="Add new cable run" BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding AddCableRun}" />
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="80%">
+                <Label XAlign="Center" Style="{StaticResource listHeadingStyle}" Text="Select Cable Run" />
+                <ListView x:Name="cableRunView"
+                          ItemsSource="{Binding CableRuns}"
+                          SeparatorColor="White"
+                          RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <FlexLayout Direction="Column" Padding="10">
+                                    <StackLayout Orientation="Vertical" Padding="10">
+                                        <Label Text="{Binding CableRunIdentifier}"
+                                               TextColor="{Binding BackgroungColour}"
+                                               HorizontalOptions="Start"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button x:Name="btnClear" TextColor="White" Text="Clear" Clicked="ClearEvent"
+                                                CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand"
+                                                HeightRequest="50"
+                                                WidthRequest="110" BackgroundColor="Green" IsVisible="true" />
+                                        <Button x:Name="btnBlocked" Text="Blockages" TextColor="White"
+                                                Clicked="BlockedEvent"
+                                                CommandParameter="{Binding .}" HorizontalOptions="End"
+                                                HeightRequest="50"
+                                                WidthRequest="110" BackgroundColor="Red" IsVisible="true" />
+                                    </StackLayout>
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

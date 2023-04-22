@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.ProjectListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" BackgroundColor="#292F62" Padding="20,20,20,20">
+                <StackLayout Orientation="Horizontal" HeightRequest="30">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Large" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                           FontSize="Large" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Surveys" Command="{Binding GoBack}" HorizontalOptions="StartAndExpand"
+                            HeightRequest="50" WidthRequest="100" />
+                </StackLayout>
+
+                <Label XAlign="Center" Style="{StaticResource listHeadingStyle}" Text="{Binding Title}" />
+
+                <ListView x:Name="projectList"
+                          ItemsSource="{Binding DistinctProjectsList}"
+                          SeparatorColor="White"
+                          RowHeight="75">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="75">
+                                <FlexLayout BackgroundColor="{Binding backgroundHighlighted}">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand"
+                                                 VerticalOptions="CenterAndExpand">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                                                     VerticalOptions="Center">
+                                            <Label Text="{Binding ProjectName}" TextColor="White"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="CenterAndExpand" />
+                                            <Label Text="{Binding OperativeNames}" TextColor="White"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   IsVisible="{Binding GangVisible}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

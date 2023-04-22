@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SelectPreSitePage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" BackgroundColor="#292F62" Padding="10">
+                <StackLayout Orientation="Horizontal" HeightRequest="30">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Large" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                           FontSize="Large" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Streets" Command="{Binding GoBack}" HorizontalOptions="StartAndExpand"
+                            HeightRequest="50"
+                            WidthRequest="100" />
+                </StackLayout>
+
+                <Label XAlign="Center" Style="{StaticResource listHeadingStyle}" Text="Select Pre Site" />
+
+                <ListView x:Name="listView" ItemsSource="{Binding PreSiteUserGroups}" SeparatorColor="White"
+                          ItemSelected="SelectedPreSite"
+                          RowHeight="75">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="200">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center"
+                                             HorizontalOptions="Center">
+                                    <StackLayout Orientation="Vertical" VerticalOptions="Center"
+                                                 HorizontalOptions="CenterAndExpand">
+                                        <Label Text="{Binding StreetName}" TextColor="White"
+                                               HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center" />
+                                        <Label Text="{Binding StatusText}" TextColor="{Binding StatusColour}"
+                                               HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

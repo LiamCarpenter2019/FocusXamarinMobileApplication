@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="FocusXamarinMobileApplication.Views.DailySiteInspectionPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout FlexLayout.Grow="1"
+                    Direction="Column"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="#292F62"
+                    Padding="10"
+                    FlexLayout.Basis="100%">
+            <StackLayout FlexLayout.Basis="15%" IsVisible="{Binding ShowSection1}" Padding="5">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="5">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="{Binding Title}" FontSize="Large"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Back" TextColor="Black" WidthRequest="100" HeightRequest="40"
+                            BackgroundColor="LightGray" Command="{Binding Back}" IsVisible="{Binding ShowSection3}" />
+                    <Button Text="Add New Risk" TextColor="White" WidthRequest="100" HeightRequest="40"
+                            HorizontalOptions="EndAndExpand"
+                            BackgroundColor="Green" Command="{Binding AddNewRiskCommand}" IsVisible="false" />
+                    <Label XAlign="Center" Style="{StaticResource listHeadingStyle}"
+                           Text="{Binding TableInfoTexty}" TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="75%"
+                         IsVisible="{Binding ShowSection2}">
+                <syncfusion:SfListView x:Name="listView"
+                                       Margin="5"
+                                       ItemSize="130"
+                                       ItemSpacing="10"
+                                       ItemsSource="{Binding YesNoCollection}"
+                                       VerticalOptions="FillAndExpand"
+                                       BackgroundColor="#1A142E">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell StyleId="nostyle">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                                 Padding="10">
+                                        <Label Text="{Binding Question}" TextColor="White" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand"
+                                                 Padding="10,10,10,10">
+                                        <Button x:Name="btnYes" Text="YES" Clicked="GoYesNoNa"
+                                                CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                HeightRequest="40"
+                                                WidthRequest="170" BackgroundColor="{Binding BtnYesBgColour}"
+                                                IsVisible="{Binding ShowButtonA}"
+                                                IsEnabled="{Binding AllChecksCompleted}" />
+                                        <Button x:Name="btnNo" Text="NO" Clicked="GoYesNoNa"
+                                                CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                HeightRequest="40"
+                                                WidthRequest="170" BackgroundColor="{Binding BtnNoBgColour}"
+                                                IsVisible="{Binding ShowButtonB}"
+                                                IsEnabled="{Binding AllChecksCompleted}" />
+                                        <Button x:Name="btnNa" Text="N/A" Clicked="GoYesNoNa"
+                                                CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                HeightRequest="40"
+                                                WidthRequest="170" BackgroundColor="{Binding BtnNaBgColour}"
+                                                IsVisible="{Binding ShowButtonC}"
+                                                IsEnabled="{Binding AllChecksCompleted}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="10%" IsVisible="{Binding ShowSection3}" Margin="10">
+                <FlexLayout HorizontalOptions="CenterAndExpand"
+                            IsVisible="{Binding ShowSection5}">
+                    <Button FlexLayout.Basis="100%" HorizontalOptions="CenterAndExpand" Margin="2"
+                            Text="Submit risk assesment" BackgroundColor="Green" TextColor="White"
+                            IsVisible="{Binding ShowSaveButton}"
+                            Command="{Binding CheckCompletedCommand}" />
+                </FlexLayout>
+            </StackLayout>
+            <ActivityIndicator Color="White" IsRunning="{Binding IsLoading}" />
+        </FlexLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

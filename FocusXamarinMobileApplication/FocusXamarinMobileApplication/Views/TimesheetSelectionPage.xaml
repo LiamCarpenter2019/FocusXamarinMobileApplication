@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:helpers="clr-namespace:FocusXamarinMobileApplication.Helpers;assembly=FocusXamarinMobileApplication"
+
+             x:Class="FocusXamarinMobileApplication.Views.TimesheetSelectionPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            BackgroundColor="#292F62"
+            Padding="10">
+            <StackLayout Orientation="Horizontal"
+                         HeightRequest="40"
+                         Margin="5"
+                         FlexLayout.Basis="10%">
+                <Label Text="{Binding ProjectName}"
+                       HorizontalOptions="Start"
+                       HeightRequest="40"
+                       FontSize="Large"
+                       TextColor="White" />
+                <Label Text="{Binding Date}"
+                       HorizontalOptions="EndAndExpand"
+                       HeightRequest="40"
+                       FontSize="Large"
+                       TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         HeightRequest="40"
+                         Margin="5">
+                <Button Text="Back"
+                        TextColor="Black"
+                        WidthRequest="100"
+                        HeightRequest="40"
+                        BackgroundColor="LightGray"
+                        HorizontalOptions="Start"
+                        Command="{Binding Back}" />
+            </StackLayout>
+            <StackLayout>
+                <syncfusion:SfListView x:Name="listView"
+                                       ItemsSource="{Binding GangLabourFiles}"
+                                       ItemSize="200"
+                                       ItemSpacing="10"
+                                       ItemTapped="OnListViewItemSelected">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10" HorizontalOptions="StartAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.5*" />
+                                    <RowDefinition Height="0.5*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition Width="0.1*" />
+                                    <ColumnDefinition Width="0.1*" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Horizontal" Margin="5" Grid.ColumnSpan="6">
+                                    <Label Text="{Binding Role}" TextColor="yellow" />
+                                    <Label Text="{Binding FullName}" TextColor="Red" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="0">
+                                    <Label Text="Travel to site"
+                                           TextColor="Green"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding TravelToSite, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding SupervisorMode, Converter={helpers:InverseBoolConverter}}" />
+                                    <Label Text="{Binding SupervisorStart, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding SupervisorMode}" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="1">
+                                    <Label Text="Yard start"
+                                           TextColor="Green"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding ClaimedYardStart, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding SupervisorMode, Converter={helpers:InverseBoolConverter}}" />
+                                    <Label Text="{Binding SupervisorYardStart, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           IsVisible="{Binding SupervisorMode}"
+                                           HorizontalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="2">
+                                    <Label Text="Time on site"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="Green" />
+                                    <Label Text="{Binding TimeOnSite, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding SupervisorMode, Converter={helpers:InverseBoolConverter}}" />
+                                    <Label Text="{Binding SupervisorOnSite, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           IsVisible="{Binding SupervisorMode}"
+                                           HorizontalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="3">
+                                    <Label Text="Time off site"
+                                           TextColor="Green"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding TimeLeftSite, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding SupervisorMode, Converter={helpers:InverseBoolConverter}}" />
+
+                                    <Label Text="{Binding SupervisorOffSite, StringFormat='{0:h:mm tt}'}"
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="{Binding bgColour}"
+                                           IsVisible="{Binding SupervisorMode}"
+                                           HorizontalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="4">
+                                    <Label Text="Yard finish"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="Green" />
+                                    <Label Text="{Binding ClaimedYardEnd, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding SupervisorMode, Converter={helpers:InverseBoolConverter}}" />
+                                    <Label Text="{Binding SupervisorYardEnd, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           IsVisible="{Binding SupervisorMode}"
+                                           HorizontalOptions="CenterAndExpand" />
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Grid.Column="5">
+                                    <Label Text="Travel from site"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="Green" />
+                                    <Label Text="{Binding TravelFromSite, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding SupervisorMode, Converter={helpers:InverseBoolConverter}}" />
+                                    <Label Text="{Binding SupervisorFinish, StringFormat='{0:h:mm tt}'}"
+                                           TextColor="{Binding bgColour}"
+                                           HorizontalTextAlignment="Center"
+                                           IsVisible="{Binding SupervisorMode}"
+                                           HorizontalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </Grid>
+
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Approve Timesheets"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        FlexLayout.Basis="100%"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding ApproveTimesheet}"
+                        IsVisible="{Binding ShowApprovalButton}"
+                        IsEnabled="{Binding ShowApprovalButton}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

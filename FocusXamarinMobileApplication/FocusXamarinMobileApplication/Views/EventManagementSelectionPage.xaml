@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FocusXamarinMobileApplication.Views.EventManagementSelectionPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="10" FlexLayout.Basis="100%">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="10%" IsVisible="{Binding ShowSection1}">
+                <StackLayout Orientation="Horizontal" HeightRequest="20">
+                    <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="white" />
+                    <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="white" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="75%" IsVisible="{Binding ShowSection2}" Orientation="Vertical">
+                <Button Text="Register Utility Damage" BackgroundColor="LightGray" TextColor="Black" Margin="20"
+                        HorizontalOptions="FillAndExpand" Command="{Binding UtilityDamageCommand}" />
+                <Button Text="Register Accident / Incident" BackgroundColor="LightGray" IsVisible="true"
+                        TextColor="Black" Margin="20" HorizontalOptions="FillAndExpand"
+                        Command="{Binding IncidentCommand}" />
+                <!--<Button Text="Incident" BackgroundColor="LightGray" TextColor="Black" Margin="20" HorizontalOptions="FillAndExpand" Command="{Binding IncidentCommand}"/-->
+                <Button Text="Register Near Miss" BackgroundColor="LightGray" TextColor="Black" IsVisible="true"
+                        Margin="20" HorizontalOptions="FillAndExpand" Command="{Binding NearMissCommand}" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowSection3}" />
+            <StackLayout FlexLayout.Basis="7%" VerticalOptions="EndAndExpand" IsVisible="{Binding ShowSection4}">
+                <Button FlexLayout.Basis="100%" Margin="2" Text="Done" BackgroundColor="Red"
+                        TextColor="White"
+                        Command="{Binding BackCommand}" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

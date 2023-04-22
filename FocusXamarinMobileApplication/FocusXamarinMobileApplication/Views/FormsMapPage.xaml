@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:local="clr-namespace:FocusXamarinMobileApplication.Helpers;assembly=FocusXamarinMobileApplication"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.FormsMapPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62" FlexLayout.Basis="100%" Padding="10">
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%">
+                <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" />
+                <Label Text="{Binding Title}" HorizontalOptions="Center" />
+                <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Back" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        HorizontalOptions="Start" Margin="2" BackgroundColor="Gray" TextColor="White" x:Name="btnBack"
+                        IsVisible="{Binding ShowBackButton}" Command="{Binding Back}" />
+                <Button Text="Survey" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        HorizontalOptions="Start" Margin="2" BackgroundColor="Gray" TextColor="White"
+                        x:Name="btnSurveyQuestions" IsVisible="{Binding ShowSurveyQuestionsButton}"
+                        Command="{Binding GoToSurveyQuestions}" />
+                <Button Text="Mapping" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        HorizontalOptions="Start" Margin="2" BackgroundColor="Gray" TextColor="White"
+                        x:Name="btnMapping" Command="{Binding GoToMapping}" />
+                <Button Text="Design" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        HorizontalOptions="StartAndExpand" Margin="2" BackgroundColor="Gray" TextColor="White"
+                        x:Name="btnDesign" Command="{Binding GoToDesign}" />
+                <Button Text="Street" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        HorizontalOptions="End" Margin="2" BackgroundColor="Gray" TextColor="White" x:Name="btnStreet"
+                        Clicked="StreetView_Clicked" />
+                <Button Text="Hybrid" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        HorizontalOptions="End" Margin="2" BackgroundColor="Gray" TextColor="White" x:Name="btnHybrid"
+                        Clicked="HybridView_Clicked" />
+                <Button Text="Sattelite" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        HorizontalOptions="End" Margin="2" BackgroundColor="Gray" TextColor="White"
+                        x:Name="btnSattelite" Clicked="SattelliteView_Clicked" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" FlexLayout.Basis="68%">
+                <maps:Map x:Name="map"
+                          MapType="{Binding MapType}"
+                          IsShowingUser="true"
+                          MapClicked="OnMapClicked"
+                          ItemsSource="{Binding Locations}">
+                    <maps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <local:CustomPin
+                                Position="{Binding Position}"
+                                Address="{Binding Address}"
+                                Label="{Binding Description}" />
+                        </DataTemplate>
+                    </maps:Map.ItemTemplate>
+                </maps:Map>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" FlexLayout.Basis="10%">
+                <Label Text="What 3 Words" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center" TextColor="Green" />
+                <Label BackgroundColor="#1A142E" Text="{Binding LocationInputText}" HorizontalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand" FontSize="Large" WidthRequest="500" />
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label Text="{Binding Thoroughfare}" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Large" TextColor="White" />
+                    <Label Text="{Binding Locality}"
+                           FontSize="Medium" TextColor="White" />
+                    <Label Text="{Binding SubAdminArea}"
+                           FontSize="Medium" TextColor="White" />
+                    <Label Text="{Binding PostalCode}"
+                           FontSize="Medium" TextColor="White" />
+                    <Label Text="{Binding AdminArea}"
+                           FontSize="Medium" TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" FlexLayout.Basis="3%">
+                <Label Text="{Binding LatLon}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                       FontSize="Medium" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowSave}">
+                <Button Text="Save" HeightRequest="40" HorizontalOptions="FillAndExpand" Clicked="Save_Clicked"
+                        BackgroundColor="Green" TextColor="White" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.CommercialListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" FlexLayout.Basis="100%" BackgroundColor="#292F62" Padding="10">
+            <StackLayout FlexLayout.Basis="15%" Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" />
+                </StackLayout>
+                <Button Text="Back" Command="{Binding GoBackCommand}" HorizontalOptions="Start"
+                        VerticalOptions="Center" HeightRequest="50" Padding="30,0" Margin="10" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="10%">
+                <Label XAlign="Center" Style="{StaticResource listHeadingStyle}" Text="Commercial" />
+            </StackLayout>
+            <!--<Button x:Name="btnRegister" Text=" Style="{DynamicResource buttonStyles}" Clicked="btnRegister_Clicked" HeightRequest="90"></Button>-->
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%" HorizontalOptions="CenterAndExpand">
+                <Button x:Name="btnOrderBook" Text="Order Book" HorizontalOptions="FillAndExpand"
+                        Style="{DynamicResource buttonStyles}" Command="{Binding OrderBookCommand}" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

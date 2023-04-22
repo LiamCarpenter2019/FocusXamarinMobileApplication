@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.SupervisorMeasuresApprovalsPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62"
+                    Padding="10" FlexLayout.Basis="100%">
+            <StackLayout FlexLayout.Basis="10%">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="5">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="Approve measures" FontSize="Large"
+                           TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="48%">
+                <Label Text="Please select Measue to modify" TextColor="White" HorizontalOptions="FillAndExpand" />
+                <ListView x:Name="measureLisView"
+                          ItemsSource="{Binding WorkItems}"
+                          SelectedItem="{Binding SelectedWorkItems, Mode=TwoWay}"
+                          ItemSelected="measureLisView_ItemSelected"
+                          HasUnevenRows="true"
+                          SeparatorColor="White"
+                          VerticalOptions="FillAndExpand"
+                          BackgroundColor="#1A142E">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="Work Item" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding HeadDesc}" HorizontalOptions="CenterAndExpand"
+                                               TextColor="White" />
+                                    </StackLayout>
+                                    <!--<StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="Description" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding ClaimDesc}" TextColor="White"
+                                               HorizontalOptions="CenterAndExpand" />
+                                    </StackLayout>-->
+                                     <StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="Asset" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding AssetName}" TextColor="White"
+                                               HorizontalOptions="CenterAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                                                 Margin="5">
+                                        <Label Text="Qty" TextColor="Red" Padding="2" />
+                                        <Label Text="{Binding ClaimQty}" TextColor="White" Padding="2" />
+                                        <Label Text="{Binding BaseUnit}" TextColor="White" Padding="2" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="7%"
+                         Padding="10"
+                         Orientation="Horizontal">
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Add work item"
+                        TextColor="white"
+                        BackgroundColor="Green"
+                        HeightRequest="50"
+                        Command="{Binding AddWorkItem}" />
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Add supervisor work item"
+                        TextColor="white"
+                        BackgroundColor="Green"
+                        HeightRequest="50"
+                        Command="{Binding AddSupervisorWorkItem }" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="30%">
+                <Label Text="Supervisor Work items" TextColor="White" HorizontalOptions="FillAndExpand" />
+                <ListView x:Name="supervisorListView"
+                          ItemsSource="{Binding SupervisorItems}"
+                          ItemSelected="supervisorListView_ItemSelected"
+                          SelectedItem="{Binding SelectedSupervisorItems, Mode=TwoWay}"
+                          HasUnevenRows="true"
+                          RowHeight="160"
+                          SeparatorColor="White"
+                          HeightRequest="300"
+                          BackgroundColor="#1A142E">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="Code" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding ClaimHeader}" HorizontalOptions="CenterAndExpand"
+                                               TextColor="White" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" Margin="5">
+                                        <Label Text="Description" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding ClaimDesc}" TextColor="White"
+                                               HorizontalOptions="CenterAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                                                 Margin="5">
+                                        <Label Text="Qty" TextColor="Red" Padding="2" />
+                                        <Label Text="{Binding ClaimQty}" TextColor="White" Padding="2" />
+                                        <Label Text="{Binding BaseUnit}" TextColor="White" Padding="2" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="7%"
+                         Padding="10"
+                         VerticalOptions="FillAndExpand"
+                         Orientation="Horizontal">
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Approve Measures"
+                        TextColor="white"
+                        BackgroundColor="Green"
+                        HeightRequest="50"
+                        Command="{Binding ApproveMeasures}" />
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Cancel"
+                        TextColor="white"
+                        BackgroundColor="Red"
+                        HeightRequest="50"
+                        Command="{Binding Back}" />
+            </StackLayout>
+            <ActivityIndicator Color="White" IsRunning="{Binding IsLoading}" />
+        </FlexLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

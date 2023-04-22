@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SelectEndPointPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="10" FlexLayout.Basis="100%">
+            <StackLayout Orientation="Horizontal" HeightRequest="30">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand"
+                       FontSize="Large" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                       FontSize="Large" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Back" Command="{Binding GoBack}" HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="100" />
+                <Button Text="Design" Command="{Binding GoToDesign}" HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        IsVisible="{Binding ShowDesign}" />
+                <Button Text="Location Map" Command="{Binding GoToMap}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        IsVisible="{Binding ShowMap}"
+                        WidthRequest="100" />
+                <Button x:Name="btnAddAsset" Text="{Binding AddButtonText}" Command="{Binding AddAsset}"
+                        HorizontalOptions="EndAndExpand" HeightRequest="40" WidthRequest="100"
+                        IsVisible="{Binding ShowAddAsset}" />
+            </StackLayout>
+          
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="80%">
+                <Label XAlign="Center" Style="{StaticResource listHeadingStyle}" Text="{Binding Title}" />
+                  <StackLayout Orientation="Horizontal">
+                          <Entry x:Name="search" TextColor="White" HorizontalOptions="FillAndExpand"
+                                       Text="{Binding SearchText}" ReturnType="Done"                Completed="SearchCommand"                                       
+                                       ReturnCommandParameter="{Binding .}" 
+                                       HeightRequest="40" VerticalOptions="Center" />
+                    <Button x:Name="btnClear" Text="X" TextColor="Red" Command="{Binding ClearCommand}"
+                        HorizontalOptions="End" HeightRequest="30" WidthRequest="30" />
+                 </StackLayout>
+                <ListView x:Name="listView"
+                          ItemsSource="{Binding AssetList}"
+                          SelectedItem="{Binding AssetSelected}"
+                          SeparatorColor="White"
+                          ItemSelected="SelectedAsset"
+                          RowHeight="75">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="200">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center"
+                                             HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand"
+                                                 HorizontalOptions="FillAndExpand" Padding="10">
+                                        <Label Text="{Binding BusinessName}"
+                                               TextColor="{Binding StatusColour}"
+                                               HorizontalOptions="Center"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center" />
+                                        <Button Text="Remove" BackgroundColor="Red" CommandParameter="{Binding .}"
+                                                TextColor="White" Clicked="RemoveAsset"
+                                                HorizontalOptions="EndAndExpand" HeightRequest="40" WidthRequest="100"
+                                                IsVisible="{Binding ShowRemoveButton}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="5%">
+                <FlexLayout Margin="0,10" FlexLayout.Basis="15%">
+                    <Button Text="{Binding UploadButtonText}" Command="{Binding SubmitPresiteCheck}"
+                            Style="{DynamicResource buttonYesStyle}" FlexLayout.Basis="100%"
+                            IsVisible="{Binding ShowUpload}" />
+                </FlexLayout>
+                <Label Text="Saving. Please wait..." HorizontalTextAlignment="Center" IsVisible="{Binding IsLoading}" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

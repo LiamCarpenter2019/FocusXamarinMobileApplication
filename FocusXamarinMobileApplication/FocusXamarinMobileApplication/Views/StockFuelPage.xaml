@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FocusXamarinMobileApplication.Views.StockFuelPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#292F62">
+            <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="20,20,20,20">
+                <StackLayout FlexLayout.Basis="10%" Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="70%" Padding="10">
+                    <Label Text="Date" TextColor="Red" />
+                    <Label Text="{Binding FuelConsumption.DateOfEntry}" TextColor="Green" />
+                    <Label Text="Name" TextColor="Red" />
+
+                    <Label Text="{Binding FuelConsumption.RegAssetNumber}" TextColor="Green" />
+                    <Label Text="Type" TextColor="Red" />
+                    <Picker ItemsSource="{Binding Fueloptions}" TextColor="White" BackgroundColor="#1A142E"
+                            SelectedItem="{Binding FuelType}" SelectedIndex="{Binding FuelTypeCommand}" />
+
+                    <Entry Text="{Binding StartReading}" Keyboard="Numeric" BackgroundColor="#1A142E" TextColor="white" />
+                    <Label Text="End reading" TextColor="White" />
+                    <Entry Text="{Binding EndReading}" BackgroundColor="#1A142E" Keyboard="Numeric" TextColor="white" />
+                    <Label Text="Total litres" TextColor="White" />
+                    <Entry Text="{Binding Qty}" BackgroundColor="#1A142E" TextColor="white" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button FlexLayout.Basis="50%"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="2" Text="Submit"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding Submit}" />
+                    <Button FlexLayout.Basis="50%"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="2" Text="Done" BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding GoBack}" />
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

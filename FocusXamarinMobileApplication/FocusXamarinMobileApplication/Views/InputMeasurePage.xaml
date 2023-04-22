@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.InputMeasurePage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Row" BackgroundColor="#1E2351" JustifyContent="Center" FlexLayout.Basis="100%"
+                    Padding="10">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="100%">
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="5%" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="20%" Orientation="Horizontal" IsVisible="{Binding ShowEndpoints}"
+                             VerticalOptions="FillAndExpand">
+                    <Picker x:Name="enpointPicker"
+                            FlexLayout.Basis="90%"
+                            ItemsSource="{Binding ListOfPremises}"
+                            HeightRequest="150"
+                            TextColor="White"
+                            ItemDisplayBinding="{Binding BuildingName}"
+                            Title="Press here to select an endpoint"
+                            TitleColor="Red"
+                            HorizontalTextAlignment="Center"
+                            BackgroundColor="#1A142E"
+                            HorizontalOptions="FillAndExpand"
+                            SelectedItem="{Binding SelectedPremises}" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="38%" Orientation="Vertical" IsVisible="{Binding ShowPoles}"
+                             VerticalOptions="FillAndExpand">
+                    <Label Text="Please select a the relavant poles" TextColor="Red" HorizontalTextAlignment="Center" />
+                    <StackLayout FlexLayout.Basis="10%" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Button FlexLayout.Basis="10%" HorizontalOptions="FillAndExpand" Margin="2" Text="-"
+                                BackgroundColor="Red"
+                                TextColor="White" Command="{Binding RemovePole}" />
+                        <Picker x:Name="polePicker"
+                                ItemsSource="{Binding ListOfPremises}"
+                                HeightRequest="70"
+                                TextColor="White"
+                                ItemDisplayBinding="{Binding StreetName}"
+                                Title="Press here to select a pole"
+                                TitleColor="Red"
+                                HorizontalTextAlignment="Center"
+                                BackgroundColor="#1A142E"
+                                HorizontalOptions="FillAndExpand"
+                                SelectedItem="{Binding SelectedPremises}" />
+                        <Button FlexLayout.Basis="10%" HorizontalOptions="FillAndExpand" Margin="2" Text="+"
+                                BackgroundColor="Green"
+                                TextColor="White" Command="{Binding AddPole}" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="80%">
+                        <ListView x:Name="poleListView"
+                                  ItemsSource="{Binding SelectedPoleList}"
+                                  RowHeight="120"
+                                  HeightRequest="400"
+                                  HasUnevenRows="true"
+                                  SeparatorColor="White"
+                                  BackgroundColor="#1A142E">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical" Padding="10">
+                                            <StackLayout Orientation="Horizontal" Margin="5">
+                                                <Label Text="Pole" TextColor="Red" FlexLayout.Basis="80%"
+                                                       HorizontalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Margin="5">
+                                                <Label Text="{Binding StreetName}" TextColor="Green"
+                                                       FlexLayout.Basis="50%" HorizontalTextAlignment="Center"
+                                                       HorizontalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="20%" Orientation="Vertical" IsVisible="{Binding ShowRuns}"
+                             VerticalOptions="FillAndExpand">
+                    <Label Text="Please select cable run" TextColor="Red" HorizontalTextAlignment="Center" />
+                    <Picker x:Name="cableRunPicker"
+                            ItemsSource="{Binding CableRuns}"
+                            HeightRequest="150"
+                            TextColor="White"
+                            ItemDisplayBinding="{Binding CableRunIdentifier}"
+                            Title="Press here to select a cable run"
+                            TitleColor="Red"
+                            HorizontalTextAlignment="Center"
+                            BackgroundColor="#1A142E"
+                            HorizontalOptions="FillAndExpand"
+                            SelectedItem="{Binding SelectedCableRun}" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="20%" Orientation="Vertical" IsVisible="{Binding ShowSection3}"
+                             VerticalOptions="FillAndExpand">
+                    <Label Text="Please select a work item" TextColor="White" HorizontalTextAlignment="Center"
+                           IsVisible="{Binding ShowHeaderPicker}" />
+                    <Picker x:Name="WorksPicker"
+                            ItemsSource="{Binding ListOfRates}"
+                            HeightRequest="150"
+                            IsVisible="{Binding ShowHeaderPicker}"
+                            TextColor="White"
+                            ItemDisplayBinding="{Binding Description}"
+                            Title="Press here to select a work item"
+                            TitleColor="Red"
+                            HorizontalTextAlignment="Center"
+                            BackgroundColor="#1A142E"
+                            HorizontalOptions="FillAndExpand"
+                            SelectedItem="{Binding SelectedRate}" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="7%" Orientation="Vertical" IsVisible="{Binding ShowHeaderLabel}">
+                    <Label Text="{Binding ClaimHeader}" TextColor="Red" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding ClaimDesc}" TextColor="White" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" IsVisible="{Binding ShowSection3}">
+                    <Label Text="Unit Type" TextColor="Red" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding BaseUnit}" TextColor="White" HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="10%" Orientation="Vertical" IsVisible="{Binding ShowSection3}">
+                    <StackLayout VerticalOptions="FillAndExpand" FlexLayout.Basis="10%" Padding="2">
+                        <ImageButton BackgroundColor="Transparent" Source="{Binding CameraImage}" HeightRequest="100"
+                                     WidthRequest="100" VerticalOptions="CenterAndExpand"
+                                     IsVisible="{Binding PhotoButtonVisible}" Command="{Binding PictureCommand}" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="10%" IsVisible="{Binding ShowSection4}">
+                    <Label Text="{Binding QtyName}" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding Qty}" Keyboard="Numeric" TextColor="White" BackgroundColor="#1A142E"
+                           HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="10" />
+                    <!--<Label Text="Width" TextColor="Red" HorizontalOptions="CenterAndExpand"
+                           IsVisible="{Binding LenghtWidthDepthIsVisible}" />
+                    <Entry Text="{Binding Width}" Keyboard="Numeric" TextColor="White"
+                           HorizontalOptions="FillAndExpand" BackgroundColor="#1A142E"
+                           IsVisible="{Binding LenghtWidthDepthIsVisible}" HorizontalTextAlignment="Center" Margin="10" />
+                    <Label Text="Depth" TextColor="Red" HorizontalOptions="CenterAndExpand"
+                           IsVisible="{Binding LenghtWidthDepthIsVisible}" />
+                    <Entry Text="{Binding Depth}" Keyboard="Numeric" TextColor="White"
+                           HorizontalOptions="FillAndExpand" BackgroundColor="#1A142E" HorizontalTextAlignment="Center"
+                           Margin="10" IsVisible="{Binding LenghtWidthDepthIsVisible}" />-->
+                </StackLayout>
+
+
+                <StackLayout FlexLayout.Basis="25%" Orientation="Vertical" IsVisible="{Binding ShowSection5}"
+                             VerticalOptions="FillAndExpand" Padding="5">
+                    <Entry Text="{Binding SearchText}" BackgroundColor="#1A142E" TextColor="White"
+                           Placeholder="Please enter text to filter drum list" TextChanged="DrumFilter_TextChanged"
+                           HorizontalTextAlignment="Center" PlaceholderColor="Red" />
+                    <Picker x:Name="reelPicker"
+                            ItemsSource="{Binding ListOfCableStockAuditFiltered}"
+                            ItemDisplayBinding="{Binding Name}"
+                            TextColor="White"
+                            Title="Press here to select a Cable type"
+                            TitleColor="Red"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            BackgroundColor="#1A142E"
+                            HorizontalOptions="FillAndExpand"
+                            SelectedItem="{Binding SelectedCableStockAudit}" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                        <Label Text="Drum No" TextColor="White" HorizontalTextAlignment="Center"
+                               HorizontalOptions="Start" />
+                        <Label Text="{Binding SelectedCableStockAudit.DrumNo}" WidthRequest="100" TextColor="White"
+                               HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                        <Label Text="Core Count" TextColor="White" HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{Binding SelectedCableStockAudit.FibreCoreCount}" TextColor="White"
+                               HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="Qty In Stock" TextColor="White" HorizontalTextAlignment="Center"
+                               HorizontalOptions="EndAndExpand" />
+                        <Label Text="{Binding SelectedCableStockAudit.InStock}" TextColor="White"
+                               HorizontalTextAlignment="Center" HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="4%" Orientation="Horizontal" IsVisible="{Binding ShowSection6}"
+                             Padding="5">
+                    <Label Text="Start Reading" TextColor="White" HorizontalOptions="Start" />
+                    <Entry Text="{Binding StartReading, Mode=TwoWay}" FlexLayout.Basis="35%" Keyboard="Numeric"
+                           TextColor="White" HorizontalOptions="FillAndExpand" BackgroundColor="#1A142E"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="End Reading" TextColor="White" HorizontalOptions="EndAndExpand" />
+                    <Entry Text="{Binding EndReading, Mode=TwoWay}" FlexLayout.Basis="35%" Keyboard="Numeric"
+                           TextColor="White" HorizontalOptions="FillAndExpand" BackgroundColor="#1A142E"
+                           HorizontalTextAlignment="Center" />
+                    <Button Text="Add" BackgroundColor="Green" FlexLayout.Basis="10%" HorizontalOptions="FillAndExpand"
+                            TextColor="White" Command="{Binding AddCableMeasure}" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="4%" Padding="5" IsVisible="{Binding ShowSection6}">
+                    <ListView x:Name="cableMeasuresListView"
+                              ItemsSource="{Binding SelectedCableStockUseList}"
+                              RowHeight="120"
+                              HeightRequest="200"
+                              HasUnevenRows="true"
+                              SeparatorColor="White"
+                              BackgroundColor="#1A142E">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" Padding="10">
+                                        <StackLayout Orientation="Horizontal" Margin="5">
+                                            <Label Text="Drum No" TextColor="Red" FlexLayout.Basis="20%"
+                                                   HorizontalOptions="Start" />
+                                            <Label Text="Type" TextColor="Red" FlexLayout.Basis="80%"
+                                                   HorizontalOptions="CenterAndExpand" />
+                                            <Label Text="Qty" TextColor="Red" FlexLayout.Basis="20%"
+                                                   HorizontalOptions="End" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Margin="5">
+                                            <Label Text="{Binding DrumNo}" TextColor="Green" FlexLayout.Basis="50%"
+                                                   HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" />
+                                            <Label Text="{Binding HowMuchUsed}" TextColor="White"
+                                                   FlexLayout.Basis="50%" HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="EndAndExpand" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Margin="5">
+                                            <Label Text="{Binding CableType}" TextColor="White" FlexLayout.Basis="70%"
+                                                   HorizontalTextAlignment="Start" HorizontalOptions="CenterAndExpand" />
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="4%" Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                    <Button FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Margin="2" Text="Submit"
+                            BackgroundColor="Green"
+                            TextColor="White" Command="{Binding Submit}" />
+                    <Button FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Margin="2" Text="Cancel"
+                            BackgroundColor="Red"
+                            TextColor="White" Command="{Binding Cancel}" />
+                </StackLayout>
+            </StackLayout>
+        </FlexLayout>
+
+    </ContentPage.Content>
+</ContentPage>

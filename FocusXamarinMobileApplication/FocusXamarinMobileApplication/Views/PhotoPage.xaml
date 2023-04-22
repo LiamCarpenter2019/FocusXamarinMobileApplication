@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.PhotoPage">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="{StaticResource mainBgColor}">
+            <FlexLayout Direction="Row" JustifyContent="End">
+                <Button x:Name="AddImageButton" Text="Add" Command="{Binding AddImage}" VerticalOptions="Center"
+                        FlexLayout.Basis="33%" />
+            </FlexLayout>
+            <ScrollView Orientation="Horizontal">
+                <StackLayout x:Name="ImageStack" Orientation="Horizontal" />
+            </ScrollView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

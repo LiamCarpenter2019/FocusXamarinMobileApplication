@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.ReInstatementPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62"
+                    Padding="10" FlexLayout.Basis="100%">
+
+            <StackLayout FlexLayout.Basis="25%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                <StackLayout FlexLayout.Basis="100%" Orientation="Horizontal">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="100%" Orientation="Horizontal">
+                    <Button Text="Back" TextColor="black" HeightRequest="50" WidthRequest="100"
+                            BackgroundColor="LightGray" Command="{Binding Back}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="100%">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="Reinstatement" FontSize="Large" TextColor="White" />
+                    <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand"
+                           Text="Input the length and average width of the open track for this team" FontSize="Large"
+                           TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="10%" Margin="5" IsVisible="{Binding ShowSection2}">
+                <Picker x:Name="materialsPicker"
+                        Title="Reinstatement Materials"
+                        TitleColor="Red"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="FillAndExpand"
+                        TextColor="White"
+                        BackgroundColor="#1A142E"
+                        FlexLayout.Basis="100%"
+                        SelectedItem="{Binding SelectedReinstatement}"
+                        ItemsSource="{Binding ReinstatementMaterials}" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="10%" Margin="5" Orientation="Horizontal" IsVisible="{Binding ShowSection3}">
+                <Picker x:Name="sizePicker"
+                        Title="Material Size List"
+                        TitleColor="Red"
+                        TextColor="White"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#1A142E"
+                        FlexLayout.Basis="100%"
+                        SelectedItem="{Binding SelectedMaterialSize}"
+                        ItemsSource="{Binding MaterialSizeList}" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%" Margin="5" Orientation="Horizontal" IsVisible="{Binding ShowSection4}">
+                <Entry HorizontalTextAlignment="Center"
+                       BackgroundColor="#1A142E"
+                       Keyboard="Numeric"
+                       Text="{Binding SelectedMaterialSize}"
+                       TextColor="White" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="10%" IsVisible="{Binding ShowSection5}">
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="33.3%" HorizontalOptions="FillAndExpand"
+                             Margin="5">
+                    <Label HorizontalTextAlignment="Center"
+                           Text="Length (m)"
+                           TextColor="White" />
+                    <Entry HorizontalTextAlignment="Center"
+                           BackgroundColor="#1A142E"
+                           Text="{Binding Length}"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="33.3%" HorizontalOptions="FillAndExpand"
+                             Margin="5">
+                    <Label HorizontalTextAlignment="Center"
+                           Text="Width (mm)"
+                           TextColor="White" />
+                    <Entry HorizontalTextAlignment="Center"
+                           Text="{Binding Width}"
+                           Keyboard="Numeric"
+                           BackgroundColor="#1A142E"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="33.3%" HorizontalOptions="FillAndExpand"
+                             Margin="5">
+                    <Label HorizontalTextAlignment="Center"
+                           Text="Depth (mm)"
+                           TextColor="White" />
+                    <Entry HorizontalTextAlignment="Center"
+                           Text="{Binding Depth}"
+                           BackgroundColor="#1A142E"
+                           Keyboard="Numeric"
+                           TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="30%" IsVisible="{Binding ShowSection6}">
+                <ListView x:Name="listView"
+                          HasUnevenRows="true"
+                          BackgroundColor="#1A142E"
+                          SeparatorColor="White"
+                          FlexLayout.Basis="100%"
+                          ItemsSource="{Binding CurrentReinstatementMeasures}"
+                          Margin="10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <FlexLayout Direction="Row" Padding="40">
+                                    <StackLayout Orientation="Vertical" FlexLayout.Basis="100%">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label HorizontalTextAlignment="start"
+                                                   Text="Measure"
+                                                   HorizontalOptions="Start"
+                                                   TextColor="Red" />
+                                            <Label HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="Start"
+                                                   Text="{Binding Material}"
+                                                   TextColor="White" />
+                                            <Label HorizontalTextAlignment="Center"
+                                                   HorizontalOptions="CenterAndExpand"
+                                                   Text="Size"
+                                                   TextColor="Red" />
+                                            <Label HorizontalTextAlignment="Center"
+                                                   HorizontalOptions="Center"
+                                                   Text="{Binding MaterialSize}"
+                                                   TextColor="White" />
+                                            <Button x:Name="btnDelete" Text="X" Clicked="btnDelete_Clicked"
+                                                    CommandParameter="{Binding .}"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    BackgroundColor="Red"
+                                                    HeightRequest="20"
+                                                    WidthRequest="20"
+                                                    TextColor="White"
+                                                    IsVisible="true" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label HorizontalTextAlignment="Start"
+                                                   Text="Length"
+                                                   HorizontalOptions="Start"
+                                                   TextColor="Red" />
+                                            <Label HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   Text="{Binding Length}"
+                                                   TextColor="White" />
+                                            <Label HorizontalTextAlignment="Center"
+                                                   Text="Width"
+                                                   HorizontalOptions="Center"
+                                                   TextColor="Red" />
+                                            <Label HorizontalTextAlignment="Center"
+                                                   Text="{Binding Width}"
+                                                   TextColor="White" />
+
+                                            <Label HorizontalTextAlignment="End"
+                                                   Text="Depth"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   TextColor="Red" />
+                                            <Label HorizontalTextAlignment="End"
+                                                   Text="{Binding Depth}"
+                                                   TextColor="White" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal" IsVisible="{Binding ShowSection7}"
+                         VerticalOptions="EndAndExpand">
+                <Button FlexLayout.Basis="50%" Margin="2" Text="Save" BackgroundColor="Green" TextColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding Submit}" />
+                <Button FlexLayout.Basis="50%" Margin="2" Text="Upload" BackgroundColor="Green" TextColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding Upload}" />
+            </StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsLoading}" Color="White" />
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

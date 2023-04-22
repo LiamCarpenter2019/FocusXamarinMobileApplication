@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false" x:Class="FocusXamarinMobileApplication.Views.PlantTransferPage">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" BackgroundColor="#1E2351" Padding="10">
+            <FlexLayout Direction="Column" FlexLayout.Basis="95%" Padding="10">
+                <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Plant transfer" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="15%" IsVisible="{Binding ShowSection2}">
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="StartAndExpand" Padding="10">
+                        <StackLayout FlexLayout.Basis="33%" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                            <Label Text="Plant item transfered from" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="Type" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding SelectedPlantItem.Type}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Label Text="Owner" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding SelectedPlantItem.Supplier}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="33%" HorizontalOptions="CenterAndExpand">
+                            <Label Text="{Binding SelectedPlantItem.TransferFromName}" TextColor="Red"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Label Text="Asset No" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding SelectedPlantItem.AssetNo}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Label Text="Serial No" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding SelectedPlantItem.Serial}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+
+                        <StackLayout FlexLayout.Basis="64%" HorizontalOptions="EndAndExpand">
+                            <Label Text="Make" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding SelectedPlantItem.Make}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Label Text="Model" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding SelectedPlantItem.Model}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="8%" Padding="10" Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowSection3}">
+                    <Label Text="Comments" TextColor="White" VerticalTextAlignment="End"
+                           HorizontalOptions="FillAndExpand" FlexLayout.Basis="50%" />
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding CameraImage}"
+                                 Command="{Binding TakePhoto}" HeightRequest="50" WidthRequest="50" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="15%" Padding="10" IsVisible="{Binding ShowSection4}">
+                    <Editor Text="{Binding CurrentPlantTransferItem.TransferComments}"
+                            TextColor="White"
+                            BackgroundColor="#1A142E"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="50%" Padding="10" IsVisible="{Binding ShowSection5}">
+                    <Label Text="Select the recipient you want to transfer the plant item to" TextColor="White" />
+                    <ListView x:Name="listView"
+                              ItemsSource="{Binding Operatives2Show}"
+                              HasUnevenRows="true"
+                              SeparatorColor="White"
+                              VerticalOptions="FillAndExpand"
+                              ItemSelected="SelectedUserCommand"
+                              SelectedItem="{Binding SelectedPlantTransferRecipient}"
+                              SeparatorVisibility="Default"
+                              BackgroundColor="#1A142E">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell StyleId="nostyle">
+                                    <FlexLayout BackgroundColor="{Binding BackgroundHighlighted}" Direction="Column"
+                                                VerticalOptions="CenterAndExpand">
+                                        <StackLayout Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                                                         VerticalOptions="StartAndExpand" HeightRequest="60"
+                                                         Padding="10">
+                                                <Label Text="{Binding Role}" TextColor="White"
+                                                       HorizontalOptions="StartAndExpand"
+                                                       VerticalOptions="CenterAndExpand" />
+                                                <Label Text="{Binding FirstName}" TextColor="White"
+                                                       HorizontalOptions="StartAndExpand"
+                                                       VerticalOptions="CenterAndExpand" />
+                                                <Label Text="{Binding Surname}" TextColor="White"
+                                                       HorizontalOptions="StartAndExpand"
+                                                       VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </FlexLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal" IsVisible="{Binding ShowSection6}">
+                    <Button Margin="2"
+                            Text="Submit"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding Submit}" />
+                    <Button Margin="2"
+                            Text="Cancel"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding Cancel}" />
+                </StackLayout>
+                <ActivityIndicator Color="White" IsRunning="{Binding IsLoading}" HorizontalOptions="CenterAndExpand" />
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

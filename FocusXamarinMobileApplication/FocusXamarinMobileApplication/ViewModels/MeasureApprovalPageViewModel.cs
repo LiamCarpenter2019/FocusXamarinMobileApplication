@@ -1,0 +1,128 @@
+﻿using System.ComponentModel;
+
+namespace FocusXamarinMobileApplication.ViewModels;
+
+public class MeasureApprovalPageViewModel : FBaseViewModel, INotifyPropertyChanged
+{
+    public string _projectDate { get; set; }
+
+    public string ProjectDate
+    {
+        get => _projectDate;
+        set
+        {
+            _projectDate = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string _projectName { get; set; }
+
+    public string ProjectName
+    {
+        get => _projectName;
+        set
+        {
+            _projectName = value;
+            OnPropertyChanged();
+        }
+    }
+
+
+    public string _title { get; set; }
+
+    public string Title
+    {
+        get => _title;
+        set
+        {
+            _title = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string _submitButtonText { get; set; }
+
+    public string SubmitButtonText
+    {
+        get => _submitButtonText;
+        set
+        {
+            _submitButtonText = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool _showSection1 { get; set; }
+
+    public bool ShowSection1
+    {
+        get => _showSection1;
+        set
+        {
+            _showSection1 = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool _showSection2 { get; set; }
+
+    public bool ShowSection2
+    {
+        get => _showSection2;
+        set
+        {
+            _showSection2 = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool _showSection3 { get; set; }
+
+    public bool ShowSection3
+    {
+        get => _showSection3;
+        set
+        {
+            _showSection3 = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public bool _showSection4 { get; set; }
+
+    public bool ShowSection4
+    {
+        get => _showSection4;
+        set
+        {
+            _showSection4 = value;
+            OnPropertyChanged();
+        }
+    }
+
+    //public ICommand Cancel => new  RelayCommand(Register);
+    //public ICommand Submit => new  RelayCommand(async () => await SignInAsync());
+    //public ICommand Back => new  RelayCommand<string>(NavigateAsync);
+
+
+    //public void Cancel() {
+
+    //}
+
+    //public void SignInAsync()
+    //{
+
+    //}
+
+    //public void NavigateAsync()
+    //{
+
+    //}
+
+    public RelayCommand Cancel => new(async () => { });
+
+    public RelayCommand Submit => new(async () => { });
+
+    public RelayCommand Back => new(async () => { NavigateBack(); });
+}

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.PlantDetailsPage">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" BackgroundColor="#1E2351" Padding="10">
+            <FlexLayout Direction="Column" FlexLayout.Basis="95%" Padding="10">
+                <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Plant details" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Padding="10,10,10,10" FlexLayout.Basis="25%">
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="StartAndExpand" Padding="10">
+                        <StackLayout FlexLayout.Basis="33%" Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                            <Label Text="Type" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Type}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                            <Label Text="Owner" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Supplier}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                            <Label Text="Make" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Make}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="33%" HorizontalOptions="CenterAndExpand">
+                            <Label Text="Asset No" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding AssetNo}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                            <Label Text="Serial No" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Serial}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                            <Label Text="Model" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Model}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="34%" Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                            <Label Text="Next service type" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding NextServiceType}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Label Text="Next service is due on" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding NextServiceDate}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                            <ImageButton BackgroundColor="Transparent"
+                                         Source="{Binding FuelIcon}"
+                                         HeightRequest="50"
+                                         WidthRequest="50"
+                                         HorizontalOptions="End" Clicked="FuelCommand" IsVisible="true" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="60%" Padding="10" IsVisible="{Binding ShowSection3}">
+                    <Label Text="Plant documentation" TextColor="White" />
+                    <ListView x:Name="listView"
+                              ItemsSource="{Binding DocumentList}"
+                              HasUnevenRows="true"
+                              RowHeight="100"
+                              SeparatorColor="White"
+                              SelectedItem="{Binding SelectedDocument}"
+                              ItemSelected="OpenDocumentCommand"
+                              BackgroundColor="#1A142E">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                        <Image Source="{Binding Image}" />
+
+                                        <StackLayout HorizontalOptions="CenterAndExpand">
+                                            <Label Text="{Binding DocumentTitle}" VerticalOptions="CenterAndExpand"
+                                                   HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                                                   TextColor="White" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="5%" VerticalOptions="EndAndExpand" IsVisible="{Binding ShowSection4}">
+                    <Button Margin="2"
+                            Text="Done"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding Cancel}" />
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

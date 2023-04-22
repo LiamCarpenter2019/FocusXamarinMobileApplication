@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SelectProjectPage" Title="Select Project">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <FlexLayout BackgroundColor="#292F62" Padding="10" FlexLayout.Basis="80%">
+        <ListView x:Name="projectListView" ItemsSource="{Binding ProjectsList}" ItemSelected="OnProjectSelected"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="White" HasUnevenRows="true">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell Height="200">
+                        <StackLayout BackgroundColor="Gray">
+                            <Label Text="{Binding Key}" VerticalOptions="Center" HorizontalOptions="Center"
+                                   HeightRequest="150" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="10,10">
+                            <Label Text="{Binding ProjectName}" Style="{DynamicResource listHeadingStyle}" />
+                            <Label Text="{Binding OperativeNames}" />
+                        </StackLayout>
+                        <!--<TextCell Text="{Binding ProjectName}" Detail="{Binding GangMemberNames}">
+                    </TextCell>-->
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+</ContentPage>

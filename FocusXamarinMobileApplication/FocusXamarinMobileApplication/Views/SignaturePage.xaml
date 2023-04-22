@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             NavigationPage.HasNavigationBar="false" x:Class="FocusXamarinMobileApplication.Views.SignaturePage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#1E2351" Padding="10" VerticalOptions="FillAndExpand">
+            <StackLayout FlexLayout.Basis="15%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding ProjectName}"
+                           TextColor="White"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding ProjectDate}"
+                           TextColor="White"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding SignatureMessage}"
+                           HorizontalOptions="Start"
+                           TextColor="Red" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="7%" Padding="10">
+                <Label Text="{Binding PermitStatus}"
+                       BackgroundColor="{Binding PermitColour}"
+                       TextColor="White"
+                       IsVisible="{Binding ShowPermit}"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalTextAlignment="Center"
+                       HeightRequest="50"
+                       HorizontalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="22%"
+                         IsVisible="{Binding ShowSection2}" VerticalOptions="FillAndExpand">
+                <ListView ItemsSource="{Binding UserList}"
+                          HasUnevenRows="true"
+                          RowHeight="75"
+                          VerticalOptions="FillAndExpand"
+                          SeparatorColor="White"
+                          ItemSelected="UserSelectedCommand"
+                          SelectedItem="{Binding SelectedUser}"
+                          BackgroundColor="#1A142E">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <FlexLayout BackgroundColor="{Binding BackgroundHighlighted}" Direction="Column"
+                                            VerticalOptions="CenterAndExpand">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand"
+                                                 VerticalOptions="CenterAndExpand" Padding="10">
+                                        <Label Text="{Binding FullName}"
+                                               TextColor="White"
+                                               HorizontalTextAlignment="Center"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalOptions="CenterAndExpand" />
+                                        <Label Text="Signed" TextColor="Green"
+                                               HorizontalOptions="CenterAndExpand"
+                                               VerticalOptions="CenterAndExpand"
+                                               IsVisible="{Binding HasSigned}" />
+                                    </StackLayout>
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="20%" Padding="10" IsVisible="{Binding ShowSection2}">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Label Text="New pin"
+                               TextColor="White"
+                               HorizontalOptions="CenterAndExpand"
+                               IsVisible="{Binding ShowNewPin}" />
+                        <Entry Text="{Binding NewPin}"
+                               TextColor="White"
+                               HorizontalOptions="CenterAndExpand"
+                               BackgroundColor="#1A142E"
+                               WidthRequest="200"
+                               Keyboard="Numeric"
+                               HorizontalTextAlignment="Center"
+                               IsVisible="{Binding ShowNewPin}" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Pin"
+                               TextColor="White"
+                               HorizontalOptions="CenterAndExpand"
+                               IsVisible="{Binding ShowPin}" />
+                        <Entry Text="{Binding Pin}"
+                               TextColor="White"
+                               HorizontalOptions="CenterAndExpand"
+                               BackgroundColor="#1A142E"
+                               WidthRequest="200"
+                               IsPassword="True"
+                               Keyboard="Numeric"
+                               HorizontalTextAlignment="Center"
+                               IsVisible="{Binding ShowPin}" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Confirm pin"
+                               TextColor="White"
+                               HorizontalOptions="CenterAndExpand"
+                               IsVisible="{Binding ShowConfirmPin}" />
+                        <Entry Text="{Binding ConfirmedPin}"
+                               TextColor="White"
+                               HorizontalOptions="CenterAndExpand"
+                               BackgroundColor="#1A142E"
+                               WidthRequest="200"
+                               IsPassword="True"
+                               Keyboard="Numeric"
+                               HorizontalTextAlignment="Center"
+                               IsVisible="{Binding ShowConfirmPin}" />
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="Name"
+                       TextColor="White"
+                       HorizontalOptions="CenterAndExpand"
+                       IsVisible="{Binding ShowName}" />
+                <Entry Text="{Binding Name}"
+                       TextColor="White"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="#1A142E"
+                       WidthRequest="200"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="{Binding ShowName}" />
+                <Label Text="Email"
+                       TextColor="White"
+                       HorizontalOptions="CenterAndExpand"
+                       IsVisible="{Binding ShowEmail}" />
+                <Entry Text="{Binding Email}"
+                       TextColor="White"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="#1A142E"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="{Binding ShowEmail}" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="20%"
+                         VerticalOptions="FillAndExpand"
+                         IsVisible="{Binding ShowSection3}">
+                <forms:SignaturePadView x:Name="AuthSignatureInPad"
+                                        BackgroundColor="#1A142E"
+                                        StrokeColor="Gray"
+                                        StrokeWidth="2"
+                                        WidthRequest="500"
+                                        HeightRequest="250"
+                                        CaptionTextColor="White"
+                                        ClearTextColor="White"
+                                        SignatureLineColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="7%" Padding="10">
+                <Label Text="{Binding PermitStatus}"
+                       BackgroundColor="{Binding PermitColour}"
+                       TextColor="White"
+                       IsVisible="{Binding ShowPermit}"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalTextAlignment="Center"
+                       HeightRequest="50"
+                       HorizontalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="5%"
+                         Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand"
+                         IsVisible="{Binding ShowSection4}">
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="2" Text="Submit"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        Clicked="SaveCommand" />
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="2" Text="Exit" BackgroundColor="Red"
+                        TextColor="White"
+                        Command="{Binding Back}" />
+            </StackLayout>
+
+            <ActivityIndicator Color="White"
+                               IsRunning="{Binding IsLoading}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand" />
+
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

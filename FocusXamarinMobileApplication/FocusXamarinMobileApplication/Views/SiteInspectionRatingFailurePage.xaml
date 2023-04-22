@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SiteInspectionRatingFailurePage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#1E2351" Padding="10">
+            <FlexLayout Direction="Column" FlexLayout.Basis="95%" Padding="10">
+                <StackLayout FlexLayout.Basis="7%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Site Inspection failure" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="7%" IsVisible="true" Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding Rating6}"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="50"
+                                 Command="{Binding Rating6Command}" />
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding Rating5}"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="50"
+                                 Command="{Binding Rating5Command}" />
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding Rating4}"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="50"
+                                 Command="{Binding Rating4Command}" />
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding Rating3}"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="50"
+                                 Command="{Binding Rating3Command}" />
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding Rating2}"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="50"
+                                 Command="{Binding Rating2Command}" />
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding Rating1}"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="50"
+                                 Command="{Binding Rating1Command}" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="25%" Orientation="Vertical" IsVisible="{Binding ShowSection3}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Details" TextColor="White" HorizontalOptions="FillAndExpand" />
+                        <ImageButton BackgroundColor="Transparent" Source="{Binding CameraImage}" HeightRequest="50"
+                                     Command="{Binding DetailsCommand}" />
+                    </StackLayout>
+                    <Editor Text="{Binding RootCause}" TextColor="White" HeightRequest="150" BackgroundColor="#1A142E"
+                            VerticalOptions="FillAndExpand" />
+
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="25%" Orientation="Vertical" IsVisible="{Binding ShowSection3}"
+                             Padding="5">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Immediate action" TextColor="White" HorizontalOptions="FillAndExpand" />
+                        <ImageButton BackgroundColor="Transparent" Source="{Binding CameraImage}" HeightRequest="50"
+                                     Command="{Binding IntermediateActionCommand}" />
+                    </StackLayout>
+                    <Editor Text="{Binding IntermediateActionDetails}"
+                            TextColor="White"
+                            HeightRequest="150"
+                            BackgroundColor="#1A142E"
+                            VerticalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <FlexLayout FlexLayout.Basis="7%" JustifyContent="Center" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Has this been corrected on site      " TextColor="White" />
+                    <Button FlexLayout.Basis="33%" Margin="2" Text="Yes"
+                            BackgroundColor="{Binding CorrectedOnSiteColour}"
+                            HeightRequest="50"
+                            TextColor="Black"
+                            Command="{Binding CorrectedOnsite}" />
+                    <Button FlexLayout.Basis="33%" Margin="2" Text="No"
+                            BackgroundColor="{Binding CorrectedOffSiteColour}"
+                            HeightRequest="50"
+                            TextColor="Black"
+                            Command="{Binding CorrectedOffsite}" />
+                </FlexLayout>
+
+                <StackLayout FlexLayout.Basis="22%" Orientation="Vertical" IsVisible="{Binding ShowSection5}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Corrective action" TextColor="White" HorizontalOptions="FillAndExpand" />
+                        <ImageButton BackgroundColor="Transparent" Source="{Binding CameraImage}" HeightRequest="50"
+                                     Command="{Binding CorrectiveActionCommand}" />
+                    </StackLayout>
+                    <Editor Text="{Binding CorrectiveActionDetails}" HeightRequest="150" TextColor="White"
+                            BackgroundColor="#1A142E" VerticalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <FlexLayout FlexLayout.Basis="5%" JustifyContent="Center" IsVisible="{Binding ShowSection6}">
+                    <Button FlexLayout.Basis="50%" Margin="2" Text="Submit" BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding Submit}" />
+                    <Button FlexLayout.Basis="50%" Margin="2" Text="Cancel" BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding Back}" />
+                </FlexLayout>
+
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

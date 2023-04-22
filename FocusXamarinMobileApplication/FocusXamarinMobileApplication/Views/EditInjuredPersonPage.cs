@@ -1,0 +1,34 @@
+﻿//using StandardLibrary.Data;
+
+#region
+
+#endregion
+
+using FocusXamarinMobileApplication.Models;
+using FocusXamarinMobileApplication.ViewModels;
+using Xamarin.Forms;
+
+namespace FocusXamarinMobileApplication.Views;
+
+public partial class EditInjuredPersonPage : ContentPage
+{
+    private readonly EditInjuredPersonPageViewModel _vm;
+    private InjuredPerson injuredPerson;
+    private RegisterUtilityDamage registerUtilityDamage;
+
+    public EditInjuredPersonPage()
+    {
+        InitializeComponent();
+        NavigationPage.SetHasNavigationBar(this, false);
+        _vm = App.ViewModelLocator.InjuredPersonViewModel;
+        BindingContext = _vm;
+    }
+
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        _vm.PageLoaded.Execute(null);
+    }
+}

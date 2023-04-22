@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.MenuSelectionPage">
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column"
+                    BackgroundColor="#292F62"
+                    Padding="20">
+
+                    <StackLayout Orientation="Vertical"
+                                 FlexLayout.Basis="15%"
+                                 Padding="10"
+                                 IsVisible="{Binding ShowSection1}">
+                        <StackLayout Orientation="Horizontal"
+                                     BackgroundColor="#292F62">
+                            <Label Text="{Binding ProjectName}"
+                                   TextColor="White"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding ProjectDate}"
+                                   TextColor="White"
+                                   HorizontalOptions="EndAndExpand" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     BackgroundColor="#292F62">
+                            <Button Text="Back"
+                                    HorizontalOptions="Start"
+                                    HeightRequest="40"
+                                    TextColor="Black"
+                                    WidthRequest="100"
+                                    BackgroundColor="LightGray"
+                                    Command="{Binding Back}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="20%"
+                                 BackgroundColor="#292F62"
+                                 Padding="5"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 IsVisible="{Binding ShowSection2}">
+                        <StackLayout IsVisible="{Binding ShowButtonA}"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandA}"
+                                         Source="{Binding ButtonAImage}"
+                                         IsEnabled="{Binding ButtonAIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonAImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding ShowButtonB}"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandB}"
+                                         Source="{Binding ButtonBImage}"
+                                         IsEnabled="{Binding ButtonBIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonBImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding ShowButtonC}"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandC}"
+                                         Source="{Binding ButtonCImage}"
+                                         IsEnabled="{Binding ButtonCIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonCImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonD}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Source="{Binding ButtonDImage}"
+                                         Command="{Binding CommandD}"
+                                         IsEnabled="{Binding ButtonDIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonDImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonE}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Source="{Binding ButtonEImage}"
+                                         Command="{Binding CommandE}"
+                                         IsEnabled="{Binding ButtonEIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonEImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout FlexLayout.Basis="20%"
+                                 BackgroundColor="#292F62"
+                                 Padding="5"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 IsVisible="{Binding ShowSection3}">
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonF}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Source="{Binding ButtonFImage}"
+                                         Command="{Binding CommandF}"
+                                         IsEnabled="{Binding ButtonFIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonFImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding ShowButtonG}"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonGImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandG}"
+                                         IsEnabled="{Binding ButtonGIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonGImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout
+                            IsVisible="{Binding ShowButtonH}"
+                            Orientation="Vertical"
+                            HorizontalOptions="CenterAndExpand"
+                            WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Source="{Binding ButtonHImage}"
+                                         Command="{Binding CommandH}"
+                                         IsEnabled="{Binding ButtonHIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonHImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonJ}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonJImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandJ}"
+                                         IsEnabled="{Binding ButtonJIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonJImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonI}"
+                                     HorizontalOptions="CenterAndExpand"
+
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonIImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandI}"
+                                         IsEnabled="{Binding ButtonIIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonIImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout FlexLayout.Basis="20%"
+                                 BackgroundColor="#292F62"
+                                 Padding="5"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 IsVisible="{Binding ShowSection4}">
+
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonK}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonKImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandK}"
+                                         IsEnabled="{Binding ButtonKIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonKImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonL}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonLImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandL}"
+                                         IsEnabled="{Binding ButtonLIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonLImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonM}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonMImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandM}"
+                                         IsEnabled="{Binding ButtonMIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonMImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonN}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Source="{Binding ButtonNImage}"
+                                         Command="{Binding CommandN}"
+                                         IsEnabled="{Binding ButtonNIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonNImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding ShowButtonO}"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonOImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandO}"
+                                         IsEnabled="{Binding ButtonOIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonOImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout FlexLayout.Basis="20%"
+                                 BackgroundColor="#292F62"
+                                 Padding="5"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 IsVisible="{Binding ShowSection5}">
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ButtonPIsEnabled}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="80"
+                                         Source="{Binding ButtonPImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandP}"
+                                         IsEnabled="{Binding ButtonPIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonPImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonQ}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonQImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandQ}"
+                                         IsEnabled="{Binding ButtonQIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonQImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonR}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonRImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandR}"
+                                         IsEnabled="{Binding ButtonRIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonRImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonS}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonSImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandS}"
+                                         IsEnabled="{Binding ButtonSIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonSImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding ShowButtonT}"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Source="{Binding ButtonTImage}"
+                                         Command="{Binding CommandT}"
+                                         IsEnabled="{Binding ButtonTIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonTImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout FlexLayout.Basis="10%"
+                                 BackgroundColor="#292F62"
+                                 Padding="5"
+                                 Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 IsVisible="{Binding ShowSection6}">
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonU}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonUImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandU}"
+                                         IsEnabled="{Binding ButtonUIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonUImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonV}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonVImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandV}"
+                                         IsEnabled="{Binding ButtonVIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonVImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonW}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonWImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandW}"
+                                         IsEnabled="{Binding ButtonWIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonWImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     IsVisible="{Binding ShowButtonX}"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         Source="{Binding ButtonXImage}"
+                                         WidthRequest="100"
+                                         Command="{Binding CommandX}"
+                                         IsEnabled="{Binding ButtonXIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonXImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout IsVisible="{Binding ShowButtonY}"
+                                     Orientation="Vertical"
+                                     HorizontalOptions="CenterAndExpand"
+                                     WidthRequest="150">
+                            <ImageButton BackgroundColor="Transparent" HeightRequest="100"
+                                         WidthRequest="100"
+                                         Source="{Binding ButtonYImage}"
+                                         Command="{Binding CommandY}"
+                                         IsEnabled="{Binding ButtonYIsEnabled}" />
+                            <Label TextColor="White"
+                                   Text="{Binding ButtonYImageLabel}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout FlexLayout.Basis="7%"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="EndAndExpand"
+                                 Orientation="Horizontal">
+                        <Button Text="Upload"
+                                HeightRequest="50"
+                                HorizontalOptions="FillAndExpand"
+                                Command="{Binding Upload}"
+                                IsVisible="{Binding ShowUploadButton}"
+                                BackgroundColor="Green"
+                                TextColor="White" />
+                    </StackLayout>
+                    <ActivityIndicator Color="White" IsRunning="{Binding IsLoading}" /> 
+       
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

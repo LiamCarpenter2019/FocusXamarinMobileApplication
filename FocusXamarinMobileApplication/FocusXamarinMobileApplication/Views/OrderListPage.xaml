@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.OrderListPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62" Padding="10"
+                    FlexLayout.Basis="100%">
+            <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="5%" HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding UserName}"
+                       FlexLayout.Basis="100%"
+                       HorizontalTextAlignment="Start"
+                       HorizontalOptions="FillAndExpand"
+                       TextColor="white" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="85%"
+                         HorizontalOptions="CenterAndExpand"
+                         IsVisible="{Binding ShowSection2}"
+                         Padding="10">
+                <ListView x:Name="orderList"
+                          SeparatorColor="White"
+                          ItemsSource="{Binding OrderList}"
+                          SelectedItem="{Binding SelectedOrder}"
+                          RowHeight="120"
+                          BackgroundColor="#1A142E">
+                    <ListView.Header>
+                        <FlexLayout BackgroundColor="#1A142E" Padding="10">
+                            <Label Text="Order Number" FontAttributes="Bold" FlexLayout.Basis="20%"
+                                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" />
+                            <Label Text="Supplier" FontAttributes="Bold" FlexLayout.Basis="65%"
+                                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" />
+                            <Label Text="ExVat (£)" FontAttributes="Bold" FlexLayout.Basis="15%"
+                                   VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" />
+                        </FlexLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <FlexLayout Direction="Column" BackgroundColor="#1A142E" Padding="10"
+                                            FlexLayout.Basis="100%">
+                                    <StackLayout Orientation="Horizontal" HeightRequest="50">
+                                        <Label Text="{Binding OrderNumber}" FontAttributes="Bold"
+                                               FlexLayout.Basis="20%" Padding="10"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                               TextColor="White" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding Supplier}" FontAttributes="Bold" FlexLayout.Basis="65%"
+                                               Padding="10"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                               TextColor="White" HorizontalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding PriceExcludingVAT}" FontAttributes="Bold"
+                                               FlexLayout.Basis="15%" Padding="10"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+                                               TextColor="White" HorizontalOptions="EndAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="EndAndExpand"
+                                                 VerticalOptions="EndAndExpand">
+                                        <Button x:Name="btnUpload"
+                                                Text="Upload Invoice"
+                                                Clicked="InvoicePhotoCommand"
+                                                CommandParameter="{Binding .}"
+                                                HorizontalOptions="EndAndExpand"
+                                                HeightRequest="50"
+                                                TextColor="White"
+                                                WidthRequest="150"
+                                                BackgroundColor="green"
+                                                IsVisible="true" />
+                                        <Button x:Name="btnVoid"
+                                                Text="Void"
+                                                Clicked="VoidCommand"
+                                                CommandParameter="{Binding .}"
+                                                HorizontalOptions="End"
+                                                HeightRequest="50"
+                                                TextColor="White"
+                                                WidthRequest="100"
+                                                BackgroundColor="Red"
+                                                IsVisible="true" />
+                                    </StackLayout>
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="7%"
+                         Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Padding="5"
+                         IsVisible="{Binding ShowSection3}">
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="2"
+                        Text="New Order"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        Command="{Binding NewOrderCommand}" />
+                <Button FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="2" Text="Cancel" BackgroundColor="Red"
+                        TextColor="White"
+                        Command="{Binding GoBackCommand}" />
+            </StackLayout>
+            <StackLayout IsVisible="{Binding ShowSection4}">
+                <ActivityIndicator IsRunning="{Binding IsLoading}" Color="White" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

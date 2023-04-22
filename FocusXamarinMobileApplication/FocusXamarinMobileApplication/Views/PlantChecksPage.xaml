@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.PlantChecksPage" NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout FlexLayout.Grow="1" Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62"
+                    Padding="10,10,10,10" FlexLayout.Basis="100%">
+            <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowSection1}">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="5">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="{Binding Title}" FontSize="Large"
+                           TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Padding="10,10,10,10" FlexLayout.Basis="20%"
+                         IsVisible="{Binding ShowSection2}">
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="StartAndExpand" Padding="10">
+                    <StackLayout FlexLayout.Basis="50%" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Plant item transfered from" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="Type" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{Binding SelectedPlantItem.Type}" TextColor="White"
+                               HorizontalOptions="CenterAndExpand" />
+                        <Label Text="Owner" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{Binding SelectedPlantItem.Supplier}" TextColor="White"
+                               HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="50%" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding SelectedPlantItem.TransferFromName}" TextColor="Red"
+                               HorizontalOptions="CenterAndExpand" />
+                        <Label Text="Asset No" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{Binding SelectedPlantItem.AssetNo}" TextColor="White"
+                               HorizontalOptions="CenterAndExpand" />
+                        <Label Text="Serial No" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{Binding SelectedPlantItem.Serial}" TextColor="White"
+                               HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="50%" HorizontalOptions="CenterAndExpand">
+                        <Label Text="Make" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{Binding SelectedPlantItem.Make}" TextColor="White"
+                               HorizontalOptions="CenterAndExpand" />
+                        <Label Text="Model" TextColor="Red" HorizontalOptions="CenterAndExpand" />
+                        <Label Text="{Binding SelectedPlantItem.Model}" TextColor="White"
+                               HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding IsLoading}">
+                <ActivityIndicator IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" HeightRequest="50"
+                                   WidthRequest="50" Color="White" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="65%"
+                         IsVisible="{Binding ShowSection3}">
+                <ListView x:Name="listView"
+                          ItemsSource="{Binding QuestionCollection}"
+                          BackgroundColor="#1A142E"
+                          SeparatorColor="White"
+                          RowHeight="150">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell StyleId="nostyle">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                                 VerticalOptions="StartAndExpand" HeightRequest="60" Padding="10">
+                                        <!--  <Label Text="{Binding QuestionId}" TextColor="White" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"/>-->
+                                        <Label Text="{Binding CheckText}" TextColor="White"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="CenterAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand"
+                                                 HeightRequest="60"
+                                                 Padding="10,10,10,10">
+                                        <Button x:Name="btnYes" Text="YES" Clicked="GoYesNoNa"
+                                                CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                HeightRequest="50"
+                                                WidthRequest="170" BackgroundColor="{Binding BtnABgColour}"
+                                                IsVisible="{Binding ShowButtonA}" />
+                                        <Button x:Name="btnNo" Text="NO" Clicked="GoYesNoNa"
+                                                CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                HeightRequest="50"
+                                                WidthRequest="170" BackgroundColor="{Binding BtnBBgColour}"
+                                                IsVisible="{Binding ShowButtonB}" />
+                                        <Button x:Name="btnNa" Text="N/A" Clicked="GoYesNoNa"
+                                                CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                HeightRequest="50"
+                                                WidthRequest="170" BackgroundColor="{Binding BtnCBgColour}"
+                                                IsVisible="{Binding ShowButtonC}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Please select checker" TextColor="White"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="CenterAndExpand" />
+                    <Picker ItemsSource="{Binding GangMemberList}" TextColor="White"
+                            ItemDisplayBinding="{Binding FullName}" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#1A142E" SelectedItem="{Binding SelectedUser}"
+                            SelectedIndex="{Binding SelectedUserIndex, Mode=TwoWay}"
+                            SelectedIndexChanged="SelectedUserCommand" />
+                </StackLayout>
+                <StackLayout Padding="10" Orientation="Horizontal">
+                    <Button Text="Dont have this item" TextColor="White" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Red" FlexLayout.Basis="33%" Command="{Binding DontHaveItemCommand}" />
+                    <Button Text="Thie item is in storage" TextColor="White" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Red" FlexLayout.Basis="33%" Command="{Binding InStorageItemCommand}" />
+                    <Button Text="Set all answers to yes" TextColor="White" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Green" FlexLayout.Basis="34%" Command="{Binding SetAllAnswers2Yes}" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="7%" Orientation="Horizontal" Margin="10">
+                <Button FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Margin="2" HeightRequest="50"
+                        Text="Save" BackgroundColor="Green" TextColor="White"
+                        Command="{Binding Submit}" IsVisible="{Binding ShowSection4}" />
+                <Button FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Margin="2" HeightRequest="50"
+                        Text="Cancel" BackgroundColor="Red" TextColor="White"
+                        Command="{Binding Back}" IsVisible="{Binding ShowSection4}" />
+            </StackLayout>
+
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

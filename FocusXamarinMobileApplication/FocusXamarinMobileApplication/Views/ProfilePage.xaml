@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FocusXamarinMobileApplication.Views.ProfilePage">
+    <ContentPage.Content>
+        <FlexLayout
+            Direction="Column"
+            BackgroundColor="#292F62"
+            FlexLayout.Basis="100%"
+            Padding="10">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal"
+                             Margin="10"
+                             FlexLayout.Basis="10%">
+                    <Label Text="{Binding Date}"
+                           HorizontalOptions="EndAndExpand"
+                           FontSize="Large"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="50%">
+                    <Frame HasShadow="True"
+                           BorderColor="DarkGray"
+                           CornerRadius="5"
+                           Margin="5"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           FlexLayout.Basis="100%"
+                           BackgroundColor="#292F62">
+                        <FlexLayout Direction="Column">
+                            <StackLayout>
+                                <Image Source="{Binding CurrentPicture.PicturePathOnTablet}"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </FlexLayout>
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="7%">
+                    <Button Text="User List"
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="50"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding BackCommand}" />
+                    <Button Text="Training Records"
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="50"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding TrainingListCommand}" />
+                </StackLayout>
+
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

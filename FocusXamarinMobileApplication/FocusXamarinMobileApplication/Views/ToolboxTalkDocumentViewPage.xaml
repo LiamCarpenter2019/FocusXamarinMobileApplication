@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
+             x:Class="FocusXamarinMobileApplication.Views.ToolboxTalkDocumentViewPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#1E2351">
+            <FlexLayout Direction="Column" BackgroundColor="#1E2351" Padding="10" FlexLayout.Basis="100%">
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="100%" Padding="10">
+                    <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding ProjectName}"
+                                   HorizontalOptions="StartAndExpand"
+                                   TextColor="White" />
+                            <Label Text="{Binding ProjectDate}"
+                                   HorizontalOptions="EndAndExpand"
+                                   TextColor="White" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="55%"
+                                 Orientation="Vertical"
+                                 IsVisible="{Binding ShowSection2}">
+                        <StackLayout>
+                            <syncfusion:SfPdfViewer x:Name="pdfViewerControl2"
+                                                    BackgroundColor="White"
+                                                    MaximumZoomPercentage="300"
+                                                    InputFileStream="{Binding PdfDocumentStream}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="{Binding ShowButtons}">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Minutes taken "
+                                       HorizontalOptions="Start"
+                                       TextColor="White" />
+                                <Entry Keyboard="Numeric"
+                                       Text="{Binding MinutesTaken}"
+                                       HorizontalOptions="FillAndExpand"
+                                       MinimumWidthRequest="300"
+                                       BackgroundColor="#1A142E"
+                                       TextColor="White" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Button Text="Sign"
+                                        BackgroundColor="Green"
+                                        TextColor="White"
+                                        Command="{Binding Submit}"
+                                        FlexLayout.Basis="50%"
+                                        HorizontalOptions="FillAndExpand" />
+                                <Button Text="Done" BackgroundColor="Red"
+                                        TextColor="White"
+                                        FlexLayout.Basis="50%"
+                                        HorizontalOptions="FillAndExpand"
+                                        Command="{Binding Cancel}" />
+                            </StackLayout>
+                        </StackLayout>
+                        <ActivityIndicator IsRunning="{Binding IsLoading}" Color="White" />
+                    </StackLayout>
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

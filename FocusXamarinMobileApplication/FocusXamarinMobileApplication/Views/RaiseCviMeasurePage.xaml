@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.RaiseCviMeasurePage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="10" FlexLayout.Basis="100%">
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="10%">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                       HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                       FontSize="Large" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label XAlign="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                       Text="Cvi Measures" FontSize="Large" TextColor="White" HeightRequest="30" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="15%" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="10">
+                <Label Text="Confirmation of verbal instruction" TextColor="White" />
+                <StackLayout FlexLayout.Basis="20%" Orientation="Horizontal" VerticalOptions="FillAndExpand">
+                    <Editor Text="{Binding CurrentCvi.ConfirmationOfVerbalInstructions}" TextColor="White"
+                            BackgroundColor="#1A142E"
+                            FlexLayout.Basis="80%" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                    <ImageButton Source="{Binding CameraImage}" HeightRequest="50" WidthRequest="50"
+                                 Command="{Binding TakePhoto}" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="10%"
+                         Padding="10"
+                         HorizontalOptions="FillAndExpand"
+                         Orientation="Horizontal">
+                <Switch IsToggled="{Binding CurrentCvi.DelayToProgramme}" HorizontalOptions="Start" />
+                <Label Text="Delay to programme" TextColor="White" HorizontalOptions="Start" />
+                <Switch IsToggled="{Binding CurrentCvi.ChageInCost}" HorizontalOptions="EndAndExpand" />
+                <Label Text="Change to cost" TextColor="White" HorizontalOptions="StartAndExpand" />
+                <Switch IsToggled="{Binding CurrentCvi.Urgent}" HorizontalOptions="EndAndExpand" />
+                <Label Text="Urgent" TextColor="White" HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="10%" Padding="5">
+                <Entry Placeholder="Search" PlaceholderColor="White" Text="{Binding FilterText}" TextColor="White"
+                       BackgroundColor="#1A142E" />
+                <Label Text="Please select a Measure below to edit" TextColor="Red" HorizontalOptions="FillAndExpand"
+                       Padding="5" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="25%" Padding="10">
+                <ListView ItemsSource="{Binding AllCviRates}"
+                          HasUnevenRows="true"
+                          RowHeight="75"
+                          SeparatorColor="White"
+                          ItemSelected="UserSelectedCommand"
+                          SelectedItem="{Binding SelectedRate}"
+                          BackgroundColor="#1A142E">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Code"
+                                               TextColor="Red"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Start" />
+                                        <Label Text="{Binding Header}"
+                                               TextColor="White"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Start" />
+                                        <Label Text="{Binding Description}"
+                                               TextColor="White"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Start" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Qty"
+                                               TextColor="Red"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding Qty}"
+                                               TextColor="White"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="CenterAndExpand" />
+                                        <Label Text="{Binding BaseUnit}"
+                                               TextColor="Green"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="CenterAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="10%" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="10">
+                <Label Text="PLease detail the start location" TextColor="White" />
+                <Editor Text="{Binding CurrentCvi.FromAddress}" TextColor="White" BackgroundColor="#1A142E"
+                        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="10%" HorizontalOptions="FillAndExpand" Orientation="Vertical" Padding="10">
+                <Label Text="Please detail the end location" TextColor="White" />
+                <Editor Text="{Binding CurrentCvi.ToAddress}" TextColor="White" BackgroundColor="#1A142E"
+                        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal">
+                <Button x:Name="btnSubmit" Text="Next" BackgroundColor="green" TextColor="White"
+                        Command="{Binding Submit}" VerticalOptions="FillAndExpand" FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand" />
+                <Button x:Name="btnCancel" Text="Delete" VerticalOptions="FillAndExpand" BackgroundColor="Red"
+                        TextColor="White"
+                        Command="{Binding Cancel}" HeightRequest="50" FlexLayout.Basis="50%"
+                        HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

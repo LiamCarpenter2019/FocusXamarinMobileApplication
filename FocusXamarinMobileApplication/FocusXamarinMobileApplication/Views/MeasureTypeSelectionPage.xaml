@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.MeasureTypeSelectionPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="10" FlexLayout.Basis="100%">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="7%" IsVisible="{Binding ShowSection1}">
+                <StackLayout Orientation="Horizontal" HeightRequest="20">
+                    <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="white" />
+                    <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="white" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="80%"
+                         IsVisible="{Binding ShowSection2}"
+                         Orientation="Vertical">
+                <Button Text="Civils" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding ButtonACommand}"/>
+                <Button Text="ReInstatement"
+                        BackgroundColor="LightGray"
+                        TextColor="Black"
+                        Margin="6"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding ButtonBCommand}"/>
+                <Button Text="Cabling" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonCCommand}"/>
+                <Button Text="Site Support" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonDCommand}" />
+                <Button Text="Lead In" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonECommand}" />
+                <Button Text="Pole" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonFCommand}" />
+                <Button Text="Chamber" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonICommand}" />
+                <Button Text="Duct" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonGCommand}" />
+                <Button Text="Distribution Point" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonHCommand}" />
+                <Button Text="UG Cabling and Route Proving" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonJCommand}" />
+               <Button Text="Overhead Cable" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand" Command="{Binding ButtonKCommand}" />
+                <Button Text="Backhaul Joint Enclosure" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand"  Command="{Binding ButtonLCommand}"/>
+                 <Button Text="Fiber Joint Enclosure" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand"  Command="{Binding ButtonMCommand}"/>
+                 <Button Text="Distribution Joint Enclosure" BackgroundColor="LightGray" TextColor="Black" Margin="6"
+                        HorizontalOptions="FillAndExpand"  Command="{Binding ButtonNCommand}"/>
+                <Button FlexLayout.Basis="100%" Margin="12" Text="Done" BackgroundColor="Red" TextColor="White"
+                        Command="{Binding BackCommand}" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>
+

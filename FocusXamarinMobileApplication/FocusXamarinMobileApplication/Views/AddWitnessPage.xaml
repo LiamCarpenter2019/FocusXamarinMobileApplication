@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.AddWitnessPage" NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" BackgroundColor="#292F62" Padding="5" HorizontalOptions="Center"
+                    FlexLayout.Basis="90%">
+            <FlexLayout Direction="Column" FlexLayout.Basis="90%">
+                <StackLayout Padding="5" FlexLayout.Basis="15%">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand" FontSize="Large" />
+                        <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                               FontSize="Large" />
+                    </StackLayout>
+                    <Button Text="Back" Command="{Binding GoBack}" HorizontalOptions="Start"
+                            VerticalOptions="Center" HeightRequest="40" WidthRequest="100" Padding="5"
+                            BackgroundColor="LightGray" TextColor="Black" />
+                </StackLayout>
+                <ScrollView>
+                    <StackLayout Padding="5" BackgroundColor="#292F62">
+                        <Entry Placeholder="Full Name" Text="{Binding NewWitness.Name}" HeightRequest="50"
+                               BackgroundColor="#1A142E" TextColor="White" />
+                        <Entry x:Name="txtAddress" Placeholder="Address" Keyboard="Text" HeightRequest="100"
+                               BackgroundColor="#1A142E" TextColor="White"
+                               Text="{Binding NewWitness.Address}" />
+                        <Entry x:Name="txtContactNumber" Keyboard="Telephone" Placeholder="Contact Number"
+                               BackgroundColor="#1A142E" TextColor="White"
+                               HeightRequest="50"
+                               Text="{Binding NewWitness.Number}" />
+                        <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email" HeightRequest="50"
+                               BackgroundColor="#1A142E" TextColor="White"
+                               Text="{Binding NewWitness.Email}" />
+                        <Grid x:Name="GridStatementDate" IsVisible="True" HeightRequest="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="3*" />
+                                <ColumnDefinition Width="2*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Statement Date" Grid.Column="0" HeightRequest="50" />
+                            <DatePicker x:Name="statementDate" Grid.Column="1" Date="{Binding WitnessDate}"
+                                        BackgroundColor="#1A142E" TextColor="White"
+                                        HeightRequest="50" />
+                            <Label Text="  Statement Time" Grid.Column="2" HeightRequest="50" />
+                            <TimePicker x:Name="statementTime" Grid.Column="3" Time="{Binding WitnessTime}"
+                                        BackgroundColor="#1A142E" TextColor="White"
+                                        HeightRequest="50" />
+                        </Grid>
+                        <Label FontSize="15" Text="Statement:" />
+                        <Editor x:Name="StatementNotes" HeightRequest="230" Text="{Binding NewWitness.Statement}"
+                                BackgroundColor="#1A142E" TextColor="White" />
+                        <StackLayout Orientation="Horizontal" FlexLayout.Basis="Auto">
+                            <Button Command="{Binding AddWitnessCommand}" Text="Add" BackgroundColor="Green"
+                                    TextColor="White"
+                                    HorizontalOptions="FillAndExpand" />
+                            <Button Command="{Binding GoBack}" Text="Cancel"
+                                    BackgroundColor="Red"
+                                    TextColor="White"
+                                    HorizontalOptions="FillAndExpand" />
+
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </FlexLayout>
+        </ScrollView>
+
+
+    </ContentPage.Content>
+</ContentPage>

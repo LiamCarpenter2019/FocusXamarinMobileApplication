@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SelectDamageDetailsPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="#292F62" Padding="10,10,10,10">
+            <StackLayout Orientation="Horizontal" HeightRequest="30">
+                <Label Text="{Binding ProjectName}" TextColor="White" VerticalTextAlignment="Start"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="Large" />
+                <Label Text="{Binding ProjectDate}" TextColor="White" VerticalTextAlignment="End"
+                       HorizontalOptions="End"
+                       FontSize="Large" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Back" Command="{Binding GoBack}"
+                        HorizontalOptions="StartAndExpand"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        HeightRequest="50"
+                        WidthRequest="100" />
+            </StackLayout>
+            <Label XAlign="Center"
+                   TextColor="White"
+                   Text="Select Details to view" />
+            <ListView x:Name="listSelectInvestigationDetails"
+                      ItemsSource="{Binding InvestigationDetailList}"
+                      ItemSelected="DamageItemSelected"
+                      SelectedItem="{Binding DamageToInvestigate}"
+                      SeparatorColor="White"
+                      BackgroundColor="#1A142E"
+                      RowHeight="150">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical"
+                                         Padding="10">
+                                <StackLayout Orientation="Vertical"
+                                             VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding ProjectName}"
+                                           TextColor="White"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding InvestigationId}"
+                                           TextColor="White"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding InvestigatorName}"
+                                           TextColor="White"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding InvestigationDate}"
+                                           TextColor="White"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding CurrentInvestigationStatus}"
+                                           TextColor="White"
+                                           HorizontalOptions="CenterAndExpand"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

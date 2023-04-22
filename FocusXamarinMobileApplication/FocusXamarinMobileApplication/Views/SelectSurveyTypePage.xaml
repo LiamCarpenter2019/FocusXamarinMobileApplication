@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SelectSurveyTypePage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" FlexLayout.Basis="100%" BackgroundColor="#292F62" Padding="10">
+            <StackLayout FlexLayout.Basis="10%" Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" />
+                </StackLayout>
+                <Button Text="Back" Command="{Binding GoBack}" HorizontalOptions="Start"
+                        VerticalOptions="Center" HeightRequest="40" Padding="30,0" Margin="10" />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="CenterAndExpand">
+                <Button x:Name="btnPreSiteCivilEngineering" Margin="0,10" Text="Street Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding CivilEngineerimg}"
+                        IsVisible="{Binding CivilsVisibility}"
+                        VerticalOptions="StartAndExpand"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPreSitePremisis" Margin="0,10"
+                        Text="Premises Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PreSitePremisesCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PreSitePremisesVisibility}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPreSitePole"
+                        Margin="0,10"
+                        Text="Pole Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PreSitePoleCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PreSitePoleButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPreSitePolePia"
+                        Margin="0,10"
+                        Text="Pole Pia Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PreSitePiaPoleCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PreSitePiaPoleButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPreSiteChamber"
+                        Margin="0,10"
+                        Text="Chamber Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PreSiteChamberCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PreSiteChamberButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPreSiteChamberPia"
+                        Margin="0,10"
+                        Text="Chamber PIA Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PreSitePiaChamberCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PreSitePiaChamberButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPreSiteDuct"
+                        Margin="0,10"
+                        Text="Duct Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PreSiteDuctCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PreSiteDuctButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPreSiteDuctPia"
+                        Margin="0,10"
+                        Text="Duct PIA Survey"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PreSitePiaDuctCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PreSitePiaDuctButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnChamber"
+                        Margin="0,10"
+                        Text="Derby University"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding ChamberAuditCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding ChamberSurveyVisibility}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnSED"
+                        Margin="0,10"
+                        Text="Special Engineering Difficulties"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding SED}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding SEDVisibility}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnInternal"
+                        Margin="0,10"
+                        Text="Internal"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding Internal}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding InternalVisibility}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPermitToDig"
+                        Margin="0,10"
+                        Text="Permit to Work"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding DigPermit}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PermitToDigButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnVertishorePermit"
+                        Margin="0,10"
+                        Text="Vertishore premit to work"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding VertishorePermitCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding VertishorePermitToDigButtonsVisible}"
+                        FlexLayout.Basis="10%" />
+             
+                <Button x:Name="btnClearStreet"
+                        Margin="0,10"
+                        Text="Street Clear"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding ClearStreetCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding ClearStreetButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnPolesBuilt"
+                        Margin="0,10"
+                        Text="Pole"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding PoleAsBuiltCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding PoleAsBuiltButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnChamberAsBuilt"
+                        Margin="0,10"
+                        Text="Chamber"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding ChamberAsBuiltCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding ChamberAsBuiltButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnDPAsBuilt"
+                        Margin="0,10"
+                        Text="Distribution point"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding DPAsBuiltCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding DpAsBuiltButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnDJEAsBuilt"
+                        Margin="0,10"
+                        Text="Distribution joint enclosure"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding DJEAsBuiltCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding DJEAsBuiltButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnFJFEAsBuilt"
+                        Margin="0,10"
+                        Text="Fibre joint enclosure"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding FJEAsBuiltCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding FJEAsBuiltButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                <Button x:Name="btnBJEAsBuilt"
+                        Margin="0,10"
+                        Text="Backhaul joint enclosure"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding BJEAsBuiltCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding BJEAsBuiltButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                 <Button x:Name="btnRemedials"
+                        Margin="0,10"
+                        Text="Remedials"
+                        Style="{DynamicResource buttonStyles}"
+                        Command="{Binding RemedialsCommand}"
+                        VerticalOptions="StartAndExpand"
+                        IsVisible="{Binding RemedialsButtonVisible}"
+                        FlexLayout.Basis="10%" />
+                
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

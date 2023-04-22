@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:helpers="clr-namespace:FocusXamarinMobileApplication.Helpers;assembly=FocusXamarinMobileApplication"
+             x:Class="FocusXamarinMobileApplication.Views.MapWithPinsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView Orientation="Both">
+            <StackLayout Orientation="Vertical" BackgroundColor="#292F62" Padding="20,20,20,20">
+                <StackLayout Orientation="Horizontal" HeightRequest="30">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start"
+                           HorizontalOptions="StartAndExpand"
+                           FontSize="Large" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                           FontSize="Large" />
+                </StackLayout>
+                <Label XAlign="Center" Style="{StaticResource listHeadingStyle}">Add Location</Label>
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                    <helpers:CustomMap x:Name="customMap" MapType="Street" WidthRequest="500" HeightRequest="700"
+                                       MapClicked="OnMapClicked" />
+
+                    <!--<maps:Map x:Name="map"
+                          MapClicked="OnMapClicked"
+                          MapType="Hybrid"
+                          ItemsSource="{Binding Locations}">
+                     Alternatively, set ItemTemplateSelector to MapItemTemplateSelector 
+                    <maps:Map.ItemTemplate>
+                        <DataTemplate>
+                            <maps:Pin Position="{Binding Position}"
+                                      Address="{Binding Address}"
+                                      Label="{Binding Description}" />
+                        </DataTemplate>
+                    </maps:Map.ItemTemplate>
+                </maps:Map>-->
+                </StackLayout>
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="20,20,20,20">
+                    <Label Text="Title" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"
+                           HorizontalTextAlignment="Center" />
+
+                    <Entry Text="{Binding LocationInputText}" HorizontalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" FontSize="Large" WidthRequest="500" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button Text="Save" Clicked="StoreLocation" Style="{DynamicResource buttonYesStyle}"
+                            WidthRequest="300" />
+                    <Button Text="Cancel" Command="{Binding NavBack}" Style="{DynamicResource buttonNoStyle}"
+                            WidthRequest="300" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

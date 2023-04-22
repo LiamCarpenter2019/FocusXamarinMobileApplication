@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.SiteInspectionResultPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#1E2351" FlexLayout.Basis="95%" Padding="10">
+            <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" Padding="10" IsVisible="{Binding ShowSection1}">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Site Inspection" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="10%" Orientation="Vertical" Padding="10">
+                <Label Text="{Binding GangLeaderName}" TextColor="White" HorizontalOptions="StartAndExpand"
+                       IsVisible="{Binding ShowSection2}" />
+                <StackLayout Orientation="Horizontal" IsVisible="{Binding ShowSection2}">
+                    <Label Text="{Binding StartTime}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding EndTime}" TextColor="White" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="{Binding TimeTaken}" TextColor="White" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" Padding="10" IsVisible="{Binding ShowSection2}">
+                <Label Text="{Binding GpsCoOrds}" TextColor="White" HorizontalOptions="FillAndExpand" />
+                <Label Text="{Binding Overallscore}" TextColor="White" HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="55%" Padding="10" Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Non Conformance" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding NonConformance}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,20" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Inadequicies" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding Inadequiecies}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="General site tidiness" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding GeneralSiteTidiness}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Documentation" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding Documentation}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Equipment, PLant And Vehicles" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding EqupPlantVeh}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="PPE" TextColor="White" FlexLayout.Basis="50%" HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding PPE}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Hazzards - Highway Working" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding HighwayWorking}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Hazzards - Undergroung Utilitities" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding UnderGroundUtilities}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Hazards - Excavation Chambers" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding ExcavationChambers}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Enviromental and Waste Manaegment" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding EnviromentalWasteManaegment}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,10" IsVisible="{Binding ShowSection4}">
+                    <Label Text="Method Statement CQC" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="StartAndExpand" />
+                    <Label Text="{Binding MethodStatement}" TextColor="White" FlexLayout.Basis="50%"
+                           HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="15%" Padding="10">
+                <Label Text="Additional Comments" TextColor="White" IsVisible="{Binding ShowSection5}" />
+                <Editor Text="{Binding Comments}" TextColor="White" HeightRequest="100"
+                        HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowSection5}" BackgroundColor="#1A142E" />
+            </StackLayout>
+
+            <FlexLayout FlexLayout.Basis="5%" JustifyContent="Center" IsVisible="{Binding ShowSection6}">
+                <Button FlexLayout.Basis="50%" Text="{Binding SubmitButtonText}" BackgroundColor="Green" Margin="3"
+                        TextColor="White" HeightRequest="40"
+                        Command="{Binding StartNewAudit}" />
+                <Button FlexLayout.Basis="50%" HeightRequest="40" Text="Exit" BackgroundColor="Red" Margin="3"
+                        TextColor="White"
+                        Command="{Binding Cancel}" />
+            </FlexLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

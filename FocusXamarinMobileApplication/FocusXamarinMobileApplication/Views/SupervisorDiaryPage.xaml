@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false" x:Class="FocusXamarinMobileApplication.Views.SupervisorDiaryPage">
+    <ContentPage.Content>
+
+        <FlexLayout FlexLayout.Grow="1" Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62"
+                    Padding="10,10,10,10" FlexLayout.Basis="100%">
+            <StackLayout FlexLayout.Basis="10%" Orientation="Vertical">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="5">
+                    <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="Supervisor Diary" FontSize="Large"
+                           TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" FlexLayout.Basis="7%" Padding="10">
+                    <Button HorizontalOptions="Start"
+                            Text="Back" BackgroundColor="LightGray" WidthRequest="100" HeightRequest="50"
+                            TextColor="Black"
+                            Command="{Binding Cancel}" Padding="10" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="10%" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <StackLayout FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="Start Time" FontSize="Large"
+                           TextColor="White" />
+                    <TimePicker HorizontalOptions="CenterAndExpand" Time="{Binding Path=TimeOnSite, Mode=TwoWay}"
+                                TextColor="White" BackgroundColor="#1A142E" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="End Time" FontSize="Large"
+                           TextColor="White" />
+                    <TimePicker HorizontalOptions="CenterAndExpand" Time="{Binding Path=TimeOffSite, Mode=TwoWay}"
+                                TextColor="White" BackgroundColor="#1A142E" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="35%" HorizontalOptions="FillAndExpand" Padding="10">
+                <Editor TextColor="White" BackgroundColor="#1A142E" VerticalOptions="FillAndExpand"
+                        Text="{Binding Path=DiaryText, Mode=TwoWay}" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="35%" Padding="10">
+                <ListView x:Name="listView"
+                          SeparatorColor="White"
+                          HorizontalOptions="FillAndExpand"
+                          ItemsSource="{Binding ProjectDiaries}"
+                          BackgroundColor="#1A142E"
+                          RowHeight="150">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell StyleId="nostyle">
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Project Name" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding ProjectName}" TextColor="White"
+                                               HorizontalOptions="StartAndExpand" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Time on site" TextColor="Red" />
+                                            <Label Text="{Binding StartTime}" TextColor="White" />
+                                        </StackLayout>
+                                        <StackLayout FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Time off site" TextColor="Red" />
+                                            <Label Text="{Binding Endtime}" TextColor="White" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" IsVisible="false">
+                                        <Label Text="Notes" TextColor="Red" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding Notes}" TextColor="White"
+                                               HorizontalOptions="StartAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%" HorizontalOptions="CenterAndExpand" Padding="3">
+                <Button FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand"
+                        Text="Submit" BackgroundColor="Green" TextColor="White"
+                        Command="{Binding Submit}" IsVisible="{Binding ShowSaveButton}"  />
+                <Button FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand"
+                        Text="Upload" BackgroundColor="Green" TextColor="White"
+                        Command="{Binding Upload}" IsVisible="{Binding ShowUploadButton}" />
+            </StackLayout>
+            <ActivityIndicator Color="White" IsRunning="{Binding IsLoading}" />
+        </FlexLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

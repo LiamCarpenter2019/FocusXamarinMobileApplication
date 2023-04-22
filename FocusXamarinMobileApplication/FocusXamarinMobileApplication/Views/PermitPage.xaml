@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.PermitPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <FlexLayout Direction="column" BackgroundColor="#1E2351" Padding="10" AlignContent="Center"
+                        FlexLayout.Basis="100%">
+                <StackLayout FlexLayout.Basis="5%"
+                             Orientation="Vertical"
+                             IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" TextColor="White" HorizontalOptions="StartAndExpand" />
+                        <Label Text="{Binding ProjectDate}" TextColor="White" HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="5%" Margin="5"
+                             IsVisible="{Binding ShowSection2}" />
+
+                <StackLayout FlexLayout.Basis="40%"
+                             Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand">
+                    <Image Source="{Binding SignatureAimg}"
+                           HeightRequest="200"
+                           Margin="10"
+                           HorizontalOptions="FillAndExpand"
+                           BackgroundColor="#1A142E" />
+
+                    <Label Text="{Binding SignedByA}"
+                           TextColor="White"
+                           Margin="10"
+                           HorizontalOptions="FillAndExpand" />
+
+                    <Button Text="{Binding SignatureAButtonText}"
+                            TextColor="Black"
+                            Margin="10"
+                            WidthRequest="100"
+                            BackgroundColor="LightGray"
+                            Command="{Binding SignAsSOperative}" />
+
+                </StackLayout>
+
+
+                <StackLayout FlexLayout.Basis="35%"
+                             Orientation="Vertical"
+                             IsVisible="{Binding ShowSection4}"
+                             HorizontalOptions="FillAndExpand">
+
+                    <Image Source="{Binding SignatureBimg}"
+                           HeightRequest="200"
+                           Margin="10"
+                           HorizontalOptions="FillAndExpand"
+                           BackgroundColor="#1A142E" />
+                    <Label Text="{Binding SignedByA}"
+                           Margin="10"
+                           TextColor="White" />
+                    <Button Text="{Binding SignatureBButtonText}" TextColor="Black" Margin="10"
+                            BackgroundColor="LightGray"
+                            Command="{Binding SignAsSupervisor}" />
+
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="5%"
+                             IsVisible="{Binding ShowSection5}">
+                    <Label Text="{Binding PermitStatus}"
+                           TextColor="White"
+                           BackgroundColor="{Binding PermitColour}"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             FlexLayout.Basis="5%"
+                             IsVisible="{Binding ShowSection6}">
+                    <Button FlexLayout.Basis="50%"
+                            Margin="2"
+                            Text="Submit"
+                            BackgroundColor="Green"
+                            HorizontalOptions="FillAndExpand"
+                            TextColor="White"
+                            Command="{Binding Submit}" />
+                    <Button FlexLayout.Basis="50%"
+                            Margin="2"
+                            Text="Done"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding Cancel}" />
+                </StackLayout>
+
+            </FlexLayout>
+
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

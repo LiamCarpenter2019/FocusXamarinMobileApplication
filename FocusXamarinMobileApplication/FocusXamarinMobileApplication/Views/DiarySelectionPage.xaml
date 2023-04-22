@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.DiarySelectionPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62" Padding="10,5,10,5"
+                    FlexLayout.Basis="100%">
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" HeightRequest="50">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                       HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                       FontSize="Large" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0,5,0,5" FlexLayout.Basis="5%">
+                <Label XAlign="Center" VerticalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand" Text="Diary Selection" FontSize="Large" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0,5,0,5">
+                <Button Text="Menu" TextColor="Black" WidthRequest="100" HeightRequest="50" BackgroundColor="LightGray"
+                        Command="{Binding ReturnToMenuFromDiary}" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="20%" Padding="10">
+                <FlexLayout Direction="Row" IsVisible="true">
+                    <Image Source="{Binding InputDiary}" HeightRequest="130" WidthRequest="100" Margin="10,0,10,0" />
+                    <Button Text="Diary" TextColor="Black" WidthRequest="100" BackgroundColor="LightGray"
+                            FlexLayout.Basis="80%" Command="{Binding InputDiaryScreen}" />
+                    <Image Source="{Binding GreenTickJuly17v2}" HeightRequest="100" WidthRequest="100"
+                           IsVisible="{Binding DiaryComplete}" />
+                </FlexLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="20%" Padding="10">
+                <FlexLayout Direction="Row" IsVisible="true">
+                    <Image Source="{Binding DelaysImage}" HeightRequest="130" WidthRequest="100" Margin="10,0,10,0" />
+                    <Button Text="Delays" TextColor="Black" WidthRequest="100" FlexLayout.Basis="60%"
+                            BackgroundColor="LightGray" Command="{Binding Delays}" Margin="0,0,10,0" />
+                    <Button Text="No Delays" TextColor="Black" WidthRequest="100" FlexLayout.Basis="20%"
+                            BackgroundColor="LightGray" Command="{Binding NoDelays}" />
+                    <Image Source="{Binding GreenTickJuly17v2}" HeightRequest="100" WidthRequest="100"
+                           IsVisible="{Binding DelaysComplete}" />
+                </FlexLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="20%" Padding="10">
+                <FlexLayout Direction="Row" IsVisible="true">
+                    <Image Source="{Binding AddWorks}" HeightRequest="130" WidthRequest="100" Margin="10,0,10,0" />
+                    <Button Text="Additional Works" TextColor="Black" WidthRequest="100" BackgroundColor="LightGray"
+                            Margin="0,0,10,0" FlexLayout.Basis="60%" Command="{Binding Works}" />
+                    <Button Text="No Additional Works" TextColor="Black" WidthRequest="100" BackgroundColor="LightGray"
+                            FlexLayout.Basis="20%" Command="{Binding NoWorks}" />
+                    <Image Source="{Binding GreenTickJuly17v2}" HeightRequest="100" WidthRequest="100"
+                           IsVisible="{Binding AdditionalWorksComplete}" />
+                </FlexLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="20%" Padding="10">
+                <FlexLayout Direction="Row" IsVisible="{Binding ShowPayrollCommentsButton}">
+                    <Image Source="{Binding AddWorks}" HeightRequest="130" WidthRequest="100" Margin="10,0,10,0" />
+                    <Button Text="Payroll" TextColor="Black" WidthRequest="100" BackgroundColor="LightGray"
+                            FlexLayout.Basis="80%" Command="{Binding Payroll}" />
+                    <Image Source="{Binding GreenTickJuly17v2}" HeightRequest="100" WidthRequest="100"
+                           IsVisible="{Binding PayrollCommentsComplete}" />
+                </FlexLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="50">
+                <Button x:Name="btnSubmit" Text="Approve" BackgroundColor="green" TextColor="White"
+                        Command="{Binding ApproveDiary}" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                        IsVisible="{Binding ShowUpload}" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

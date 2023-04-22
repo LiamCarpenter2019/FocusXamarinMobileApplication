@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.UtilityDamagesNavPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" BackgroundColor="#292F62" Padding="10"
+                    HorizontalOptions="Center">
+
+            <FlexLayout Direction="Row" JustifyContent="Center" FlexLayout.Grow="1">
+                <FlexLayout Direction="Column" FlexLayout.Basis="90%">
+
+                    <StackLayout FlexLayout.Grow="1">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding ProjectName}" TextColor="White" VerticalTextAlignment="Center"
+                                   HorizontalOptions="StartAndExpand" FontSize="Large" />
+                            <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" TextColor="White"
+                                   HorizontalOptions="End"
+                                   FontSize="Large" />
+                        </StackLayout>
+                        <Button Text="Back" Command="{Binding GoBack}" HorizontalOptions="Start"
+                                VerticalOptions="Center" HeightRequest="50" WidthRequest="100" Padding="30,0"
+                                Margin="10" />
+                    </StackLayout>
+                    <FlexLayout Direction="Column" FlexLayout.Grow="1" JustifyContent="Center">
+                        <Button x:Name="btnRegister" Margin="0,10" Text="Register New Utility Damage"
+                                HeightRequest="50" Command="{Binding RegisterDamage}" />
+                        <Button x:Name="btnInvestigate" Margin="0,10" Text="Investigate Utility Damage"
+                                HeightRequest="50" Command="{Binding InvestigateDamage}" />
+                    </FlexLayout>
+                    <StackLayout FlexLayout.Basis="25%">
+                        <FlexLayout Margin="0,10" IsVisible="{Binding ShowSubmissionButton}" FlexLayout.Basis="15%">
+                            <Button Text="{Binding SavedDamageCount, StringFormat='Submit Saved Damage: {0}'}"
+                                    Command="{Binding SubmitSavedDamage}" Style="{DynamicResource buttonYesStyle}"
+                                    FlexLayout.Basis="100%" />
+                        </FlexLayout>
+                        <Label Text="Submitting. Please wait..." HorizontalTextAlignment="Center"
+                               IsVisible="{Binding IsLoading}" />
+                        <ActivityIndicator HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                           IsRunning="{Binding IsLoading}" Color="White" />
+                    </StackLayout>
+                </FlexLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

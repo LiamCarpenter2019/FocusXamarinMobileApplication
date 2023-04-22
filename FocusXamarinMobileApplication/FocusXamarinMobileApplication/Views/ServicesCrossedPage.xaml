@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.ServicesCrossedPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout FlexLayout.Grow="1" Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62"
+                    Padding="10,10,10,10" FlexLayout.Basis="100%">
+            <StackLayout FlexLayout.Basis="25%" IsVisible="{Binding ShowSection1}">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" HeightRequest="30"
+                             Margin="10,20,10,0">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,10,10">
+                    <Button Text="Back" TextColor="Black" WidthRequest="100" HeightRequest="50"
+                            BackgroundColor="LightGray" Command="{Binding Back}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="40"
+                           HorizontalOptions="CenterAndExpand" Text="Services Crossed" FontSize="Large" TextColor="Red" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="65%" IsVisible="{Binding ShowSection2}">
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="16%">
+                    <Label TextColor="white" Text="Electric" HorizontalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding ElectricCrossed}" Keyboard="Numeric" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center" WidthRequest="300" BackgroundColor="#1A142E"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="16%">
+                    <Label TextColor="white" Text="Gas" HorizontalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding GasCrossed}" Keyboard="Numeric" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center" WidthRequest="300" BackgroundColor="#1A142E"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="16%">
+                    <Label TextColor="white" Text="Water" HorizontalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding WaterCrossed}" Keyboard="Numeric" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center" WidthRequest="300" BackgroundColor="#1A142E"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="16%">
+                    <Label TextColor="white" Text="Telecoms" HorizontalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding TelecomsCrossed}" Keyboard="Numeric" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center" WidthRequest="300" BackgroundColor="#1A142E"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="16%">
+                    <Label TextColor="white" Text="Street Lighting" HorizontalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding StreetLightCrossed}" Keyboard="Numeric" HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center" WidthRequest="300" BackgroundColor="#1A142E"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="16%">
+                    <Label TextColor="white" Text="Others" HorizontalOptions="CenterAndExpand" />
+                    <Entry Text="{Binding Other}" HorizontalOptions="CenterAndExpand" Keyboard="Numeric"
+                           WidthRequest="300" HorizontalTextAlignment="Center" BackgroundColor="#1A142E"
+                           TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="10%" IsVisible="{Binding ShowSection3}">
+                <StackLayout Orientation="Horizontal" Margin="10">
+                    <Button Text="Submit" TextColor="white" BackgroundColor="green" HorizontalOptions="FillAndExpand"
+                            FlexLayout.Basis="50%" Command="{Binding Submit}" />
+                    <Button Text="No services crossed" TextColor="Black" BackgroundColor="LightGray" WidthRequest="350"
+                            FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Command="{Binding Cancel}" />
+                </StackLayout>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

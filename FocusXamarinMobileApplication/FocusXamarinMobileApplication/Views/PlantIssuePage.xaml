@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false" x:Class="FocusXamarinMobileApplication.Views.PlantIssuePage">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" BackgroundColor="#1E2351" Padding="10">
+            <FlexLayout Direction="Column" FlexLayout.Basis="95%" Padding="10">
+                <StackLayout FlexLayout.Basis="5%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White"
+                               IsVisible="{Binding ShowSection1}" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White"
+                               IsVisible="{Binding ShowSection1}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Plant Issue" HorizontalOptions="CenterAndExpand" TextColor="White"
+                               IsVisible="{Binding ShowSection1}" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Padding="10,10,10,10" FlexLayout.Basis="20%"
+                             IsVisible="{Binding ShowSection2}">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" Padding="10">
+                        <StackLayout FlexLayout.Basis="33%" Orientation="Vertical" HorizontalOptions="StartAndExpand"
+                                     IsVisible="{Binding ShowSection2}">
+                            <Label Text="Owner" TextColor="Red" HorizontalOptions="StartAndExpand"
+                                   IsVisible="{Binding ShowSection2}" />
+                            <Label Text="{Binding SelectedPlantItem.Supplier}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" IsVisible="{Binding ShowSection2}" />
+                            <Label Text="Make" TextColor="Red" HorizontalOptions="StartAndExpand"
+                                   IsVisible="{Binding ShowSection2}" />
+                            <Label Text="{Binding SelectedPlantItem.Make}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" IsVisible="{Binding ShowSection2}" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="33%" HorizontalOptions="CenterAndExpand"
+                                     IsVisible="{Binding ShowSection2}">
+                            <Label Text="Serial No" TextColor="Red" HorizontalOptions="StartAndExpand"
+                                   IsVisible="{Binding ShowSection2}" />
+                            <Label Text="{Binding SelectedPlantItem.Serial}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" IsVisible="{Binding ShowSection2}" />
+                            <Label Text="Model" TextColor="Red" HorizontalOptions="StartAndExpand"
+                                   IsVisible="{Binding ShowSection2}" />
+                            <Label Text="{Binding SelectedPlantItem.Model}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" IsVisible="{Binding ShowSection2}" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="33%" HorizontalOptions="EndAndExpand"
+                                     IsVisible="{Binding ShowSection2}">
+                            <Label Text="Type" TextColor="Red" HorizontalOptions="StartAndExpand"
+                                   IsVisible="{Binding ShowSection2}" />
+                            <Label Text="{Binding SelectedPlantItem.Type}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" IsVisible="{Binding ShowSection2}" />
+                            <Label Text="Asset No" TextColor="Red" HorizontalOptions="StartAndExpand"
+                                   IsVisible="{Binding ShowSection2}" />
+                            <Label Text="{Binding SelectedPlantItem.AssetNo}" TextColor="White"
+                                   HorizontalOptions="StartAndExpand" IsVisible="{Binding ShowSection2}" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="10%" Padding="10" Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand" IsVisible="{Binding ShowSection3}">
+                    <Label Text="Comments" TextColor="White" HorizontalOptions="FillAndExpand"
+                           IsVisible="{Binding ShowSection3}" />
+                    <ImageButton BackgroundColor="Transparent" Source="{Binding CameraImage}"
+                                 Command="{Binding TakePhoto}" HorizontalOptions="End"
+                                 IsVisible="{Binding ShowSection3}" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="15%" Padding="10" IsVisible="{Binding ShowSection4}">
+                    <Editor Text="{Binding CurrentPlantIssue.Comments}"
+                            TextColor="White"
+                            BackgroundColor="#1A142E"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand" IsVisible="{Binding ShowSection4}" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="20%" Padding="10" IsVisible="{Binding ShowSection5}">
+                    <Label Text="Detail imact of issue" TextColor="Red" Margin="0,0,0,10"
+                           IsVisible="{Binding ShowSection5}" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="Is the issue stopping the plant item from working safely?"
+                               HorizontalOptions="StartAndExpand" TextColor="White" IsVisible="{Binding ShowSection5}" />
+                        <Button Text="Yes" BackgroundColor="{Binding YesButton1backgroundColour}" WidthRequest="100"
+                                HeightRequest="50" TextColor="Black" Command="{Binding Yb1Command}"
+                                IsVisible="{Binding ShowSection5}" />
+                        <Button Text="No" BackgroundColor="{Binding NoButton1backgroundColour}" WidthRequest="100"
+                                HeightRequest="50" TextColor="Black" Command="{Binding Nb1Command}"
+                                IsVisible="{Binding ShowSection5}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="Is the issue stopping the job" HorizontalOptions="StartAndExpand"
+                               TextColor="White" IsVisible="{Binding ShowSection5}" />
+                        <Button Text="Yes" BackgroundColor="{Binding YesButton2backgroundColour}" WidthRequest="100"
+                                HeightRequest="50" TextColor="Black" Command="{Binding Yb2Command}"
+                                IsVisible="{Binding ShowSection5}" />
+                        <Button Text="No" BackgroundColor="{Binding NoButton2backgroundColour}" WidthRequest="100"
+                                HeightRequest="50" TextColor="Black" Command="{Binding Nb2Command}"
+                                IsVisible="{Binding ShowSection5}" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" FlexLayout.Basis="15%">
+                    <Label Text="Input the location of the item or select GPS" TextColor="White" Margin="0,0,0,10"
+                           IsVisible="{Binding ShowSection5}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Text="{Binding LocationText, Mode=TwoWay}" HorizontalOptions="FillAndExpand"
+                               BackgroundColor="#1A142E" TextColor="White" IsVisible="{Binding ShowSection5}" />
+                        <ImageButton BackgroundColor="Transparent" HeightRequest="50" WidthRequest="50"
+                                     Source="{Binding GpsImage}" Command="{Binding GpsCommand}"
+                                     IsVisible="{Binding ShowSection5}" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal" IsVisible="{Binding ShowSection6}">
+                    <Button Margin="2"
+                            Text="Report issue"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding Submit}" IsVisible="{Binding ShowSection6}" />
+                    <Button Margin="2"
+                            Text="Cancel"
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding Cancel}" IsVisible="{Binding ShowSection6}" />
+                </StackLayout>
+                <ActivityIndicator Color="White" IsRunning="{Binding IsLoading}" HorizontalOptions="CenterAndExpand" />
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

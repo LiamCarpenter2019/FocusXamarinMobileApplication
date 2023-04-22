@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.DailyChecksIssuePage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <FlexLayout Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#1E2351"
+                    Padding="10" FlexLayout.Basis="100%">
+
+            <StackLayout FlexLayout.Basis="15%" IsVisible="{Binding ShowSection1}">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal"
+                             Margin="10">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HeightRequest="40"
+                           HorizontalOptions="CenterAndExpand" Text="{Binding Title}" FontSize="Large"
+                           TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="15%" IsVisible="{Binding ShowSection2}">
+                <Button Text="Issue previously been reported" TextColor="Black" WidthRequest="300" HeightRequest="50"
+                        BackgroundColor="{Binding IssuePreviouslyReportedColour}" HorizontalOptions="StartAndExpand"
+                        Command="{Binding IssueAlreadyReported}" />
+                <ImageButton BackgroundColor="Transparent" HorizontalOptions="End" Source="{Binding CameraImage}"
+                             WidthRequest="50" HeightRequest="50"
+                             Clicked="GoPhoto" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="30%" IsVisible="{Binding ShowSection3}">
+                <Label Text="Please detail the issue" TextColor="White" />
+                <Editor Text="{Binding IssueDetails}" TextColor="White" VerticalOptions="FillAndExpand"
+                        BackgroundColor="#1A142E" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="30%" IsVisible="{Binding ShowSection3}" />
+
+            <StackLayout FlexLayout.Basis="10%" IsVisible="{Binding ShowSection4}" VerticalOptions="EndAndExpand">
+                <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal">
+                    <Button FlexLayout.Basis="50%" Margin="2" Text="Save" BackgroundColor="Green" TextColor="White"
+                            Command="{Binding Submit}" HorizontalOptions="FillAndExpand" />
+                    <Button FlexLayout.Basis="50%" Margin="2" Text="Cancel" BackgroundColor="Red" TextColor="White"
+                            Command="{Binding Cancel}" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsLoading}" Color="White" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

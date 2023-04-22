@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:FocusXamarinMobileApplication.Helpers;assembly=FocusXamarinMobileApplication"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.DesignMapPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" BackgroundColor="#292F62" Padding="10">
+            <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand"
+                       FontSize="Large" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                       FontSize="Large" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand">
+                <Label Style="{StaticResource listHeadingStyle}">Design</Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Survey" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        IsVisible="{Binding ShowSurveyQuestionsButton}" HorizontalOptions="Start" Margin="2"
+                        BackgroundColor="Gray" TextColor="White" x:Name="btnSurveyQuestions"
+                        Command="{Binding GoToSurveyQuestions}" />
+                <Button Text="Design" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        IsVisible="{Binding ShowDesignButton}" HorizontalOptions="Start" Margin="2"
+                        BackgroundColor="Gray" TextColor="White" x:Name="btnDesign" Command="{Binding GoToDesign}" />
+                <Button Text="Location Map" FlexLayout.Basis="20%" HeightRequest="40" WidthRequest="100"
+                        IsVisible="{Binding ShowLocationMapButton}" HorizontalOptions="Start" Margin="2"
+                        BackgroundColor="Gray" TextColor="White" x:Name="btnLocationMap" Command="{Binding GoToMap}" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="80%" Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <!-- <WebView x:Name="PdfView" Source="{Binding DocumentUri}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" HeightRequest="600" WidthRequest="500"/>-->
+                <helpers:PdfWebView x:Name="PdfView" HeightRequest="800" WidthRequest="400" FlexLayout.Basis="80%"
+                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                    MinimumHeightRequest="800" MinimumWidthRequest="400" />
+                <!--<local:CustomWebView Uri="{Binding DocumentUri}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />-->
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

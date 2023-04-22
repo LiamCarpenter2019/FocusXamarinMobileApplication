@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.InvestigateDamagePage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Row" BackgroundColor="#292F62" Padding="10" JustifyContent="Center">
+            <StackLayout x:Name="stkMain" VerticalOptions="Start" FlexLayout.Basis="100%" Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" TextColor="White" FontSize="Large" />
+                    <Label Text="{Binding ProjectDate}" TextColor="White" VerticalTextAlignment="Center"
+                           HorizontalOptions="End"
+                           FontSize="Large" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label XAlign="Center" VerticalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand" Text="Investigation Details" FontSize="Large" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                        <Label Text="Event Id" FontAttributes="Bold" />
+                        <Label Text="{Binding DamageId}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                        <Label Text="Client" FontAttributes="Bold" />
+                        <Label x:Name="lblClient"
+                               Text="{Binding ClientName}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                        <Label Text="Location" FontAttributes="Bold" />
+                        <Label x:Name="lblLocation"
+                               Text="{Binding Location}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="Gang Responsible" FontAttributes="Bold" />
+                <StackLayout HeightRequest="135">
+                    <ListView x:Name="listGangs" SeparatorColor="White" ItemsSource="{Binding GangList}"
+                              ItemSelected="GangSelected">
+                        <ListView.Header>
+                            <FlexLayout BackgroundColor="{StaticResource mainBgColor}">
+                                <Label Text="Date" FontAttributes="Bold" FlexLayout.Basis="20%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Supervisor" FontAttributes="Bold" FlexLayout.Basis="20%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Gang Leader" FontAttributes="Bold" FlexLayout.Basis="20%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Gang Members" FontAttributes="Bold"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </FlexLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <FlexLayout>
+                                        <Label Text="{Binding InputOn}" FlexLayout.Basis="20%"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding SupervisorName}" FlexLayout.Basis="20%"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding GangLeaderName}" FlexLayout.Basis="20%"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding GangResponsibleNames}"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                    </FlexLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" IsVisible="{Binding ShowInjuredPeople}">
+                    <Label Text="Injured People" FontAttributes="Bold" />
+                    <Button Text="Add Injury" Style="{DynamicResource buttonStylesAction}"
+                            WidthRequest="100"
+                            HorizontalOptions="EndAndExpand"
+                            Command="{Binding AddInjuredCommand}" />
+                </StackLayout>
+                <StackLayout HeightRequest="155" IsVisible="{Binding ShowInjuredPeople}">
+                    <ListView x:Name="listInjuries" SeparatorColor="White" ItemsSource="{Binding InjuredPeople}"
+                              ItemSelected="InjuredSelected">
+                        <ListView.Header>
+                            <FlexLayout BackgroundColor="{StaticResource mainBgColor}">
+                                <Label Text="Name" FontAttributes="Bold" FlexLayout.Basis="33%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Position" FontAttributes="Bold" FlexLayout.Basis="33%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Injury" FontAttributes="Bold" FlexLayout.Basis="33%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </FlexLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <FlexLayout>
+                                        <Label Text="{Binding InjuredName}" FlexLayout.Basis="33%"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding Position}" FlexLayout.Basis="33%"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding Injury}" FlexLayout.Basis="33%"
+                                               VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                    </FlexLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Witnesses" FontAttributes="Bold" />
+                    <Button x:Name="AddWitnessTo" Text="Add Witness" HorizontalOptions="EndAndExpand"
+                            WidthRequest="100"
+                            Style="{DynamicResource buttonStylesAction}" Command="{Binding AddWitnessCommand}" />
+                </StackLayout>
+                <StackLayout HeightRequest="135">
+                    <ListView x:Name="listWitnesses" SeparatorColor="White" SeparatorVisibility="Default"
+                              ItemsSource="{Binding Witnesses}">
+                        <ListView.Header>
+                            <FlexLayout BackgroundColor="{StaticResource mainBgColor}">
+                                <Label Text="Name" FontAttributes="Bold" FlexLayout.Basis="30%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Statement" FontAttributes="Bold" FlexLayout.Basis="70%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </FlexLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*" />
+                                            <ColumnDefinition Width="0.7*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Name}" FontAttributes="Bold"
+                                               LineBreakMode="TailTruncation" HorizontalTextAlignment="Center" />
+                                        <Label Grid.Column="1" Text="{Binding Statement}"
+                                               LineBreakMode="TailTruncation" HorizontalTextAlignment="Start" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+
+                <Label Text="Other Personnel Involved" FontAttributes="Bold" />
+                <StackLayout HeightRequest="135">
+                    <ListView x:Name="listThirdParty" SeparatorVisibility="Default"
+                              SeparatorColor="White"
+                              HasUnevenRows="True"
+                              ItemsSource="{Binding ThirdPartyPersonnel}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.3*" />
+                                            <ColumnDefinition Width="0.3*" />
+                                            <ColumnDefinition Width="0.3*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="0.05*" />
+                                            <RowDefinition Height="0.05*" />
+                                            <RowDefinition Height="0.05*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0"
+                                               Text="{Binding Name, StringFormat='Name: {0:N}'}"
+                                               FontAttributes="Bold"
+                                               LineBreakMode="TailTruncation" HorizontalTextAlignment="Center" />
+                                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                                               Text="{Binding Organisation, StringFormat='Organisation: {0:N}'}"
+                                               LineBreakMode="TailTruncation" HorizontalTextAlignment="Center" />
+                                        <Label Grid.Row="1" Grid.Column="0"
+                                               Text="{Binding DateOnSite, StringFormat='Date: {0:N}'}"
+                                               HorizontalTextAlignment="Center" />
+                                        <Label Grid.Row="1" Grid.Column="1"
+                                               Text="{Binding TimeArrived, StringFormat='Arrived: {0:N}'}"
+                                               HorizontalTextAlignment="Center" />
+                                        <Label Grid.Row="1" Grid.Column="2"
+                                               Text="{Binding TimeLeft, StringFormat='Left: {0:N}'}"
+                                               HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding ReasonForVisit, StringFormat='Reason: {0:N}'}"
+                                               Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                                               FontAttributes="Bold"
+                                               LineBreakMode="WordWrap" HorizontalTextAlignment="Center" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                    <Button Text="{Binding BackButtonText}" Command="{Binding GoBack}"
+                            TextColor="White"
+                            Style="{DynamicResource buttonYesStyle}" HorizontalOptions="FillAndExpand"
+                            HeightRequest="50" />
+                    <Button Text="{Binding ForwardButtonText}" Style="{DynamicResource buttonYesStyle}"
+                            TextColor="White"
+                            Command="{Binding DamageDetailsCommand}" HorizontalOptions="FillAndExpand"
+                            HeightRequest="50" />
+
+                </StackLayout>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

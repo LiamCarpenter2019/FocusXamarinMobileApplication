@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SelectInvestigationPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="#292F62" Padding="20,20,20,20">
+            <StackLayout Orientation="Horizontal" HeightRequest="30">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand"
+                       FontSize="Large" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                       FontSize="Large" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Back" Command="{Binding GoBack}" HorizontalOptions="StartAndExpand" HeightRequest="50"
+                        WidthRequest="100" />
+            </StackLayout>
+            <Label XAlign="Center" Style="{StaticResource listHeadingStyle}" Text="Select damage to investigate" />
+            <ListView x:Name="listSelectInvestigation"
+                      ItemsSource="{Binding DamagesToInvestigate}" SeparatorColor="White"
+                      ItemSelected="InvestigationItemSelected"
+                      SelectedItem="{Binding SelectedInvestigation}"
+                      RowHeight="170">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="20, 20, 20, 20">
+                                <StackLayout Orientation="Vertical"
+                                             VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding ProjectName, StringFormat='Project Name: {0}'}"
+                                           TextColor="White"
+                                           HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding DamageId, StringFormat='Damage Id: {0}'}" TextColor="White"
+                                           HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding Location, StringFormat='Location: {0}'}" TextColor="white"
+                                           HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding FullName, StringFormat='Name: {0}'}" TextColor="White"
+                                           HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding DamageType, StringFormat='Type: {0}'}" TextColor="White"
+                                           HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                                           VerticalOptions="CenterAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StandardLibrary.Forms.Views.SelectInvestigationPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Row" BackgroundColor="#292F62" JustifyContent="Center">
+            <StackLayout Padding="0,20" FlexLayout.Basis="90%">
+                <StackLayout FlexLayout.Grow="1">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand" FontSize="Large" />
+                        <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                               FontSize="Large" />
+                    </StackLayout>
+                    <Button Text="Back" Command="{Binding GoBack}" HorizontalOptions="Start" VerticalOptions="Center"
+                            HeightRequest="50" WidthRequest="100" Padding="30,0" Margin="10" />
+                </StackLayout>
+                <ListView x:Name="listSelectInvestigation" ItemsSource="{Binding Col}"
+                          IsGroupingEnabled="True"
+                          GroupDisplayBinding="{Binding Key}"
+                          SeparatorVisibility="Default"
+                          ItemSelected="OnItemSelectedInvestigation"
+                          SeparatorColor="{DynamicResource bgHeading}"
+                          Header="Select Damage To Investigate">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="30">
+                                <StackLayout VerticalOptions="FillAndExpand" Padding="5"
+                                             Style="{DynamicResource listHeadingStyle}">
+                                    <Label Text="{Binding Key}" XAlign="Center"
+                                           VerticalOptions="Center" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.15*" />
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="5*" />
+                                    </Grid.ColumnDefinitions>
+                                    <BoxView Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" VerticalOptions="Fill"
+                                             HorizontalOptions="Fill" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding DamageID, StringFormat='ID: {0}'}" LineBreakMode="TailTruncation" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Location, StringFormat='Location: {0}'}" Font="Small" LineBreakMode="TailTruncation"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding FullName, StringFormat='Name: {0}'}" Font="Small" LineBreakMode="TailTruncation"/>
+                                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding DamageType, StringFormat='Type: {0}'}" Font="Small" LineBreakMode="TailTruncation"/>
+
+                                        <Label Grid.Row="0" Grid.Column="1" Text="Damage Id" LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="0" Grid.Column="2" Text="Location" Font="Small"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1" Grid.Column="1" Text="Full Name" Font="Small"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1" Grid.Column="2" Text="Damage Type" Font="Small"
+                                               LineBreakMode="TailTruncation" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>-->

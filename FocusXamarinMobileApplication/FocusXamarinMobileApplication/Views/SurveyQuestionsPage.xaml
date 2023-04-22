@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:helpers="clr-namespace:FocusXamarinMobileApplication.Helpers;assembly=FocusXamarinMobileApplication"
+             x:Class="FocusXamarinMobileApplication.Views.SurveyQuestionsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml">
+            <DataTemplate x:Key="locationIdentityQuestionTemplate">
+                <ViewCell>
+                    <StackLayout Orientation="Vertical" Padding="5" BackgroundColor="{Binding QuestionTextColour}">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Label Text="{Binding Question}" TextColor="White"
+                                   HeightRequest="45" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="EndAndExpand"
+                                     Padding="5">
+                            <ImageButton
+                                BackgroundColor="Transparent"
+                                x:Name="btnGps"
+                                Source="{Binding GpsImage}"
+                                Clicked="GoGps"
+                                CommandParameter="{Binding .}"
+                                HorizontalOptions="EndAndExpand"
+                                HeightRequest="40"
+                                WidthRequest="50"
+                                IsVisible="true" />
+                            <ImageButton BackgroundColor="Transparent"
+                                         x:Name="btnComments"
+                                         Source="{Binding Documents}"
+                                         Clicked="GoComments"
+                                         CommandParameter="{Binding .}"
+                                         HorizontalOptions="End"
+                                         HeightRequest="40"
+                                         WidthRequest="50" IsVisible="true" />
+                            <ImageButton BackgroundColor="Transparent"
+                                         x:Name="btnQphoto"
+                                         Source="{Binding CameraImage}"
+                                         Clicked="GoPhoto"
+                                         CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="40"
+                                         WidthRequest="50" />
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="freeTextQuestionTemplate">
+                <ViewCell StyleId="nostyle">
+                    <StackLayout Orientation="Vertical" BackgroundColor="{Binding QuestionTextColour}" Padding="10">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" HeightRequest="45"
+                                     Padding="5">
+                            <Label Text="{Binding Question}" TextColor="White" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" HeightRequest="45"
+                                     Padding="5" />
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                <Label Text="Please add a value and press enter to save this value!" />
+                                <Entry x:Name="{Binding QuestionId}" TextColor="White" Keyboard="Numeric"
+                                       Text="{Binding AnswerGiven}" ReturnType="Done" Completed="SaveEntry"
+                                       ReturnCommandParameter="{Binding .}" HorizontalOptions="StartAndExpand"
+                                       HeightRequest="40" VerticalOptions="Center" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnGps" Source="{Binding GpsImage}"
+                                             Clicked="GoGps"
+                                             Margin="5"
+                                             CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand"
+                                             HeightRequest="50"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnComments"
+                                             Source="{Binding Documents}" Clicked="GoComments"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="50"
+                                             Margin="5"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnQphoto"
+                                             Source="{Binding CameraImage}" Clicked="GoPhoto"
+                                             Margin="5"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="50"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="yesNoNaQuestionTemplate">
+                <ViewCell StyleId="nostyle">
+                    <StackLayout Orientation="Vertical" BackgroundColor="{Binding QuestionTextColour}" Padding="10">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" HeightRequest="45"
+                                     Padding="5">
+                            <Label Text="{Binding Question}" TextColor="White" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                <Button x:Name="btnYes" Text="{Binding BtnYesText}" Clicked="GoYesNoNa"
+                                        CommandParameter="{Binding .}" HorizontalOptions="Start" HeightRequest="40"
+                                        WidthRequest="160" BackgroundColor="{Binding BtnYesBgColour}"
+                                        IsVisible="{Binding ShowButtonA}" />
+                                <Button x:Name="btnNo" Text="{Binding BtnNoText}" Clicked="GoYesNoNa"
+                                        CommandParameter="{Binding .}" HorizontalOptions="Start" HeightRequest="40"
+                                        WidthRequest="160" BackgroundColor="{Binding BtnNoBgColour}"
+                                        IsVisible="{Binding ShowButtonB}" />
+                                <Button x:Name="btnNa" Text="{Binding BtnNaText}" Clicked="GoYesNoNa"
+                                        CommandParameter="{Binding .}" HorizontalOptions="Start" HeightRequest="40"
+                                        WidthRequest="160" BackgroundColor="{Binding BtnNaBgColour}"
+                                        IsVisible="{Binding ShowButtonC}" />
+
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnGps" Source="{Binding GpsImage}"
+                                             Clicked="GoGps"
+                                             CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand"
+                                             HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnComments"
+                                             Source="{Binding Documents}" Clicked="GoComments"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnQphoto"
+                                             Source="{Binding CameraImage}" Clicked="GoPhoto"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="multiSelectorQuestionTemplate">
+                <ViewCell StyleId="nostyle">
+                    <StackLayout Orientation="Vertical" BackgroundColor="{Binding QuestionTextColour}" Padding="10">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                     HeightRequest="50" Padding="5">
+                            <Label Text="{Binding Question}" TextColor="White" />
+                        </StackLayout>
+                        <StackLayout x:Name="qrow1" Orientation="Horizontal">
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                <Button x:Name="btnA" Text="{Binding BtnAText}" Clicked="GoMulti"
+                                        CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                        HorizontalOptions="Start" IsVisible="{Binding BtnAHidden}"
+                                        BackgroundColor="{Binding BtnABgColour}" />
+                                <Button x:Name="btnB" Text="{Binding BtnBText}" Clicked="GoMulti"
+                                        CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                        HorizontalOptions="Start" IsVisible="{Binding BtnBHidden}"
+                                        BackgroundColor="{Binding BtnBBgColour}" />
+                                <Button x:Name="btnC" Text="{Binding BtnCText}" Clicked="GoMulti"
+                                        CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                        HorizontalOptions="Start" IsVisible="{Binding BtnCHidden}"
+                                        BackgroundColor="{Binding BtnCBgColour}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnGps" Source="{Binding GpsImage}"
+                                             Clicked="GoGps"
+                                             CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand"
+                                             HeightRequest="40" WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnComments"
+                                             Source="{Binding Documents}" Clicked="GoComments"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnQphoto"
+                                             Source="{Binding CameraImage}" Clicked="GoPhoto"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout x:Name="qrow2" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Button x:Name="btnD" Text="{Binding BtnDText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnDHidden}" BackgroundColor="{Binding BtnDBgColour}" />
+                            <Button x:Name="btnE" Text="{Binding BtnEText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnEHidden}" BackgroundColor="{Binding BtnEBgColour}" />
+                            <Button x:Name="btnF" Text="{Binding BtnFText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnFHidden}" BackgroundColor="{Binding BtnFBgColour}" />
+
+                        </StackLayout>
+                        <StackLayout x:Name="qrow3" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Button x:Name="btnG" Text="{Binding BtnGText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnGHidden}" BackgroundColor="{Binding BtnGBgColour}" />
+                            <Button x:Name="btnH" Text="{Binding BtnHText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnHHidden}" BackgroundColor="{Binding BtnHBgColour}" />
+                            <Button x:Name="btnI" Text="{Binding BtnIText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnIHidden}" BackgroundColor="{Binding BtnIBgColour}" />
+
+                        </StackLayout>
+                        <StackLayout x:Name="qrow4" Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Button x:Name="btnJ" Text="{Binding BtnJText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnJHidden}" BackgroundColor="{Binding BtnJBgColour}" />
+                            <Button x:Name="btnK" Text="{Binding BtnKText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnKHidden}" BackgroundColor="{Binding BtnKBgColour}" />
+                            <Button x:Name="btnL" Text="{Binding BtnLText}" Clicked="GoMulti"
+                                    CommandParameter="{Binding .}" HeightRequest="40" WidthRequest="160"
+                                    IsVisible="{Binding BtnLHidden}" BackgroundColor="{Binding BtnLBgColour}" />
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="ratingQuestionsTemplate">
+                <ViewCell StyleId="nostyle">
+                    <FlexLayout Direction="Column"
+                                Padding="10">
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="StartAndExpand"
+                                     HeightRequest="50"
+                                     Padding="10">
+                            <Label Text="{Binding Question}" TextColor="White"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout x:Name="qrow1" Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="CenterAndExpand" HeightRequest="80" Padding="10">
+                                <ImageButton BackgroundColor="Transparent" x:Name="R10" Source="{Binding Rating10}"
+                                             Clicked="GoRating10"
+                                             CommandParameter="{Binding .}" MinimumHeightRequest="70" WidthRequest="60" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="R9" Source="{Binding Rating9}"
+                                             Clicked="GoRating9"
+                                             CommandParameter="{Binding .}" MinimumHeightRequest="70" WidthRequest="60" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="R8" Source="{Binding Rating8}"
+                                             Clicked="GoRating8"
+                                             CommandParameter="{Binding .}" MinimumHeightRequest="70" WidthRequest="60" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="R7" Source="{Binding Rating7}"
+                                             Clicked="GoRating7"
+                                             CommandParameter="{Binding .}" MinimumHeightRequest="70" WidthRequest="60" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="R6" Source="{Binding Rating6}"
+                                             Clicked="GoRating6"
+                                             CommandParameter="{Binding .}" MinimumHeightRequest="70" WidthRequest="60" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="RNA" Source="{Binding RatingNA}"
+                                             Clicked="GoRatingNA"
+                                             CommandParameter="{Binding .}" MinimumHeightRequest="70" WidthRequest="60" />
+                            </StackLayout>
+                            <StackLayout x:Name="qrow2" Orientation="Horizontal" HorizontalOptions="StartAndExpand"
+                                         VerticalOptions="CenterAndExpand" HeightRequest="80" Padding="10">
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnGps" Source="{Binding GpsImage}"
+                                             Clicked="GoGps"
+                                             CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand"
+                                             HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnComments"
+                                             Source="{Binding Documents}" Clicked="GoComments"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                                <ImageButton BackgroundColor="Transparent" x:Name="btnQphoto"
+                                             Source="{Binding CameraImage}" Clicked="GoPhoto"
+                                             CommandParameter="{Binding .}" HorizontalOptions="End" HeightRequest="40"
+                                             WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </FlexLayout>
+                </ViewCell>
+            </DataTemplate>
+            <helpers:QuestionTemplateSelector x:Key="questionTempleateSelector"
+                                              MultiSelectorQuestionTemplate="{StaticResource multiSelectorQuestionTemplate}"
+                                              RatingQuestionsTemplate="{StaticResource ratingQuestionsTemplate}"
+                                              YesNoNaQuestionTemplate="{StaticResource yesNoNaQuestionTemplate}"
+                                              LocationIdentityQuestionTemplate="{StaticResource locationIdentityQuestionTemplate}"
+                                              FreeTextQuestionTemplate="{StaticResource freeTextQuestionTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical"
+                     BackgroundColor="#292F62"
+                     Padding="20">
+            <StackLayout Orientation="Horizontal"
+                         HeightRequest="30">
+                <Label Text="{Binding ProjectName}"
+                       VerticalTextAlignment="Start"
+                       HorizontalOptions="StartAndExpand" />
+                <Label Text="{Binding ProjectDate}"
+                       VerticalTextAlignment="End"
+                       HorizontalOptions="End" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding ShowPage}">
+                <Button Text="Back" Command="{Binding GoBack}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="110"
+                        IsVisible="{Binding ShowBackButton}" />
+                <Button Text="Asset List"
+                        Command="{Binding GoBack}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="110"
+                        IsVisible="{Binding ShowProjectsButton}" />
+                <Button Text="Design"
+                        Command="{Binding GoToDesign}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="110"
+                        IsVisible="{Binding ShowIfNotAudit}" />
+                <Button Text="Mapping"
+                        Command="{Binding GoToMapping}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="110"
+                        IsVisible="{Binding ShowIfNotAudit}" />
+                <Button Text="Asset Location"
+                        Command="{Binding GoToGps}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="110"
+                        IsVisible="{Binding ShowIfNotAudit}" />
+                <Button Text="Overview"
+                        Command="{Binding GoToOverview}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        IsVisible="{Binding ShowAsBuiltButtons}" />
+                <Button Text="SLD"
+                        Command="{Binding GoToSLD}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        IsVisible="{Binding ShowAsBuiltButtons}" />
+                <Button Text="Splice Matrix"
+                        Command="{Binding GoToSM}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        IsVisible="{Binding ShowAsBuiltButtons}" />
+                <Button Text="Civils"
+                        Command="{Binding GoToCivils}"
+                        HorizontalOptions="Start"
+                        HeightRequest="40"
+                        WidthRequest="100"
+                        IsVisible="{Binding ShowAsBuiltButtons}" />
+            </StackLayout>
+            <StackLayout>
+                <Label Text="{Binding StreetName}"
+                       TextColor="White"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding ShowPage}"
+                         >
+                <Button x:Name="btnCivils"
+                        Text="Civils"
+                        IsVisible="{Binding ShowCivilsButtons}"
+                        Clicked="FilterQuestions"
+                        CommandParameter="{Binding .}"
+                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="30"
+                        WidthRequest="170"
+                        BackgroundColor="{Binding ButtonAColour}" />
+                <Button x:Name="btnTpa"
+                        Text="Third Party Apparatus"
+                        IsVisible="{Binding ShowCivilsButtons}"
+                        Clicked="FilterQuestions"
+                        CommandParameter="{Binding .}"
+                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="30"
+                        WidthRequest="170"
+                        BackgroundColor="{Binding ButtonBColour}" />
+                <Button x:Name="btnHse"
+                        Text="HSE"
+                        Clicked="FilterQuestions"
+                        IsVisible="{Binding ShowCivilsButtons}"
+                        CommandParameter="{Binding .}"
+                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="30"
+                        WidthRequest="170"
+                        BackgroundColor="{Binding ButtonCColour}" />
+                <Button x:Name="btnWay"
+                        Text="Wayleaves / Easement"
+                        IsVisible="{Binding ShowCivilsButtons}"
+                        Clicked="FilterQuestions"
+                        CommandParameter="{Binding .}"
+                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="30"
+                        WidthRequest="170"
+                        BackgroundColor="{Binding ButtonDColour}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         IsVisible="{Binding ShowDistance}"
+                         FlexLayout.Basis="5%"
+                         Padding="10">
+                <Label Text="Distance" TextColor="White" />
+                <Entry TextColor="White"
+                       HorizontalOptions="FillAndExpand"
+                       Text="{Binding Distance}"
+                       Keyboard="Numeric"
+                       BackgroundColor="#1A142E" />
+            </StackLayout>
+            <StackLayout IsVisible="{Binding ShowPage}">
+                <ListView x:Name="listView"
+                          ItemTemplate="{StaticResource questionTempleateSelector}"
+                          ItemsSource="{Binding FilteredQuestionCollection}"
+                          SelectedItem="{Binding SelectedQuestion}"
+                          SelectionMode="None"
+                          SeparatorColor="Black"
+                          SeparatorVisibility="Default"
+                          HasUnevenRows="True"
+                          Margin="10"
+                          IsVisible="{Binding ShowPage}" />
+
+                <Label Text="Saving. Please wait..." HorizontalTextAlignment="Center" IsVisible="{Binding IsLoading}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" IsVisible="{Binding ShowPage}" >
+                <Button x:Name="btnReinstatement" Text="Reinstatement" Clicked="FilterQuestions" IsVisible="{Binding ShowCivilsButtons}"
+                        CommandParameter="{Binding .}" HorizontalOptions="CenterAndExpand" HeightRequest="30"
+                        WidthRequest="170" BackgroundColor="{Binding ButtonEColour}" />
+                <Button x:Name="btnRTM" Text="TM Requirements" Clicked="FilterQuestions" IsVisible="{Binding ShowCivilsButtons}"
+                        CommandParameter="{Binding .}" HorizontalOptions="CenterAndExpand" HeightRequest="30"
+                        WidthRequest="170" BackgroundColor="{Binding ButtonFColour}" />
+                <Button x:Name="btnNoticing" Text="Noticing / Coordination" Clicked="FilterQuestions" IsVisible="{Binding ShowCivilsButtons}"
+                        CommandParameter="{Binding .}" HorizontalOptions="CenterAndExpand" HeightRequest="30"
+                        WidthRequest="170" BackgroundColor="{Binding ButtonGColour}" />
+                <Button x:Name="btnAll" Text="All" Clicked="FilterQuestions" IsVisible="{Binding ShowCivilsButtons}"
+                        CommandParameter="{Binding .}" HorizontalOptions="CenterAndExpand" HeightRequest="30"
+                        WidthRequest="170" BackgroundColor="{Binding ButtonHColour}" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="25%">
+                <FlexLayout Margin="0,10" FlexLayout.Basis="15%">
+                    <Button Text="Save" Command="{Binding SavePresiteCheck}" FlexLayout.Basis="100%" IsVisible="{Binding ShowPage}"
+                            Style="{DynamicResource buttonYesStyle}" />
+                </FlexLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

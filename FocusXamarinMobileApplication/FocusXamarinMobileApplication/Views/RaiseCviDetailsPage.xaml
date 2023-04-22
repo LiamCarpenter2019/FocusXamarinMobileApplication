@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.RaiseCviDetailsPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#292F62">
+            <FlexLayout Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62" Padding="10"
+                        FlexLayout.Basis="90%">
+                <StackLayout FlexLayout.Basis="10%" Orientation="Horizontal">
+                    <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                    <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                           FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label XAlign="Center" VerticalTextAlignment="Center" FlexLayout.Basis="5%"
+                           HorizontalOptions="CenterAndExpand" Text="Cvi details" FontSize="Large" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%">
+                    <Label Text="This will be charged at" TextColor="Red" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="25%" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                             Orientation="Horizontal" Padding="10">
+
+                    <StackLayout FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                            <Switch IsToggled="{Binding CurrentCvi.ScheduleOfRates}" HorizontalOptions="Start" />
+                            <Label Text="Schedule of rates (Prices)" TextColor="White" HorizontalOptions="Start" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                            <Switch IsToggled="{Binding CurrentCvi.DayWorkRates}" HorizontalOptions="Start" />
+                            <Label Text="Daywork rates" TextColor="White" HorizontalOptions="Start" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                            <Switch IsToggled="{Binding CurrentCvi.SpecifiedPrice}" HorizontalOptions="Start" />
+                            <Label Text="Specified price" TextColor="White" HorizontalOptions="Start" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                            <Switch IsToggled="{Binding CurrentCvi.PriceToBeAgreed}" HorizontalOptions="Start" />
+                            <Label Text="Price to be agreed, our quotation to follow" TextColor="White"
+                                   HorizontalOptions="Start" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                            <Switch IsToggled="{Binding CurrentCvi.Prolongation}" HorizontalOptions="Start" />
+                            <Label
+                                Text="These prices do not include any allowance prolongation of the contract caused by this instruction"
+                                TextColor="White" HorizontalOptions="Start" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Please select which instruction is applicable below" TextColor="Red" Padding="5" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="15%"
+                             Padding="20"
+                             HorizontalOptions="FillAndExpand"
+                             Orientation="Horizontal">
+                    <Switch IsToggled="{Binding ActionA}"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Start" />
+                    <Label
+                        Text="We are making necessary arrangements to carry out this work and in the absence of written instruction, this confirmation of your request will be deemed to have the same validity as your written instruction under the contract."
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="Start" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="10%"
+                             Padding="20"
+                             HorizontalOptions="FillAndExpand"
+                             Orientation="Horizontal">
+                    <Switch IsToggled="{Binding ActionB}" HorizontalOptions="Start" />
+                    <Label Text="We will not proceed with this work until a formal written instruction is recieved."
+                           TextColor="White" HorizontalOptions="Start" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Cvi related to" TextColor="Red" Padding="10" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="7%"
+                             Padding="10"
+                             HorizontalOptions="Center"
+                             Orientation="Horizontal">
+                    <Label Text="Company" TextColor="White" HorizontalOptions="CenterAndExpand" />
+                    <Switch IsToggled="{Binding RelatedToBool}" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="{Binding GangLeaderName}" TextColor="White" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Client details" TextColor="Red" Padding="10" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="7%"
+                             Padding="10"
+                             HorizontalOptions="Center"
+                             Orientation="Horizontal">
+                    <Label Text="Name" TextColor="White" HorizontalOptions="Start" />
+                    <Entry Text="{Binding CurrentCvi.OnBehalfOfClientName}"
+                           HeightRequest="50" HorizontalTextAlignment="Center" TextColor="White"
+                           BackgroundColor="#1A142E"
+                           FlexLayout.Basis="40%" HorizontalOptions="FillAndExpand" />
+                    <Label Text="Email" TextColor="White" HorizontalOptions="Start" />
+                    <Entry Text="{Binding CurrentCvi.Email}" TextColor="White" HorizontalTextAlignment="Center"
+                           BackgroundColor="#1A142E"
+                           FlexLayout.Basis="40%" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="EndAndExpand" FlexLayout.Basis="6%">
+                    <Button x:Name="btnSubmit" Text="Submit" BackgroundColor="green" TextColor="White"
+                            Command="{Binding Submit}" HeightRequest="50" FlexLayout.Basis="50%"
+                            HorizontalOptions="FillAndExpand" />
+                    <Button x:Name="btnCancel" Text="Delete" BackgroundColor="Red" TextColor="White"
+                            Command="{Binding Cancel}" HeightRequest="50" FlexLayout.Basis="50%"
+                            HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

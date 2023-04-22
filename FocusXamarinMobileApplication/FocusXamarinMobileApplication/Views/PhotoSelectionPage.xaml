@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.PhotoSelectionPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#292F62">
+                <FlexLayout Margin="10" Direction="Column" VerticalOptions="FillAndExpand" Padding="10">
+                    <StackLayout Orientation="Horizontal" Padding="5">
+                        <Button x:Name="btnRoute" Text="Route" HorizontalOptions="FillAndExpand"
+                                BackgroundColor="{Binding Route}"
+                                HeightRequest="50" WidthRequest="150" Clicked="UpdateReason"
+                                IsVisible="{Binding ShowButton}" TextColor="Black" />
+                        <Button x:Name="btnCondition" Text="Condition" BackgroundColor="{Binding Condition}"
+                                HorizontalOptions="FillAndExpand" HeightRequest="50" WidthRequest="150"
+                                Clicked="UpdateReason" IsVisible="{Binding ShowButton}" TextColor="Black" />
+                        <Button x:Name="btnHSE" Text="H S E" HorizontalOptions="FillAndExpand"
+                                BackgroundColor="{Binding Hse}" TextColor="Black"
+                                HeightRequest="50" WidthRequest="150" Clicked="UpdateReason"
+                                IsVisible="{Binding ShowButton}" />
+                        <Button x:Name="btnPIA" Text="PIA" BackgroundColor="{Binding PIA}"
+                                HorizontalOptions="FillAndExpand" HeightRequest="50" WidthRequest="150"
+                                TextColor="Black"
+                                Clicked="UpdateReason" IsVisible="{Binding ShowButton}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="5">
+                        <Button x:Name="btnObstruction" Text="Obstruction" HorizontalOptions="FillAndExpand"
+                                BackgroundColor="{Binding Obstruction}" TextColor="Black"
+                                HeightRequest="50" WidthRequest="150" Clicked="UpdateReason"
+                                IsVisible="{Binding ShowButton}" />
+                        <Button x:Name="btnIncident" Text="Incident / Strike" BackgroundColor="{Binding Incident}"
+                                HorizontalOptions="FillAndExpand" HeightRequest="50" WidthRequest="150"
+                                TextColor="Black"
+                                Clicked="UpdateReason" IsVisible="{Binding ShowButton}" />
+                        <Button x:Name="btnGeneral" Text="General" HorizontalOptions="FillAndExpand"
+                                BackgroundColor="{Binding General}"
+                                HeightRequest="50" WidthRequest="150" Clicked="UpdateReason" TextColor="Black"
+                                IsVisible="{Binding ShowButton}" />
+                        <Button x:Name="btnTrialHole" Text="Trial Hole" HorizontalOptions="FillAndExpand"
+                                TextColor="Black"
+                                BackgroundColor="{Binding TrialHole}"
+                                HeightRequest="50" WidthRequest="150" Clicked="UpdateReason"
+                                IsVisible="{Binding ShowButton}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Button x:Name="btnTrenchDepth" Text="Trench Depth" BackgroundColor="{Binding TrenchDepth}"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand" HeightRequest="50" WidthRequest="150"
+                                Clicked="UpdateReason" IsVisible="{Binding ShowButton}" />
+                        <Button x:Name="btnBackFillDepth" Text="Back Fill Depth" HorizontalOptions="FillAndExpand"
+                                TextColor="Black"
+                                BackgroundColor="{Binding BackFillDepth}"
+                                HeightRequest="50" WidthRequest="150" Clicked="UpdateReason"
+                                IsVisible="{Binding ShowButton}" />
+                        <Button x:Name="btnChamber" Text="Chamber/Pole" BackgroundColor="{Binding Chamber}"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand" HeightRequest="50" WidthRequest="150"
+                                Clicked="UpdateReason" IsVisible="{Binding ShowButton}" />
+                        <Button x:Name="btnSiteClear" Text="Site Clear" BackgroundColor="{Binding SiteClear}"
+                                TextColor="Black"
+                                HorizontalOptions="FillAndExpand" HeightRequest="50" WidthRequest="150"
+                                Clicked="UpdateReason" IsVisible="{Binding ShowButton}" />
+                    </StackLayout>
+                    <Image x:Name="Picture1" Source="{Binding PictureToDisplay}" FlexLayout.Basis="45%"
+                           IsEnabled="{Binding ShowPlaceHolder}" IsVisible="{Binding ShowPlaceHolder}" />
+                    <Image x:Name="Picture2" Source="{Binding Source}" FlexLayout.Basis="45%"
+                           IsEnabled="{Binding ShowImage}" IsVisible="{Binding ShowImage}" />
+                    <Button Text="Take Photo" BackgroundColor="Green" Command="{Binding TakePhoto}"
+                            FlexLayout.Basis="Auto" HeightRequest="50" Margin="100,10" TextColor="White"
+                            IsVisible="{Binding ShowPhotoButton}" />
+                    <Label Text="Comments" FlexLayout.Basis="Auto" TextColor="White" />
+                    <Editor x:Name="Comments" FlexLayout.Basis="15%" TextColor="white" BackgroundColor="#1A142E"
+                            Text="{Binding Comments}" />
+                    <BoxView FlexLayout.Basis="Auto" />
+                    <StackLayout Orientation="Horizontal" FlexLayout.Basis="Auto"
+                                 IsVisible="{Binding ShowSubmitButtons}">
+                        <Button Text="Save" BackgroundColor="green" HorizontalOptions="FillAndExpand" TextColor="white"
+                                HeightRequest="50" Command="{Binding SavePhoto}" />
+                        <Button Text="{Binding DeleteButtonText}" BackgroundColor="red" TextColor="white"
+                                HorizontalOptions="FillAndExpand" HeightRequest="50" Command="{Binding DeletePhoto}" />
+                    </StackLayout>
+                </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

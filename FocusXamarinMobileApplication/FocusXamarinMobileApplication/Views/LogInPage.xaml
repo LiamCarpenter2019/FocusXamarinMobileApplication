@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Log In"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.LogInPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="UWP" Value="10, 10, 10, 10" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <FlexLayout Direction="Row" BackgroundColor="#1E2351" Padding="10" AlignContent="Center">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="100%" Padding="10">
+                <StackLayout>
+                    <ImageButton Source="{Binding Settings}" BackgroundColor="Transparent" HorizontalOptions="End"
+                                 HeightRequest="50" WidthRequest="50" Command="{Binding NavToSettings}" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="40%">
+                    <Image Source="{Binding HarmonixLogo}" HorizontalOptions="FillAndExpand" HeightRequest="300" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="45%" HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" HeightRequest="50"
+                                       WidthRequest="50" Color="White" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal" IsVisible="{Binding ShowButtons}">
+                    <Button Text="Log In" TextColor="White" BackgroundColor="Green" FlexLayout.Basis="100%"
+                            HorizontalOptions="FillAndExpand" Clicked="LogIn" />
+                    <!--<Button Text="Log Out" TextColor="White" BackgroundColor="Red" FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Clicked="LogOut"/>-->
+                </StackLayout>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

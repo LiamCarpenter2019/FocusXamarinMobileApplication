@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.InvestigationDetailPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#292F62" Padding="20">
+            <FlexLayout Direction="Column" JustifyContent="Center">
+                <StackLayout x:Name="stkMain" VerticalOptions="Start" FlexLayout.Basis="100%" Padding="5">
+                    <StackLayout FlexLayout.Basis="10%">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                                   HorizontalOptions="StartAndExpand" TextColor="White" FontSize="Large" />
+                            <Label Text="{Binding ProjectDate}" TextColor="White" VerticalTextAlignment="Center"
+                                   HorizontalOptions="End"
+                                   FontSize="Large" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" FlexLayout.Basis="35%"
+                                 VerticalOptions="FillAndExpand">
+                        <Label XAlign="Center" Style="{DynamicResource listHeadingStyle}" Text="{Binding Title}" />
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                                <Label Text="Damage Type" HorizontalOptions="FillAndExpand" TextColor="White" />
+                                <Picker x:Name="pickerDamageType"
+                                        ItemsSource="{Binding Damages}"
+                                        ItemDisplayBinding="{Binding DisplayDamageType}"
+                                        BackgroundColor="#1A142E"
+                                        TextColor="White"
+                                        SelectedItem="{Binding DamageTypeSelected,Mode=TwoWay}"
+                                        Title="Please select damage type"
+                                        TitleColor="DarkGray"
+                                        Margin="5"
+                                        HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding QuestionOne}" HorizontalOptions="FillAndExpand" TextColor="White" />
+                                <Entry BackgroundColor="#1A142E"
+                                       TextColor="White"
+                                       Text="{Binding DamageAnswerOne}"
+                                       Margin="5"
+                                       HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding QuestionTwo}" HorizontalOptions="FillAndExpand" TextColor="White" />
+                                <Entry BackgroundColor="#1A142E"
+                                       TextColor="White"
+                                       Text="{Binding DamageAnswerTwo}"
+                                       Margin="5"
+                                       HorizontalOptions="FillAndExpand" />
+                                <Picker x:Name="pickerSurfaceType"
+                                        ItemsSource="{Binding SurfaceTypes}"
+                                        BackgroundColor="#1A142E"
+                                        TextColor="White"
+                                        SelectedItem="{Binding SelectedSurfaceType,Mode=TwoWay}"
+                                        Title="Please select surfacetype"
+                                        TitleColor="DarkGray"
+                                        Margin="5"
+                                        HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+                            <StackLayout FlexLayout.Basis="50%"
+                                         HorizontalOptions="FillAndExpand">
+                                <Label Text="Damage Location" HorizontalOptions="FillAndExpand" TextColor="White" />
+                                <Picker x:Name="pickerDamageLocaton"
+                                        ItemsSource="{Binding DamageLocations}"
+                                        SelectedItem="{Binding SelectedDamageLocation,Mode=TwoWay}"
+                                        Title="Please select damage location"
+                                        TitleColor="DarkGray"
+                                        BackgroundColor="#1A142E"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        Margin="5" />
+                                <Label Text="{Binding QuestionThree}" HorizontalOptions="FillAndExpand"
+                                       TextColor="White" />
+                                <Entry BackgroundColor="#1A142E"
+                                       TextColor="White"
+                                       Text="{Binding DamageAnswerThree}"
+                                       Margin="5"
+                                       HorizontalOptions="FillAndExpand" />
+                                <Label Text="{Binding QuestionFour}" IsVisible="{Binding ShowQ4}"
+                                       HorizontalOptions="FillAndExpand" TextColor="White" />
+                                <Entry BackgroundColor="#1A142E"
+                                       TextColor="White"
+                                       Text="{Binding DamageAnswerFour}"
+                                       IsVisible="{Binding ShowQ4}"
+                                       Margin="5"
+                                       HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical"
+                                         HorizontalOptions="FillAndExpand">
+
+                                <Picker x:Name="pickerStrikeClassification"
+                                        ItemsSource="{Binding RiddorClassifications}"
+                                        BackgroundColor="#1A142E"
+                                        TextColor="White"
+                                        SelectedItem="{Binding SelectedStrikeClassification,Mode=TwoWay}"
+                                        Title="Please select strike classification"
+                                        TitleColor="DarkGray"
+                                        HorizontalOptions="FillAndExpand"
+                                        Margin="2" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand"
+                                     IsVisible="{Binding ShowRiddor}">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <Label Text="Riddor Date"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextColor="White" />
+                                <DatePicker x:Name="IncidentDate"
+                                            BackgroundColor="#1A142E"
+                                            TextColor="White"
+                                            HorizontalOptions="FillAndExpand"
+                                            Date="{Binding RiddorDate}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <Label Text="Riddor Time"
+                                       HorizontalTextAlignment="Center" />
+                                <TimePicker x:Name="IncidentTime"
+                                            BackgroundColor="#1A142E"
+                                            TextColor="White"
+                                            Time="{Binding RiddorTime}"
+                                            HorizontalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    <StackLayout>
+                        <Label HorizontalTextAlignment="Center" Text="Prints provided" TextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout FlexLayout.Basis="20%" Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                                 Margin="50">
+                        <Label HorizontalTextAlignment="Center" Text="Electric" />
+                        <Switch IsToggled="{Binding Electric}" />
+                        <Label HorizontalTextAlignment="Center" Text="Gas" />
+                        <Switch IsToggled="{Binding Gas}" />
+                        <Label HorizontalTextAlignment="Center" Text="Water" />
+                        <Switch IsToggled="{Binding Water}" />
+                        <Label HorizontalTextAlignment="Center" Text="BT" />
+                        <Switch IsToggled="{Binding BT}" />
+                        <Label HorizontalTextAlignment="Center" Text="Sewer" />
+                        <Switch IsToggled="{Binding Sewer}" />
+                        <Label HorizontalTextAlignment="Center" Text="CATV" />
+                        <Switch IsToggled="{Binding CCTV}" />
+                    </StackLayout>
+                    <StackLayout Margin="15" FlexLayout.Basis="35%" VerticalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label TextColor="White" FlexLayout.Basis="80%"
+                                   Text="Were prints provided for the damaged Utility? " />
+                            <Picker FlexLayout.Basis="20%" ItemsSource="{Binding YesNoEmpty}"
+                                    SelectedItem="{Binding PrintsProvided}"
+                                    WidthRequest="100"
+                                    HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding SelectedPrintsProvided}" Style="{Binding Picker}"
+                                    BackgroundColor="#1A142E"
+                                    TextColor="White" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label TextColor="White" Text="Did the prints provided adequate information?"
+                                   FlexLayout.Basis="80%" />
+                            <Picker FlexLayout.Basis="20%" ItemsSource="{Binding YesNoEmpty}"
+                                    SelectedItem="{Binding AdequateInformation}"
+                                    WidthRequest="100"
+                                    HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding SelectedAdequateInformation}" Style="{Binding Picker}"
+                                    BackgroundColor="#1A142E"
+                                    TextColor="White" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Label Text="Are the damaged utility prints in colour?          " TextColor="White"
+                                   FlexLayout.Basis="80%" />
+                            <Picker FlexLayout.Basis="20%" ItemsSource="{Binding YesNoEmpty}"
+                                    SelectedItem="{Binding PrintsInColour}"
+                                    WidthRequest="100"
+                                    HorizontalOptions="EndAndExpand"
+                                    SelectedIndex="{Binding SelectedPrintsInColour}" Style="{Binding Picker}"
+                                    BackgroundColor="#1A142E"
+                                    TextColor="White" />
+                        </StackLayout>
+
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%" VerticalOptions="End">
+                        <Button Text="Back to investigation details" Command="{Binding GoBackToGeneral}"
+                                TextColor="White" BackgroundColor="Green"
+                                HorizontalOptions="FillAndExpand"
+                                HeightRequest="50" />
+                        <Button x:Name="btnMethodology" Text="{Binding ForwardButtonText}"
+                                Style="{DynamicResource buttonSubmitStyle}" TextColor="White"
+                                Command="{Binding MethodologyCommand}"
+                                HorizontalOptions="FillAndExpand" BackgroundColor="Green" HeightRequest="50" />
+                    </StackLayout>
+
+                </StackLayout>
+
+
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

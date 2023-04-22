@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.VisitorLogPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#1E2351" Padding="10">
+            <FlexLayout Direction="Column" FlexLayout.Basis="95%" Padding="10">
+                <StackLayout FlexLayout.Basis="7%" Orientation="Vertical" IsVisible="{Binding ShowSection1}">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="White" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Visitor" HorizontalOptions="CenterAndExpand" TextColor="White" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="30%" IsVisible="{Binding ShowSection2}">
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                            <Label Text="ForeName:" HorizontalOptions="StartAndExpand" TextColor="White" />
+                            <Editor Text="{Binding ForeName}" HorizontalOptions="FillAndExpand" TextColor="white"
+                                    BackgroundColor="#1A142E" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                            <Label Text="Surname:" HorizontalOptions="StartAndExpand" TextColor="White" />
+                            <Editor Text="{Binding SurName}" HorizontalOptions="FillAndExpand" TextColor="white"
+                                    BackgroundColor="#1A142E" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical" FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                            <Label Text="Organisation:" HorizontalOptions="StartAndExpand" TextColor="White" />
+                            <Editor Text="{Binding Organisation}" HorizontalOptions="FillAndExpand" TextColor="white"
+                                    BackgroundColor="#1A142E" />
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                            <Label Text="Vehicle Reg:" HorizontalOptions="StartAndExpand" TextColor="White" />
+                            <Editor Text="{Binding Registration}" VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand" TextColor="white" BackgroundColor="#1A142E" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label Text="Reason for visit:" HorizontalOptions="StartAndExpand" TextColor="White" />
+                    <Editor Text="{Binding ReasonForVisit}" HorizontalOptions="FillAndExpand" HeightRequest="100"
+                            TextColor="white" BackgroundColor="#1A142E" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="30%" Orientation="Vertical" IsVisible="{Binding ShowSection3}">
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Have you got correct PPE to be on the site?" HorizontalOptions="StartAndExpand"
+                               TextColor="white" />
+                        <Picker ItemsSource="{Binding YesNo}" WidthRequest="100" HorizontalOptions="EndAndExpand"
+                                SelectedItem="{Binding AnswerA, Mode=TwoWay}" BackgroundColor="#1A142E"
+                                TextColor="white" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Have you been informed about any site specific hazards?"
+                               HorizontalOptions="StartAndExpand" TextColor="white" />
+                        <Picker ItemsSource="{Binding YesNo}" WidthRequest="100" HorizontalOptions="EndAndExpand"
+                                SelectedItem="{Binding AnswerB, Mode=TwoWay}" BackgroundColor="#1A142E"
+                                TextColor="white" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Are you aware of the key site contacts?" HorizontalOptions="StartAndExpand"
+                               TextColor="white" />
+                        <Picker ItemsSource="{Binding YesNo}" WidthRequest="100"
+                                SelectedItem="{Binding AnswerC, Mode=TwoWay}" BackgroundColor="#1A142E"
+                                TextColor="white" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Have you been made aware of any relevant emergency procedures?"
+                               HorizontalOptions="StartAndExpand" TextColor="white" />
+                        <Picker ItemsSource="{Binding YesNo}" SelectedItem="{Binding AnswerD, Mode=TwoWay}"
+                                WidthRequest="100" HorizontalOptions="EndAndExpand" BackgroundColor="#1A142E"
+                                TextColor="white" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="Have you had a fever (above 37.5*C) or any other symptom of COVID-19 in the last 14 days?"
+                            HorizontalOptions="StartAndExpand" TextColor="white" />
+                        <Picker ItemsSource="{Binding YesNo}" WidthRequest="100" HorizontalOptions="EndAndExpand"
+                                SelectedItem="{Binding AnswerE, Mode=TwoWay}" BackgroundColor="#1A142E"
+                                TextColor="white" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Text="Have you had any close contact with anyone who has tested positive for COVID-19 in the last 14 days?"
+                            HorizontalOptions="StartAndExpand" TextColor="white" />
+                        <Picker ItemsSource="{Binding YesNo}" WidthRequest="100" HorizontalOptions="EndAndExpand"
+                                SelectedItem="{Binding AnswerF, Mode=TwoWay}" BackgroundColor="#1A142E"
+                                TextColor="white" />
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout FlexLayout.Basis="25%" Padding="10">
+                    <Label Text="Please sign in!" HorizontalOptions="StartAndExpand" TextColor="White" />
+                    <forms:SignaturePadView x:Name="VisitorSignatureInPad"
+                                            BackgroundColor="#1A142E"
+                                            StrokeColor="Gray"
+                                            StrokeWidth="2"
+                                            ClearTextColor="White"
+                                            CaptionTextColor="White"
+                                            SignatureLineColor="White"
+                                            WidthRequest="500"
+                                            HeightRequest="250" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="5%" Orientation="Horizontal" IsVisible="{Binding ShowSection5}">
+                    <Button FlexLayout.Basis="50%" Margin="2" HorizontalOptions="FillAndExpand" Text="Submit"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Clicked="SaveBtn_Clicked" />
+                    <Button FlexLayout.Basis="50%" Margin="2" HorizontalOptions="FillAndExpand" Text="Cancel"
+                            BackgroundColor="Red"
+                            TextColor="White"
+                            Command="{Binding Cancel}" />
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

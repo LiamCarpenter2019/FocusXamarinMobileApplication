@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.BlockageListPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" FlexLayout.Basis="100%" BackgroundColor="#292F62" Padding="10">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="10%" IsVisible="{Binding ShowSection1}">
+                <StackLayout Orientation="Horizontal" HeightRequest="20">
+                    <Label Text="{Binding ProjectName}" HorizontalOptions="StartAndExpand" TextColor="white" />
+                    <Label Text="{Binding ProjectDate}" HorizontalOptions="EndAndExpand" TextColor="white" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="80%" IsVisible="{Binding ShowSection2}">
+                <ListView x:Name="blockagesListView"
+                          ItemsSource="{Binding Blockages}"
+                          SelectedItem="{Binding SelectedBlockage}"
+                          ItemSelected="CloseBlockageCommand"
+                          HasUnevenRows="true"
+                          HeightRequest="500"
+                          SeparatorColor="White"
+                          BackgroundColor="#1A142E">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="Reason for blockage :" TextColor="Red" />
+                                        <Entry Text="{Binding Reason}" TextColor="White" IsReadOnly="True"
+                                               BackgroundColor="#1A142E" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Label Text="Location of Blockage" TextColor="Red" />
+                                        <Entry Text="{Binding LocationGps}" BackgroundColor="#1A142E" TextColor="White"
+                                               IsReadOnly="True" />
+                                    </StackLayout>
+                                    <Label Text="Comments :" TextColor="Red" />
+                                    <Editor Text="{Binding Comments}" TextColor="White"
+                                            HorizontalOptions="FillAndExpand" BackgroundColor="#1A142E"
+                                            HeightRequest="100" IsReadOnly="True" />
+                                    <Label Text="CLEARED" TextColor="Green" HorizontalOptions="CenterAndExpand"
+                                           IsVisible="{Binding Cleared}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowSection3}" />
+
+            <FlexLayout FlexLayout.Basis="5%" JustifyContent="Center" IsVisible="{Binding ShowSection4}">
+                <Button FlexLayout.Basis="50%" Margin="2" Text="Register Blockage" BackgroundColor="Green"
+                        TextColor="White"
+                        Command="{Binding CreateNewBlockage}" />
+                <Button FlexLayout.Basis="50%" Margin="2" Text="Done" BackgroundColor="Red"
+                        TextColor="White"
+                        Command="{Binding BackCommand}" />
+            </FlexLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

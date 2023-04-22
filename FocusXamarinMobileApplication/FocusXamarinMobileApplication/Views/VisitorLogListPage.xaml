@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.VisitorLogListPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" FlexLayout.Basis="100%" HorizontalOptions="FillAndExpand"
+                    BackgroundColor="#292F62" Padding="10">
+            <StackLayout Orientation="Vertical" FlexLayout.Basis="10%" IsVisible="{Binding ShowSection1}">
+                <StackLayout Orientation="Horizontal" HeightRequest="20">
+                    <Label Text="{Binding ProjectName}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                    <Label Text="{Binding ProjectDate}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Visitor Log" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="85%" IsVisible="{Binding ShowSection2}">
+                <ListView x:Name="vistorListView"
+                          ItemsSource="{Binding VisitorList}"
+                          SelectedItem="{Binding SelectedVisitor}"
+                          ItemSelected="logOutCommand"
+                          HasUnevenRows="true"
+                          HeightRequest="500"
+                          SeparatorColor="White"
+                          BackgroundColor="#1A142E">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <StackLayout Orientation="Vertical" FlexLayout.Basis="50%"
+                                                     HorizontalOptions="FillAndExpand">
+                                            <Label Text="Date" TextColor="Red" />
+                                            <Label Text="{Binding DateLogged}" TextColor="White" />
+                                            <Label Text="Name :" TextColor="Red" />
+                                            <Label Text="{Binding FullName}" TextColor="White" />
+                                        </StackLayout>
+
+
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Vertical" FlexLayout.Basis="50%"
+                                                         HorizontalOptions="FillAndExpand">
+                                                <Label Text="Time on site" TextColor="Red" />
+                                                <Label Text="{Binding OnSiteTime}" TextColor="White" />
+
+                                                <Label Text="Organisation :" TextColor="Red" />
+                                                <Label Text="{Binding Organisation}" TextColor="White" />
+
+
+                                                <Label Text="Time off site" TextColor="Red" />
+                                                <Label Text="{Binding OffSiteTime}" TextColor="White" />
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="Reason for visit :" TextColor="Red" />
+                                            <Label Text="{Binding Reason4Visit}" TextColor="White"
+                                                   HorizontalOptions="FillAndExpand" HeightRequest="100" />
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                    <StackLayout HorizontalOptions="CenterAndExpand">
+                                        <Label
+                                            Text="This visitor is still on site! Please select to progress to logout page"
+                                            BackgroundColor="Red" TextColor="White" HorizontalOptions="CenterAndExpand"
+                                            IsVisible="{Binding OnSite}" />
+                                        <Label Text="This visitor has been logged off site" TextColor="Green"
+                                               HorizontalOptions="CenterAndExpand" IsVisible="{Binding OffSite}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowSection4}" />
+
+            <StackLayout FlexLayout.Basis="7%" Orientation="Horizontal" IsVisible="{Binding ShowSection4}">
+                <Button FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand" Margin="2" Text="Register Visitor"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        Command="{Binding RegisterVisitorCommand}" />
+                <Button FlexLayout.Basis="50%" Margin="2" Text="Done" BackgroundColor="Red"
+                        TextColor="White"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding BackCommand}" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

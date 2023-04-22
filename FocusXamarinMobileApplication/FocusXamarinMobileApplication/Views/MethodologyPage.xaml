@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.MethodologyPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout BackgroundColor="#292F62" Padding="10" Direction="Row">
+            <StackLayout x:Name="stkMain">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding ProjectName}" TextColor="White" VerticalTextAlignment="Center"
+                           HorizontalOptions="StartAndExpand" FontSize="Large" />
+                    <Label Text="{Binding ProjectDate}" TextColor="White" VerticalTextAlignment="Center"
+                           HorizontalOptions="End"
+                           FontSize="Large" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label XAlign="Center" TextColor="White" FontSize="Large">Methodology</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" FlexLayout.Basis="7%">
+                    <ImageButton BackgroundColor="Transparent" x:Name="btnPhoto" Source="{Binding CameraImage}"
+                                 Clicked="GoPhoto"
+                                 HorizontalOptions="End" HeightRequest="50"
+                                 WidthRequest="50" IsEnabled="{Binding IsEnabled}" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="30%">
+                    <ListView x:Name="methodology"
+                              SeparatorVisibility="Default"
+                              SeparatorColor="White"
+                              ItemsSource="{Binding InvestigationQuestions}"
+                              HasUnevenRows="True"
+                              BackgroundColor="#1E2351">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell StyleId="nostyle">
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal"
+                                                     HorizontalOptions="StartAndExpand"
+                                                     VerticalOptions="StartAndExpand" HeightRequest="60"
+                                                     Padding="10">
+                                            <Label Text="{Binding Question}" TextColor="White"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   VerticalOptions="CenterAndExpand" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand"
+                                                     HeightRequest="60"
+                                                     Padding="10,10,10,10">
+                                            <Button x:Name="btn1" Text="{Binding Answer1}" Clicked="GoYesNoNa"
+                                                    CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                    HeightRequest="50"
+                                                    WidthRequest="170"
+                                                    BackgroundColor="{Binding Btn1}" IsVisible="true" />
+                                            <Button x:Name="btn2" Text="{Binding Answer2}" Clicked="GoYesNoNa"
+                                                    CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                    HeightRequest="50"
+                                                    WidthRequest="170"
+                                                    BackgroundColor="{Binding Btn2}" IsVisible="true" />
+                                            <Button x:Name="btn3" Text="{Binding Answer3}" Clicked="GoYesNoNa"
+                                                    CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                    HeightRequest="50"
+                                                    WidthRequest="170"
+                                                    BackgroundColor="{Binding Btn3}" IsVisible="true" />
+                                            <ImageButton BackgroundColor="Transparent" x:Name="btnComments"
+                                                         Source="{Binding Documents}"
+                                                         Clicked="GoComments"
+                                                         CommandParameter="{Binding .}"
+                                                         HorizontalOptions="EndAndExpand"
+                                                         HeightRequest="50"
+                                                         WidthRequest="50" />
+
+                                        </StackLayout>
+                                        <!--<StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand"
+                                                             HeightRequest="60"
+                                                             Padding="10,10,10,10" IsVisible="{Binding IsVisible}">
+                                                    <Button x:Name="btn4" Text="{Binding Answer4}" Clicked="GoYesNoNa"
+                                                            CommandParameter="{Binding .}" HorizontalOptions="Start"
+                                                            HeightRequest="50"
+                                                            WidthRequest="170"
+                                                            BackgroundColor="{Binding Btn4}"
+                                                            IsVisible="{Binding IsVisible}" />
+                                                </StackLayout>-->
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" FlexLayout.Basis="7%">
+                    <Button x:Name="btnBackTodetails" Style="{DynamicResource buttonSubmitStyle}"
+                            Text="{Binding BackButtonText}"
+                            TextColor="White"
+                            Command="{Binding DamageDetailsCommand}" HorizontalOptions="FillAndExpand"
+                            BackgroundColor="Green"
+                            HeightRequest="50" />
+                    <Button x:Name="btnDetail2" Text="Description of incident ==>"
+                            Style="{DynamicResource buttonSubmitStyle}" BackgroundColor="Green"
+                            Command="{Binding DamageDetails2Command}" HorizontalOptions="FillAndExpand"
+                            TextColor="White"
+                            HeightRequest="50" />
+                </StackLayout>
+                <Label Text="Saving. Please wait..." HorizontalTextAlignment="Center"
+                       IsVisible="{Binding IsLoading}" TextColor="White" />
+            </StackLayout>
+
+        </FlexLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

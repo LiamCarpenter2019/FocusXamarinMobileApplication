@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.SupervisorProjectPage">
+    <ContentPage.Content>
+        <FlexLayout FlexLayout.Basis="100%"
+                    Direction="Column"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="#292F62"
+                    Padding="10">
+            <StackLayout Orientation="Horizontal"
+                         Margin="5"
+                         FlexLayout.Basis="5%">
+                <Label Text="{Binding UserName}"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="Large"
+                       TextColor="White"
+                       IsVisible="{Binding ShowRefresh}" />
+                <Label Text="{Binding ProjectDate}"
+                       HorizontalOptions="EndAndExpand"
+                       FontSize="Large"
+                       TextColor="White" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                         Padding="10"
+                         FlexLayout.Basis="6%">
+                <Button Text="Log Out"
+                        TextColor="Black"
+                        WidthRequest="100"
+                        HeightRequest="40"
+                        BackgroundColor="LightGray"
+                        HorizontalOptions="StartAndExpand"
+                        IsVisible="true"
+                        Command="{Binding LogOutCommand}" />
+                <ActivityIndicator Color="White"
+                                   HorizontalOptions="EndAndExpand"
+                                   IsRunning="{Binding Loading}" />
+
+                <Button Text="Refresh"
+                        TextColor="Black"
+                        WidthRequest="100"
+                        HeightRequest="40"
+                        BackgroundColor="LightGray"
+                        HorizontalOptions="EndAndExpand"
+                        Command="{Binding RefreshCommand}"
+                        IsVisible="{Binding ShowRefresh}" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="65%"
+                         IsVisible="{Binding ShowSection2}">
+                <ListView x:Name="mainListView"
+                          HasUnevenRows="true"
+                          ItemsSource="{Binding JobTaskList}"
+                          SeparatorColor="White"
+                          BackgroundColor="#1A142E"
+                          ItemSelected="SupervisorProjectListView_ItemSelected"
+                          Margin="10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell StyleId="nostyle">
+                                <FlexLayout Direction="Row" Padding="10" FlexLayout.Basis="100%">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                        <FlexLayout Direction="Row" FlexLayout.Basis="100%">
+                                            <Label HorizontalTextAlignment="Start"
+                                                   Text="Client"
+                                                   FlexLayout.Basis="30%"
+                                                   TextColor="Red" />
+                                            <Label HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="Start"
+                                                   FlexLayout.Basis="70%"
+                                                   Text="{Binding ClientName}"
+                                                   TextColor="White" />
+                                        </FlexLayout>
+                                        <FlexLayout Direction="Row" FlexLayout.Basis="100%">
+                                            <Label HorizontalTextAlignment="Start"
+                                                   Text="Project"
+                                                   TextColor="Red"
+                                                   HorizontalOptions="Start"
+                                                   FlexLayout.Basis="30%" />
+                                            <Label HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="Start"
+                                                   FlexLayout.Basis="70%"
+                                                   Text="{Binding ProjectName}"
+                                                   TextColor="White" />
+                                        </FlexLayout>
+                                        <FlexLayout Direction="Row" FlexLayout.Basis="100%">
+                                            <Label HorizontalTextAlignment="Start"
+                                                   Text="Gang Count"
+                                                   FlexLayout.Basis="30%"
+                                                   TextColor="Green" />
+                                            <Label HorizontalTextAlignment="Start"
+                                                   HorizontalOptions="Start"
+                                                   FlexLayout.Basis="70%"
+                                                   Text="{Binding GangCount}"
+                                                   TextColor="White" />
+                                        </FlexLayout>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Image Source="GreenTickJuly17v2.png"
+                                               HorizontalOptions="EndAndExpand"
+                                               WidthRequest="50"
+                                               HeightRequest="50"
+                                               IsVisible="{Binding IsSelected}" />
+
+                                    </StackLayout>
+                                </FlexLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="15%"
+                         Margin="10"
+                         Orientation="Horizontal"
+                         IsVisible="{Binding ShowSection3}"
+                         IsEnabled="{Binding ShowSection3}">
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonAImage}"
+                                 Command="{Binding NavToSettings}"
+                                 IsEnabled="{Binding ShowButtonA}"
+                                 IsVisible="{Binding ShowButtonA}" />
+                    <Label Text="{Binding ButtonALabel}"
+                           TextColor="White"
+                           HorizontalOptions="CenterAndExpand"
+                           IsVisible="{Binding ShowButtonA}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonBImage}"
+                                 IsEnabled="{Binding ShowButtonB}"
+                                 IsVisible="{Binding ShowButtonB}"
+                                 Command="{Binding NavToDocuments}" />
+                    <Label Text="{Binding ButtonBLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonB}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonCImage}"
+                                 IsEnabled="{Binding ShowButtonC}"
+                                 IsVisible="{Binding ShowButtonC}"
+                                 Command="{Binding NavToDailyDiary}" />
+                    <Label Text="{Binding ButtonCLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonC}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonDImage}"
+                                 IsEnabled="{Binding ShowButtonD}"
+                                 IsVisible="{Binding ShowButtonD}"
+                                 Command="{Binding NavigateToPlant}" />
+                    <Label Text="{Binding ButtonDLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonD}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonEImage}"
+                                 IsEnabled="{Binding ShowButtonE}"
+                                 IsVisible="{Binding ShowButtonE}"
+                                 Command="{Binding NavigateToSupervisorTrainingDocs}" />
+                    <Label Text="{Binding ButtonELabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonE}" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="15%"
+                         Margin="10"
+                         Orientation="Horizontal"
+                         IsVisible="{Binding ShowSection4}"
+                         IsEnabled="{Binding ShowSection4}">
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonFImage}"
+                                 Command="{Binding NavToAsBuilt}"
+                                 IsVisible="{Binding ShowButtonF}" />
+                    <Label Text="{Binding ButtonFLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonF}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonGImage}"
+                                 IsVisible="{Binding ShowButtonG}"
+                                 Command="{Binding NavToInvestigationView}" />
+                    <Label Text="{Binding ButtonGLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonG}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonHImage}"
+                                 IsVisible="{Binding ShowButtonH}"
+                                 Command="{Binding NavToTaskList}" />
+                    <Label Text="{Binding ButtonHLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonH}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonIImage}"
+                                 IsVisible="{Binding ShowButtonI}"
+                                 Command="{Binding NavToComercialCommand }" />
+                    <Label Text="{Binding ButtonILabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonI}" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="CenterAndExpand">
+                    <ImageButton BackgroundColor="Transparent"
+                                 WidthRequest="100"
+                                 HeightRequest="50"
+                                 Source="{Binding ButtonJImage}"
+                                 IsVisible="{Binding ShowButtonJ}"
+                                 Command="{Binding ToolBoxTalkCommand}" />
+                    <Label Text="{Binding ButtonJLabel}"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="White"
+                           IsVisible="{Binding ShowButtonJ}" />
+                </StackLayout>
+            </StackLayout>
+        </FlexLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

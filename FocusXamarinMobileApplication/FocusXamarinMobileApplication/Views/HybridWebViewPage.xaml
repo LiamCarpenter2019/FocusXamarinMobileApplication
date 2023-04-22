@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.HybridWebViewPage"
+             Padding="0,40,0,0">
+    <ContentPage.Content>
+        <FlexLayout x:Name="root" Direction="Column" BackgroundColor="#292F62" FlexLayout.Basis="100%" Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Back" HeightRequest="40" WidthRequest="100" BackgroundColor="LightGray"
+                        HorizontalOptions="StartAndExpand" TextColor="Black" Command="{Binding NavBack}" />
+                <Label Text="{Binding ProjectName}" TextColor="White" HorizontalOptions="Start" />
+                <Label Text="{Binding ProjectDate}" TextColor="White" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout>
+                <Label XAlign="Center" Text="{Binding Title}" FontSize="Large" FontAttributes="Bold" TextColor="White" />
+            </StackLayout>
+            <StackLayout x:Name="hybridWebView1SL" Orientation="Vertical" VerticalOptions="FillAndExpand"
+                         FlexLayout.Basis="90%" IsEnabled="{Binding IsDocMode}" IsVisible="{Binding IsDocMode}" />
+            <StackLayout x:Name="hybridWebViewSL" Orientation="Vertical" VerticalOptions="FillAndExpand"
+                         FlexLayout.Basis="70%" IsEnabled="{Binding IsMapMode}" IsVisible="{Binding IsMapMode}">
+                <!--<helpers:HybridWebView x:Name="hybridWebView" Uri="{Binding Url}" HeightRequest="1000"
+        WidthRequest="1000"/>-->
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" FlexLayout.Basis="15%"
+                         IsVisible="{Binding IsMapMode}">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                    <Label Text="What 3 Words" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"
+                           HorizontalTextAlignment="Center" TextColor="Green" />
+                    <Label BackgroundColor="#1A142E"
+                           Text="{Binding LocationInputText}"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"
+                           WidthRequest="500"
+                           HeightRequest="40"
+                           TextColor="White" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label Text="{Binding Locality}" FontSize="Medium" TextColor="White" />
+                    <Label Text="{Binding SubAdminArea}" FontSize="Medium" TextColor="White" />
+                    <Label Text="{Binding AdminArea}" FontSize="Medium" TextColor="White" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" FlexLayout.Basis="3%">
+                    <Label Text="{Binding LatLon}" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
+                           FontSize="Medium" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" IsVisible="{Binding ScreenShot}" VerticalOptions="EndAndExpand">
+                    <!--Button BackgroundColor="LawnGreen" WidthRequest="100" HeightRequest="40" TextColor="White" x:Name="_callJavaScriptButton" Text="Call JavaScript" Clicked="OnCallJavaScriptButtonClicked" /-->
+                    <Button Text="Save" HeightRequest="40" WidthRequest="100" HorizontalOptions="FillAndExpand"
+                            Clicked="StoreLocation" BackgroundColor="Green" TextColor="White" />
+                </StackLayout>
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

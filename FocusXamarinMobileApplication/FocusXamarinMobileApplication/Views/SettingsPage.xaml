@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.SettingsPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column"
+                    VerticalOptions="CenterAndExpand" BackgroundColor="#292F62"
+                    Padding="10" FlexLayout.Basis="100%">
+            <StackLayout FlexLayout.Basis="15%" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Back"
+                            BackgroundColor="LightGray"
+                            TextColor="Black"
+                            HeightRequest="50"
+                            WidthRequest="100"
+                            IsVisible="{Binding ShowBackButton}"
+                            Command="{Binding Back}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="Large" FontAttributes="Bold"
+                           Text="Settings"
+                           HorizontalOptions="CenterAndExpand"
+                           TextColor="white" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="35%" Orientation="Vertical">
+                <Label TextColor="White"
+                       Text="Set Client"
+                       HorizontalOptions="Center" />
+                <Entry BackgroundColor="#1A142E"
+                       WidthRequest="300"
+                       TextColor="White"
+                       Text="{Binding ApiCode}"
+                       HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center" />
+                <Label TextColor="White"
+                       Text="{Binding CurrentApiFriendlyName}"
+                       HorizontalOptions="CenterAndExpand" />
+                  <ActivityIndicator
+                    IsRunning="{Binding Loading}"
+                    Color="White" />
+            </StackLayout>            
+            <StackLayout Orientation="Horizontal"
+                         Padding="5"
+                         FlexLayout.Basis="5%">
+                 <Button Text="Set API"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        HeightRequest="50"
+                        HorizontalOptions="CenterAndExpand"
+                        WidthRequest="200"
+                        IsVisible="{Binding ShowApiButton}"
+                        Command="{Binding SetApi}" />              
+                <Button Text="ChangePin"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        HorizontalOptions="CenterAndExpand"
+                         IsVisible="{Binding ShowPinButton}"
+                        Command="{Binding ChangePin}" />
+                <Button Text="Purge Database"
+                        TextColor="Black"
+                        BackgroundColor="LightGray"
+                        HeightRequest="50"
+                        WidthRequest="200"
+                        HorizontalOptions="CenterAndExpand"
+                        IsVisible="{Binding ShowPinButton}"
+                        Command="{Binding PurgeDatabase}" />               
+            </StackLayout>
+            <StackLayout>
+                <Label TextColor="White"
+                       Text="{Binding VersionNumber}"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

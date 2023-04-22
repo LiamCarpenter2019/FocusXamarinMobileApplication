@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FocusXamarinMobileApplication.Views.CalibrationPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" VerticalOptions="CenterAndExpand" BackgroundColor="#292F62" Padding="10,5,10,5"
+                    FlexLayout.Basis="100%">
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="8">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                       HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                       FontSize="Large" TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5" FlexLayout.Basis="5%">
+                <Label XAlign="Center" VerticalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand" Text="Calibration" FontSize="Large" TextColor="White" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="20%" Padding="10" IsVisible="{Binding ShowSection1}">
+                <Entry Text="{Binding SearchText}" Placeholder="Search" TextColor="White" TextChanged="SearchCommand" />
+                <Picker ItemsSource="{Binding FilteredFibreTestList}" ItemDisplayBinding="{Binding PositionA}"
+                        TextColor="White" SelectedItem="{Binding SelectedCalibrationTest}" />
+            </StackLayout>
+
+
+            <StackLayout FlexLayout.Basis="10%" Orientation="Horizontal" Padding="10"
+                         IsVisible="{Binding ShowSection1}">
+                <StackLayout FlexLayout.Basis="50%" Padding="10">
+                    <Label Text="Customer Name" TextColor="White" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding SelectedCalibrationTest.Customer_Name}" TextColor="White"
+                           HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="50%" Padding="10">
+                    <Label Text="Circuit No" TextColor="White" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding SelectedCalibrationTest.Identifier}" TextColor="White"
+                           HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="10%" Padding="10" IsVisible="{Binding ShowSection1}">
+                <StackLayout FlexLayout.Basis="100%" Padding="10">
+                    <Label Text="A - B" TextColor="White" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="1310" TextColor="White" HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal" Padding="10" IsVisible="{Binding ShowSection1}">
+                    <StackLayout FlexLayout.Basis="33%" Padding="10">
+                        <Label Text="Attenuatiion A - B" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding SelectedCalibrationTest.AttenuationAB1310nm}" TextColor="White"
+                               HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="36%" Padding="10">
+                        <Label Text="Attenuatiion Average" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding SelectedCalibrationTest.AverageAttenuation1310nm}" TextColor="White"
+                               HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="33%" Padding="10">
+                        <Label Text="Attenuatiion B - A" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding SelectedCalibrationTest.AttenuationBA1310nm}" TextColor="White"
+                               HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10" IsVisible="{Binding ShowSection1}">
+                    <StackLayout FlexLayout.Basis="33%" Padding="10">
+                        <Label Text="ILMA A - B" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding SelectedCalibrationTest.ILMAAB1310}" TextColor="White"
+                               HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="36%" Padding="10">
+                        <Label Text="ILMA Average" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding SelectedCalibrationTest.AverageILMAAB1310}" TextColor="White"
+                               HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="33%" Padding="10">
+                        <Label Text="ILMA B - A" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding SelectedCalibrationTest.ILMABA1310}" TextColor="White"
+                               HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="10%" Padding="10" IsVisible="{Binding ShowSection2}">
+                    <StackLayout FlexLayout.Basis="100%" Padding="10">
+                        <Label Text="A - B" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="1550" TextColor="White" HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center" />
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal" Padding="10" IsVisible="{Binding ShowSection2}">
+                        <StackLayout FlexLayout.Basis="33%" Padding="10">
+                            <Label Text="Attenuatiion A - B" TextColor="White" HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding SelectedCalibrationTest.AttenuationAB1550nm}" TextColor="White"
+                                   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="36%" Padding="10">
+                            <Label Text="Attenuatiion Average" TextColor="White" HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding SelectedCalibrationTest.AverageAttenuation1550nm}" TextColor="White"
+                                   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="33%" Padding="10">
+                            <Label Text="Attenuatiion B - A" TextColor="White" HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding SelectedCalibrationTest.AttenuationBA1550nm}" TextColor="White"
+                                   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Padding="10" IsVisible="{Binding ShowSection1}">
+                        <StackLayout FlexLayout.Basis="33%" Padding="10">
+                            <Label Text="ILMA A - B" TextColor="White" HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding SelectedCalibrationTest.ILMAAB11550}" TextColor="White"
+                                   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="36%" Padding="10">
+                            <Label Text="ILMA Average" TextColor="White" HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding SelectedCalibrationTest.AverageILMAAB1550}" TextColor="White"
+                                   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout FlexLayout.Basis="33%" Padding="10">
+                            <Label Text="ILMA B - A" TextColor="White" HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="{Binding SelectedCalibrationTest.ILMABA1550}" TextColor="White"
+                                   HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="50" FlexLayout.Basis="7%">
+                <Button x:Name="btnSubmit" Text="Submit" FlexLayout.Basis="50%" BackgroundColor="green"
+                        TextColor="White"
+                        Command="{Binding ApproveDiary}" HeightRequest="50" HorizontalOptions="FillAndExpand" />
+                <Button x:Name="btnCancel" Text="Cancel;" FlexLayout.Basis="50%" BackgroundColor="red"
+                        TextColor="White"
+                        Command="{Binding ApproveDiary}" HeightRequest="50" HorizontalOptions="FillAndExpand" />
+
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

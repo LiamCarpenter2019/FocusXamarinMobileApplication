@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false"
+    x:Class="FocusXamarinMobileApplication.Views.PhotoExamplePage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout BackgroundColor="#292F62" Direction="Column" VerticalOptions="FillAndExpand" Padding="10">
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%" Margin="5">
+                <Label Text="{Binding ProjectName}" VerticalTextAlignment="Start"
+                       HorizontalOptions="StartAndExpand" TextColor="White" />
+                <Label Text="{Binding ProjectDate}" VerticalTextAlignment="End" HorizontalOptions="End"
+                       TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%">
+                <Button HeightRequest="40"
+                        WidthRequest="100"
+                        HorizontalOptions="StartAndExpand"
+                        Text="Back"
+                        BackgroundColor="LightGray"
+                        TextColor="Black"
+                        Command="{Binding Back}" />
+                <ImageButton BackgroundColor="Transparent"
+                             HeightRequest="50"
+                             WidthRequest="100"
+                             HorizontalOptions="End"
+                             Source="{Binding ButtonIcon}"
+                             Command="{Binding TakePhoto}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="2" FlexLayout.Basis="80%"
+                         IsEnabled="{Binding ShowExampleFull}" IsVisible="{Binding ShowExampleFull}">
+                <Image x:Name="Picture1" Source="{Binding SampleImage}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="2" FlexLayout.Basis="40%"
+                         IsEnabled="{Binding ShowSplitPage}" IsVisible="{Binding ShowSplitPage}">
+                <Image x:Name="Picture3" Source="{Binding SampleImage}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5" FlexLayout.Basis="45%" HorizontalOptions="FillAndExpand"
+                         IsEnabled="{Binding ShowSplitPage}" IsVisible="{Binding ShowSplitPage}">
+                <Image x:Name="Picture2" Source="{Binding PictureToDisplay}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%" IsVisible="{Binding ShowSubmitButtons}">
+                <Button Text="Save" BackgroundColor="green" HorizontalOptions="FillAndExpand" TextColor="white"
+                        HeightRequest="50" Clicked="SavePhoto" />
+            </StackLayout>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

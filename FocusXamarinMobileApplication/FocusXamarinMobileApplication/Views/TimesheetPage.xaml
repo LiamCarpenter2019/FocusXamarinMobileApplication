@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.TimesheetPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <FlexLayout Direction="Column"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="#292F62"
+                    Padding="10"
+                    FlexLayout.Basis="100%">
+            <StackLayout Orientation="Horizontal"
+                         HeightRequest="40"
+                         Margin="5"
+                         FlexLayout.Basis="7%">
+                <Label Text="{Binding ProjectName}"
+                       HorizontalOptions="Start"
+                       HeightRequest="40"
+                       FontSize="Large"
+                       TextColor="White" />
+                <Label Text="{Binding Date}"
+                       HorizontalOptions="EndAndExpand"
+                       HeightRequest="40"
+                       FontSize="Large"
+                       TextColor="White" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%">
+                <Button Text="Back"
+                        TextColor="Black"
+                        WidthRequest="100"
+                        HeightRequest="40"
+                        BackgroundColor="LightGray"
+                        HorizontalOptions="Start"
+                        Command="{Binding Back}" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="60%"
+                         HorizontalOptions="CenterAndExpand"
+                         Padding="5">
+                <StackLayout Orientation="Vertical"
+                             Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding SelectedOperative.Role}" TextColor="Green" />
+                        <Label Text="{Binding SelectedOperative.FullName}" TextColor="White" />
+                    </StackLayout>
+                    <FlexLayout Direction="Row"
+                                HeightRequest="100"
+                                HorizontalOptions="CenterAndExpand">
+                        <StackLayout FlexLayout.Basis="17%">
+                            <Label Text="Travel to site"
+                                   TextColor="{Binding BgColour}"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="CenterAndExpand" />
+                            <TimePicker x:Name="travelToSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding IsEditable}"
+                                        Time="{Binding TravelToSite, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+
+                            <TimePicker x:Name="sTravelToSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding ShowSupervisorControls}"
+                                        Time="{Binding SupervisorStart, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+                        </StackLayout>
+
+                        <StackLayout FlexLayout.Basis="16%">
+                            <Label Text="Yard start"
+                                   TextColor="{Binding BgColour}"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="CenterAndExpand" />
+
+                            <TimePicker x:Name="claimedYardStart"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding IsEditable}"
+                                        Time="{Binding ClaimedYardStart, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+
+                            <TimePicker x:Name="sClaimedYardStart"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding ShowSupervisorControls}"
+                                        Time="{Binding SupervisorYardStart, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+                        </StackLayout>
+
+                        <StackLayout FlexLayout.Basis="16%">
+                            <Label Text="Time on site"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{Binding BgColour}" />
+                            <TimePicker x:Name="timeOnSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding IsEditable}"
+                                        Time="{Binding TimeOnSite, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+
+                            <TimePicker x:Name="sTimeOnSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding ShowSupervisorControls}"
+                                        Time="{Binding SupervisorOnSite, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+                        </StackLayout>
+
+                        <StackLayout FlexLayout.Basis="16%">
+                            <Label Text="Time off site"
+                                   TextColor="{Binding BgColour}"
+                                   HorizontalTextAlignment="Center"
+                                   HorizontalOptions="CenterAndExpand" />
+
+                            <TimePicker x:Name="timeLeftSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding IsEditable}"
+                                        Time="{Binding TimeLeftSite, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+
+                            <TimePicker x:Name="sTimeLeftSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding ShowSupervisorControls}"
+                                        Time="{Binding SupervisorOffSite, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+                        </StackLayout>
+
+                        <StackLayout FlexLayout.Basis="16%">
+                            <Label Text="Yard finish"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{Binding BgColour}" />
+
+                            <TimePicker x:Name="claimedYardEnd"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsEnabled="{Binding IsEditable}"
+                                        IsVisible="{Binding IsEditable}"
+                                        Time="{Binding ClaimedYardEnd, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+
+                            <TimePicker x:Name="sClaimedYardEnd"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding ShowSupervisorControls}"
+                                        Time="{Binding SupervisorYardEnd, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+                        </StackLayout>
+
+                        <StackLayout FlexLayout.Basis="17%">
+                            <Label Text="Travel from site"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="{Binding BgColour}" />
+
+                            <TimePicker x:Name="travelFromSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding IsEditable}"
+                                        Time="{Binding TravelFromSite, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+
+                            <TimePicker x:Name="sTravelFromSite"
+                                        HorizontalOptions="CenterAndExpand"
+                                        TextColor="{Binding BgColour}"
+                                        BackgroundColor="#1A142E"
+                                        IsVisible="{Binding ShowSupervisorControls}"
+                                        Time="{Binding SupervisorFinish, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+                        </StackLayout>
+                    </FlexLayout>
+                </StackLayout>
+
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Absence"
+                       TextColor="White"
+                       HeightRequest="50"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"
+                       Margin="5" />
+            </StackLayout>
+            <StackLayout FlexLayout.Basis="7%"
+                         Margin="5"
+                         HorizontalOptions="EndAndExpand"
+                         Orientation="Horizontal">
+                <Button FlexLayout.Basis="25%"
+                        Text="Unauthorised"
+                        BackgroundColor="Orange"
+                        HeightRequest="40"
+                        TextColor="white"
+                        Margin="5"
+                        Command="{Binding MarkUnauthorised}"
+                        HorizontalOptions="FillAndExpand" />
+                <Button FlexLayout.Basis="25%"
+                        Text="Sick"
+                        BackgroundColor="Red"
+                        HeightRequest="40"
+                        TextColor="white"
+                        Margin="5"
+                        Command="{Binding MarkSick}"
+                        HorizontalOptions="FillAndExpand" />
+                <Button FlexLayout.Basis="25%"
+                        Text="Compassionate"
+                        BackgroundColor="Violet"
+                        HeightRequest="40"
+                        TextColor="white"
+                        Margin="5"
+                        Command="{Binding MarkCommpassionate}"
+                        HorizontalOptions="FillAndExpand" />
+                <Button FlexLayout.Basis="25%"
+                        Text="Holiday request"
+                        BackgroundColor="Blue"
+                        HeightRequest="40"
+                        TextColor="white"
+                        Margin="5"
+                        IsEnabled="false"
+                        IsVisible="false"
+                        Command="{Binding MarkHoliday}"
+                        HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout FlexLayout.Basis="5%"
+                         Margin="5"
+                         Orientation="Vertical" />
+            <StackLayout FlexLayout.Basis="7%"
+                         Margin="5"
+                         HorizontalOptions="FillAndExpand"
+                         Orientation="Horizontal">
+                <Button FlexLayout.Basis="100%"
+                        Text="Copy to all"
+                        BackgroundColor="Green"
+                        TextColor="white"
+                        HeightRequest="40"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding CopyToAll}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                         FlexLayout.Basis="10%"
+                         VerticalOptions="FillAndExpand" />
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

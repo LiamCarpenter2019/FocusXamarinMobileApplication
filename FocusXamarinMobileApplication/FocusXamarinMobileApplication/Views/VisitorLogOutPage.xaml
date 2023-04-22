@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.VisitorLogOutPage">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#292F62" Padding="10">
+            <FlexLayout Direction="Column" FlexLayout.Basis="95%">
+                <StackLayout Orientation="Vertical" FlexLayout.Basis="10%" IsVisible="{Binding ShowSection1}">
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding ProjectName}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                        <Label Text="{Binding ProjectDate}" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Visitor Log Out" HorizontalOptions="CenterAndExpand" TextColor="white" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding ShowSection2}" Orientation="Vertical" FlexLayout.Basis="10%">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Button Text="Visitor not present! Log out" TextColor="white" BackgroundColor="Red"
+                                HeightRequest="50" WidthRequest="200" HorizontalOptions="StartAndExpand"
+                                Command="{Binding LogoutNotPresent}" />
+                        <Label Text="Approximate time the visitor left"
+                               TextColor="White"
+                               IsVisible="{Binding IsVisible}"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               HorizontalOptions="EndAndExpand" />
+                        <TimePicker x:Name="vistorLeavingTime"
+                                    HorizontalOptions="EndAndExpand"
+                                    WidthRequest="100"
+                                    TextColor="white"
+                                    BackgroundColor="#1A142E"
+                                    IsVisible="{Binding IsVisible}"
+                                    Time="{Binding LogOutTime, Mode=TwoWay, StringFormat='{0:dd MMMM, yyyy}'}" />
+                    </StackLayout>
+                    <StackLayout FlexLayout.Basis="50%" Orientation="Horizontal">
+                        <Label Text="Were you made aware of and followed all the saftey instructions whilst on site?"
+                               TextColor="white" HorizontalOptions="StartAndExpand" />
+                        <Picker ItemsSource="{Binding YesNo}" FlexLayout.Basis="10%" HorizontalOptions="Start"
+                                WidthRequest="100" SelectedItem="{Binding SafteyInstructions}"
+                                BackgroundColor="#1A142E" TextColor="white" />
+                    </StackLayout>
+
+
+                </StackLayout>
+
+
+                <StackLayout FlexLayout.Basis="30%" IsVisible="{Binding ShowSection3}" Orientation="Vertical"
+                             Padding="10">
+                    <Label Text="Please detasil any additional feedback!" TextColor="White" />
+                    <Editor Text="{Binding Comments}" BackgroundColor="#1A142E" VerticalOptions="FillAndExpand"
+                            TextColor="white" />
+                </StackLayout>
+
+
+                <StackLayout FlexLayout.Basis="35%" IsVisible="{Binding ShowSection4}" Padding="10">
+                    <Label Text="Please sign out!" HorizontalOptions="StartAndExpand" TextColor="White" />
+                    <Button x:Name="ClearBtn" Text="Clear" HorizontalOptions="End" Clicked="ClearBtn_Clicked" />
+                    <forms:SignaturePadView x:Name="VisitorSignatureOutPad"
+                                            BackgroundColor="#1A142E"
+                                            StrokeColor="Gray"
+                                            StrokeWidth="2"
+                                            WidthRequest="500"
+                                            VerticalOptions="FillAndExpand"
+                                            CaptionTextColor="White"
+                                            ClearTextColor="White"
+                                            SignatureLineColor="White" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="7%" Orientation="Horizontal" IsVisible="{Binding ShowSection5}">
+                    <Button FlexLayout.Basis="50%" Margin="2" Text="Save" BackgroundColor="Green"
+                            HorizontalOptions="FillAndExpand"
+                            TextColor="White"
+                            Clicked="SaveBtn_Clicked" />
+                    <Button FlexLayout.Basis="50%" Margin="2" Text="Cancel" BackgroundColor="Red"
+                            HorizontalOptions="FillAndExpand"
+                            TextColor="White"
+                            Command="{Binding Back}" />
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

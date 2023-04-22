@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:FocusXamarinMobileApplication.Helpers;assembly=FocusXamarinMobileApplication"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="FocusXamarinMobileApplication.Views.RegisterNewEventPage" Title="Register New Utility Damage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="#292F62" Padding="10">
+            <FlexLayout x:Name="stkMain" Direction="Column" Padding="10" FlexLayout.Basis="100%">
+                <StackLayout FlexLayout.Basis="5%" IsVisible="{Binding ShowLoadingPage}">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label Text="{Binding ProjectName}" VerticalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand" FontSize="Large" />
+                        <Label Text="{Binding ProjectDate}" VerticalTextAlignment="Center" HorizontalOptions="End"
+                               FontSize="Large" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding Title}" FontSize="Large" VerticalTextAlignment="Center"
+                               HorizontalOptions="Center" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10" FlexLayout.Basis="27%"
+                             IsVisible="{Binding ShowLoadingPage}">
+                    <StackLayout Orientation="Vertical" FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                        <Label Text="Please select the event category"
+                               TextColor="White" />
+                        <Picker x:Name="typePicker"
+                                TextColor="White"
+                                BackgroundColor="#1A142E"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding EventTypeList}"
+                                ItemDisplayBinding="{Binding Title}"
+                                SelectedItem="{Binding SelectedEventTypeItem}"
+                                SelectedIndexChanged="EventPicker_SelectedIndexChanged" />
+                        <Label Text="Select the Severity"
+                               TextColor="White" />
+                        <Picker x:Name="severityPicker"
+                                TextColor="White"
+                                BackgroundColor="{Binding SelectedSeverityBackgroundColour}"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding DamageTypesListItems}"
+                                ItemDisplayBinding="{Binding DamageType}"
+                                SelectedItem="{Binding SelectedDamageType}"
+                                SelectedIndexChanged="SeverityPicker_SelectedIndexChanged" />
+                        <Label Text="Hospital visit required"
+                               IsVisible="{Binding IsAccident}" />
+                        <Picker x:Name="hospitalVisit"
+                                ItemsSource="{Binding yesno}"
+                                SelectedItem="{Binding RequiresHospital}"
+                                IsVisible="{Binding IsAccident}"
+                                FlexLayout.Basis="70%"
+                                HorizontalOptions="FillAndExpand"
+                                SelectedIndexChanged="HospitalPicker_SelectedIndexChanged" />
+                        <Label Text="Is the damage third party damage"
+                               IsVisible="{Binding IsUtilityDamage}" />
+                        <Picker x:Name="ptpDamageLocaton"
+                                ItemsSource="{Binding yesno}"
+                                SelectedItem="{Binding ThirdPartyDamage}"
+                                FlexLayout.Basis="70%"
+                                HorizontalOptions="FillAndExpand"
+                                IsVisible="{Binding IsUtilityDamage}"
+                                SelectedIndexChanged="ThirdPartyPicker_SelectedIndexChanged" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" FlexLayout.Basis="50%" HorizontalOptions="FillAndExpand">
+                        <Label Text="Incident Date" />
+                        <DatePicker x:Name="IncidentDate" Date="{Binding IncidentDate}" />
+                        <Label Text="Incident Time" />
+                        <TimePicker x:Name="IncidentTime" Time="{Binding IncidentTime}" />
+                        <Label Text="Reported By" />
+                        <Label x:Name="txtReportedByName" Text="{Binding ReportedBy}" BackgroundColor="#1A142E"
+                               HeightRequest="30" Padding="5" VerticalTextAlignment="Center"
+                               HorizontalOptions="FillAndExpand" IsEnabled="False" />
+                        <Label Text="Select Damage Location" IsVisible="{Binding IsUtilityDamage}" />
+                        <Picker x:Name="pickerDamageLocaton"
+                                ItemsSource="{Binding DamageLocations}"
+                                SelectedItem="{Binding SelectedDamageLocation}"
+                                FlexLayout.Basis="70%"
+                                HorizontalOptions="FillAndExpand"
+                                SelectedIndexChanged="DamagePicker_SelectedIndexChanged"
+                                IsVisible="{Binding IsUtilityDamage}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="10%" Orientation="Vertical" IsVisible="{Binding ShowLoadingPage}">
+                    <StackLayout Orientation="Horizontal" Padding="10" IsVisible="{Binding IsUtilityDamage}">
+                        <Label Text="Select Utility Company" />
+                        <Picker x:Name="UtilityCompanyPicker"
+                                Title="Utility Company"
+                                FlexLayout.Basis="70%"
+                                HorizontalOptions="FillAndExpand"
+                                ItemsSource="{Binding UtilityCompanies}"
+                                ItemDisplayBinding="{Binding CompanyName}"
+                                SelectedItem="{Binding UtilityCompanySelection}"
+                                SelectedIndexChanged="UtilityPicker_SelectedIndexChanged" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="10" IsVisible="{Binding IsUtilityDamage}">
+                        <Label XAlign="Start" Text="Telephone" />
+                        <Label x:Name="UtilityTelephone" Text="{Binding UtilityCompanySelection.Telephone}"
+                               XAlign="Start" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Padding="10" FlexLayout.Basis="17%"
+                             IsVisible="{Binding ShowLoadingPage}">
+                    <StackLayout Orientation="Horizontal" IsVisible="{Binding ShowGang}">
+                        <Label Text="Gang Members:" />
+                        <Label Text="{Binding OperativeNames}" />
+                    </StackLayout>
+
+                    <Label Text="Details" />
+                    <Editor x:Name="Notes" TextColor="White" ClassId="NotNecessary" HeightRequest="100"
+                            Text="{Binding Notes}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Padding="10" FlexLayout.Basis="10%"
+                             IsVisible="{Binding ShowLoadingPage}">
+                    <Label Text="Are there any Injuries?" FlexLayout.Basis="80%" HorizontalOptions="FillAndExpand"
+                           IsVisible="{Binding ShowInjury}" />
+                    <ImageButton Source="{Binding Person}" BackgroundColor="Transparent" WidthRequest="50"
+                                 HeightRequest="50" Command="{Binding AddInjuredPerson}"
+                                 IsVisible="{Binding ShowInjury}" />
+                    <ImageButton BackgroundColor="Transparent" x:Name="btnGps" Source="{Binding GpsImage}"
+                                 Command="{Binding GpsCommand}"
+                                 HorizontalOptions="EndAndExpand"
+                                 HeightRequest="50"
+                                 WidthRequest="50" />
+                    <ImageButton x:Name="AddImageButton" BackgroundColor="Transparent" Source="{Binding PhotoImage}"
+                                 HeightRequest="50" HorizontalOptions="End" Command="{Binding AddImage}" />
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="10" FlexLayout.Basis="20%"
+                             IsVisible="{Binding ShowLoadingPage}">
+                    <ListView x:Name="listInjuries" SeparatorColor="White" ItemsSource="{Binding InjuredPeople}"
+                              IsVisible="{Binding ShowInjuryTable}"
+                              ItemSelected="InjuredSelected" HeightRequest="150">
+                        <ListView.Header>
+                            <FlexLayout BackgroundColor="{StaticResource mainBgColor}">
+                                <Label Text="Name" FontAttributes="Bold" FlexLayout.Basis="33%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Position" FontAttributes="Bold" FlexLayout.Basis="33%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Injury" FontAttributes="Bold" FlexLayout.Basis="33%"
+                                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </FlexLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <FlexLayout>
+                                        <Label Text="{Binding InjuredName}" FlexLayout.Basis="33%"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding Position}" FlexLayout.Basis="33%"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center" />
+                                        <Label Text="{Binding Injury}" FlexLayout.Basis="33%"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center" />
+                                    </FlexLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" FlexLayout.Basis="5%" Padding="3"
+                             IsVisible="{Binding ShowLoadingPage}">
+                    <Button x:Name="btnSubmit" Text="Submit" Style="{DynamicResource buttonYesStyle}"
+                            Command="{Binding Submit}" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                            IsVisible="{Binding IsLoading, Converter={helpers:InverseBoolConverter}}" />
+
+                    <Button x:Name="btnCancel" Text="Cancel" Style="{DynamicResource buttonNoStyle}"
+                            Command="{Binding Delete}" HeightRequest="50" HorizontalOptions="FillAndExpand"
+                            IsVisible="{Binding IsLoading, Converter={helpers:InverseBoolConverter}}" />
+                </StackLayout>
+                <ActivityIndicator IsRunning="{Binding IsLoading}"
+                                   IsVisible="{Binding IsLoading}" Color="White" />
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

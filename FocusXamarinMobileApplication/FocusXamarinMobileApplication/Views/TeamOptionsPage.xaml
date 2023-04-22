@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FocusXamarinMobileApplication.Views.TeamOptionsPage" NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="StyleResource.xaml" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <FlexLayout FlexLayout.Grow="1"
+                        Direction="Column"
+                        VerticalOptions="Center"
+                        BackgroundColor="#292F62"
+                        Padding="10,10,10,10"
+                        FlexLayout.Basis="100%">
+                <StackLayout FlexLayout.Basis="15%"
+                             IsVisible="{Binding ShowSection1}">
+                    <StackLayout HorizontalOptions="FillAndExpand"
+                                 Orientation="Horizontal"
+                                 HeightRequest="30"
+                                 Margin="10,20,10,0">
+                        <Label Text="{Binding ProjectName}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="StartAndExpand"
+                               FontSize="Large"
+                               TextColor="White" />
+                        <Label Text="{Binding ProjectDate}"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="End"
+                               FontSize="Large" TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               HeightRequest="40"
+                               HorizontalOptions="CenterAndExpand"
+                               Text="{Binding Title}"
+                               FontSize="Large"
+                               TextColor="White" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="10,0,10,10">
+                        <Button Text="Back" TextColor="Black"
+                                WidthRequest="100"
+                                HeightRequest="50"
+                                BackgroundColor="LightGray"
+                                Command="{Binding Back}"
+                                IsEnabled="{Binding EnableBackButton}"
+                                IsVisible="{Binding EnableBackButton}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="5%"
+                             Orientation="Vertical" />
+                <StackLayout FlexLayout.Basis="15%"
+                             Orientation="Vertical"
+                             IsVisible="{Binding TimesheetsToApprove}">
+                    <Button Text="Approve Timesheets"
+                            BackgroundColor="{Binding TimesheetButtonColour}"
+                            TextColor="{Binding TimesheetButtonTextColour}"
+                            HeightRequest="100"
+                            IsVisible="{Binding TimesheetsToApprove}"
+                            IsEnabled="{Binding TimesheetsToApprove}"
+
+
+                            Command="{Binding ApproveTimesheets}" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="15%"
+                             Orientation="Vertical"
+                             IsVisible="{Binding DiariesToApprove}">
+                    <Button Text="Approve Diary"
+                            BackgroundColor="{Binding DiariesButtonColour}"
+                            TextColor="{Binding DiariesButtonTextColour}"
+                            HeightRequest="100"
+                            IsEnabled="{Binding DiariesToApprove}"
+                            Command="{Binding ApproveDiary}" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="15%"
+                             Orientation="Vertical"
+                             IsVisible="{Binding ShowSection4}">
+                    <Button Text="Approve Measures"
+                            BackgroundColor="{Binding MeasuresButtonColour}"
+                            TextColor="{Binding MeasuresButtonTextColour}"
+                            HeightRequest="100"
+                            Command="{Binding ApproveMeasures}" />
+                </StackLayout>
+
+                <StackLayout FlexLayout.Basis="15%"
+                             Orientation="Vertical"
+                             IsVisible="{Binding ShowSection5}">
+                    <Button Text="Approve Laterals"
+                            BackgroundColor="{Binding LateralsButtonColour}"
+                            TextColor="{Binding LateralsButtonTextColour}"
+                            HeightRequest="100"
+                            Command="{Binding ApproveLaterals}" />
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="10%"
+                             Orientation="Vertical" />
+                <StackLayout FlexLayout.Basis="10%" VerticalOptions="EndAndExpand"
+                             IsVisible="{Binding ShowSection7}">
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0,10,0,0">
+                        <Button Text="Upload Approvals"
+                                TextColor="White"
+                                BackgroundColor="Green"
+                                FlexLayout.Basis="100%"
+                                HorizontalOptions="FillAndExpand"
+                                Command="{Binding Submit}" />
+                    </StackLayout>
+                </StackLayout>
+                <ActivityIndicator
+                    IsRunning="{Binding IsLoading}"
+                    Color="White" />
+            </FlexLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

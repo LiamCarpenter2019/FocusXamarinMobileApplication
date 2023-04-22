@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="mainBgColor">#1E2351</Color>
+    <Color x:Key="bgColor">#FF396C</Color>
+    <Color x:Key="btnBgColor">#AAAAAA</Color>
+    <Color x:Key="btnTxtColor">Black</Color>
+    <Color x:Key="txtColor">White</Color>
+    <Color x:Key="bgSubmit">#008000</Color>
+    <Color x:Key="bgCancel">#FF0000</Color>
+    <Color x:Key="bgHeading">White</Color>
+    <Color x:Key="bgHistory">#BDBDBD</Color>
+    <Color x:Key="bgAction">#2DF227</Color>
+    <Color x:Key="listBgColor">#1A142E</Color>
+    <Color x:Key="listAltBgColor">#4B4367</Color>
+    <Color x:Key="stdTextColor">#FFFFFF</Color>
+    <Color x:Key="stdButtonTextColor">#000000</Color>
+    <Color x:Key="stdButtonBgColor">#AAAAAA</Color>
+    <Color x:Key="yesButtonColor">#008000</Color>
+    <Color x:Key="noButtonColor">#FF0000</Color>
+    <Color x:Key="entryTextColor">#FFFFFF</Color>
+    <Color x:Key="entryBgColor">#1A142E</Color>
+    <OnPlatform x:TypeArguments="Font" Android="25" iOS="25" WinPhone="25" x:Key="TitleFontSize" />
+
+    <!-- GLOBAL DEFAULTS -->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+    <Style TargetType="ScrollView">
+        <Setter Property="BackgroundColor" Value="{StaticResource mainBgColor}" />
+    </Style>
+    <Style TargetType="ListView">
+        <Setter Property="BackgroundColor" Value="{StaticResource listBgColor}" />
+    </Style>
+    <Style TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{StaticResource mainBgColor}" />
+    </Style>
+    <Style TargetType="Grid">
+        <Setter Property="RowSpacing" Value="0" />
+        <Setter Property="ColumnSpacing" Value="0" />
+    </Style>
+    <Style TargetType="Entry">
+        <Setter Property="Margin" Value="0,2" />
+        <Setter Property="TextColor" Value="{StaticResource entryTextColor}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource entryBgColor}" />
+    </Style>
+
+    <Style TargetType="Editor">
+        <Setter Property="Margin" Value="0,2" />
+        <Setter Property="TextColor" Value="{StaticResource entryTextColor}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource entryBgColor}" />
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource stdButtonTextColor}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource stdButtonBgColor}" />
+        <Setter Property="CornerRadius" Value="10" />
+    </Style>
+
+    <Style TargetType="Picker">
+        <Setter Property="TextColor" Value="{StaticResource entryTextColor}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource entryBgColor}" />
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="TextColor" Value="{StaticResource entryTextColor}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource entryBgColor}" />
+        <Setter Property="Format" Value="dd/MM/yyyy" />
+    </Style>
+
+    <Style TargetType="TimePicker">
+        <Setter Property="TextColor" Value="{StaticResource entryTextColor}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource entryBgColor}" />
+        <Setter Property="Format" Value="HH:mm" />
+    </Style>
+
+    <Style x:Key="mainStyle" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{StaticResource mainBgColor}" />
+    </Style>
+
+    <Style x:Key="buttonYesStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource yesButtonColor}" />
+        <Setter Property="Font" Value="Large" />
+    </Style>
+
+    <Style x:Key="buttonNoStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource noButtonColor}" />
+        <Setter Property="Font" Value="Large" />
+    </Style>
+
+
+    <Style x:Key="labelTableStyle" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="buttonStyles" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource btnBgColor}" />
+        <Setter Property="TextColor" Value="{StaticResource btnTxtColor}" />
+        <Setter Property="Font" Value="Large" />
+    </Style>
+    <Style x:Key="listHeadingStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource bgHeading}" />
+        <Setter Property="FontSize" Value="22" />
+
+    </Style>
+    <Style x:Key="MainBackgroundStyle" TargetType="View">
+        <Setter Property="BackgroundColor" Value="{StaticResource mainBgColor}" />
+    </Style>
+
+    <Style x:Key="FlexBackgroundStyle" TargetType="FlexLayout">
+        <Setter Property="BackgroundColor" Value="{StaticResource mainBgColor}" />
+    </Style>
+</ResourceDictionary>
