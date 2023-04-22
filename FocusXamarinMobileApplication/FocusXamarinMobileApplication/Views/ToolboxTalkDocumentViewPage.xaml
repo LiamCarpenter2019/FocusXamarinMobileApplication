@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
-             x:Class="FocusXamarinMobileApplication.Views.ToolboxTalkDocumentViewPage">
+             x:Class="FocusXamarinForms20082020V1.Views.ToolboxTalkDocumentViewPage">
     <ContentPage.Content>
         <ScrollView BackgroundColor="#1E2351">
             <FlexLayout Direction="Column" BackgroundColor="#1E2351" Padding="10" FlexLayout.Basis="100%">

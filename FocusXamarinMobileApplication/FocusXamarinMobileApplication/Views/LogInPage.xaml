@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Log In"
              NavigationPage.HasNavigationBar="false"
-             x:Class="FocusXamarinMobileApplication.Views.LogInPage">
+             x:Class="FocusXamarinForms20082020V1.Views.LogInPage">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="UWP" Value="10, 10, 10, 10" />

@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasNavigationBar="false"
-    x:Class="FocusXamarinMobileApplication.Views.PhotoExamplePage">
+    x:Class="FocusXamarinForms20082020V1.Views.PhotoExamplePage">
     <ContentPage.Resources>
         <ResourceDictionary Source="StyleResource.xaml" />
     </ContentPage.Resources>

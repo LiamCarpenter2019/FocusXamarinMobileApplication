@@ -1,8 +1,6 @@
-﻿using WebView = FocusXamarinMobileApplication.Views.WebView;
-
-namespace FocusXamarinMobileApplication.Models
+﻿namespace FocusXamarinMobileApplication.Models
 {
-    public class CustomWebView : WebView
+    public class CustomWebView : WebView_
     {
         public static readonly BindableProperty UriProperty = BindableProperty.Create("Uri",
             typeof(string),
