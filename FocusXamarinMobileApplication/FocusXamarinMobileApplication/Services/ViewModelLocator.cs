@@ -1,4 +1,6 @@
-﻿namespace FocusXamarinMobileApplication.Services;
+﻿using FocusXamarinMobileApplication.Views;
+
+namespace FocusXamarinMobileApplication.Services;
 
 public class ViewModelLocator
 {
