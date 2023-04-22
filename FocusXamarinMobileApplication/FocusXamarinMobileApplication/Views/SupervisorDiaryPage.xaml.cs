@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class SupervisorDiaryPage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class SupervisorDiaryPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.SupervisorDiaryPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SupervisorDiaryPageViewModel;
 
         BindingContext = _vm;
     }

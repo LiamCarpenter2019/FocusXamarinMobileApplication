@@ -6,7 +6,7 @@ using Image = Xamarin.Forms.Image;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public interface IImageEditorDependencyService
 {
@@ -25,7 +25,7 @@ public partial class ProjectImagesPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.ProjectImagesPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ProjectImagesPageViewModel;
         BindingContext = _vm;
     }
 

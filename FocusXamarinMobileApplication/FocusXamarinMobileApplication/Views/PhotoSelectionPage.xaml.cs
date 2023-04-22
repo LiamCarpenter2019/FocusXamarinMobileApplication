@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class PhotoSelectionPage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class PhotoSelectionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.PhotoSelectionPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PhotoSelectionPageViewModel;
 
         BindingContext = _vm;
     }

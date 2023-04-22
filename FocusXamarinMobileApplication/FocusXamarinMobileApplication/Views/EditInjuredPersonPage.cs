@@ -4,7 +4,7 @@
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class EditInjuredPersonPage : ContentPage
 {
@@ -16,7 +16,7 @@ public partial class EditInjuredPersonPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.InjuredPersonViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.InjuredPersonViewModel;
         BindingContext = _vm;
     }
 

@@ -5,7 +5,7 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
                NavigationPage.HasNavigationBar="false"
              xmlns:helpers="clr-namespace:FocusXamarinForms20082020V1.Helpers;assembly=FocusXamarinForms20082020V1"
-             x:Class="FocusXamarinForms20082020V1.Views.MapDrawingComboPage">
+             x:Class="FocusXamarinMobileApplication.Views.MapDrawingComboPage">
     <ContentPage.Resources>
         <ResourceDictionary Source="StyleResource.xaml" />
     </ContentPage.Resources>

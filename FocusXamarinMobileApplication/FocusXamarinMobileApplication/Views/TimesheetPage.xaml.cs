@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class TimesheetPage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class TimesheetPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.TimesheetsPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.TimesheetsPageViewModel;
 
         BindingContext = _vm;
 

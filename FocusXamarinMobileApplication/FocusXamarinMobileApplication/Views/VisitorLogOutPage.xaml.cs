@@ -1,10 +1,8 @@
 ﻿#region
 
-using SignaturePad.Forms;
-
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class VisitorLogOutPage : ContentPage, IFormsPage
 {
@@ -12,7 +10,7 @@ public partial class VisitorLogOutPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.VisitorLogOutPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.VisitorLogOutPageViewModel;
 
         BindingContext = _vm;
     }

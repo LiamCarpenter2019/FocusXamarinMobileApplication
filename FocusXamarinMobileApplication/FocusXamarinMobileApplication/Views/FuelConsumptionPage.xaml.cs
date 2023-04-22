@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class FuelConsumptionPage : ContentPage, IFormsPage
 {
@@ -6,7 +6,7 @@ public partial class FuelConsumptionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.FuelConsumptionPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.FuelConsumptionPageViewModel;
         BindingContext = _vm;
     }
 

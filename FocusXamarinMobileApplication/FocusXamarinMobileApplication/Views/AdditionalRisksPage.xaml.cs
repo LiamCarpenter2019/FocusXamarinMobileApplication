@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class AdditionalRisksPage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class AdditionalRisksPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.AdditionalRisksPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.AdditionalRisksPageViewModel;
 
         BindingContext = _vm;
     }

@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class MeasureApprovalPage : ContentPage, IFormsPage
 {
@@ -6,7 +6,7 @@ public partial class MeasureApprovalPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        BindingContext = App.ViewModelLocator.MeasureApprovalPageViewModel;
+        BindingContext = Microsoft.SharePoint.Client.App.ViewModelLocator.MeasureApprovalPageViewModel;
     }
 
     public void RefreshPage()

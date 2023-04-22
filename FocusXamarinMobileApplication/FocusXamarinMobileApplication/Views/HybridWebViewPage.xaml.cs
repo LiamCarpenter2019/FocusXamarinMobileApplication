@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class HybridWebViewPage : ContentPage
 {
@@ -13,7 +13,7 @@ public partial class HybridWebViewPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.HybridWebViewPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.HybridWebViewPageViewModel;
 
         BindingContext = _vm;
 

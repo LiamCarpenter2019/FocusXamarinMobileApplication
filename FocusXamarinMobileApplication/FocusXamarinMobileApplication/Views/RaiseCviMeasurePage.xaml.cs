@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class RaiseCviMeasurePage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class RaiseCviMeasurePage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.RaiseCviMeasurePageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.RaiseCviMeasurePageViewModel;
         BindingContext = _vm;
     }
 

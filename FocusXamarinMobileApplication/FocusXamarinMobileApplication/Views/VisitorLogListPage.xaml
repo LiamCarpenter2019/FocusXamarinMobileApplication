@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
-             x:Class="FocusXamarinForms20082020V1.Views.VisitorLogListPage">
+             x:Class="FocusXamarinMobileApplication.Views.VisitorLogListPage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" FlexLayout.Basis="100%" HorizontalOptions="FillAndExpand"
                     BackgroundColor="#292F62" Padding="10">

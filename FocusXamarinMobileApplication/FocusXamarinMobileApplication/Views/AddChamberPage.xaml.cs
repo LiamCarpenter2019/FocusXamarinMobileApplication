@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class AddChamberPage : ContentPage
 {
@@ -10,7 +10,7 @@ public partial class AddChamberPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.AddChamberPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.AddChamberPageViewModel;
 
         BindingContext = _vm;
     }

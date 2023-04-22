@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class PlantChecksPage : ContentPage, IFormsPage
 {
@@ -6,7 +6,7 @@ public partial class PlantChecksPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.PlantChecksPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PlantChecksPageViewModel;
 
         BindingContext = _vm;
 

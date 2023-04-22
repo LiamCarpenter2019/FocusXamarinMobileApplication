@@ -1,10 +1,8 @@
 ﻿#region
 
-using SignaturePad.Forms;
-
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class SignaturePage : ContentPage, IFormsPage
 {
@@ -14,7 +12,7 @@ public partial class SignaturePage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.SignaturePageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SignaturePageViewModel;
 
         BindingContext = _vm;
     }

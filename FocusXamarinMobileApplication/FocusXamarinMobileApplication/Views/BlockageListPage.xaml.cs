@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class BlockageListPage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class BlockageListPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.BlockagePageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.BlockagePageViewModel;
 
         //  NavigationalParameters.ReturnPage = "";
 

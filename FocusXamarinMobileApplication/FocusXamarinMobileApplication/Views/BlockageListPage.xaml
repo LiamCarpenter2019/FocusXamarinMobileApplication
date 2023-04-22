@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FocusXamarinForms20082020V1.Views.BlockageListPage">
+             x:Class="FocusXamarinMobileApplication.Views.BlockageListPage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" FlexLayout.Basis="100%" BackgroundColor="#292F62" Padding="10">
             <StackLayout Orientation="Vertical" FlexLayout.Basis="10%" IsVisible="{Binding ShowSection1}">

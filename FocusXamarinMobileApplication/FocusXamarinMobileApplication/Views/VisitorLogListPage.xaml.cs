@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class VisitorLogListPage : ContentPage, IFormsPage
 {
@@ -6,7 +6,7 @@ public partial class VisitorLogListPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.VisitorLogListPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.VisitorLogListPageViewModel;
 
 
         BindingContext = _vm;

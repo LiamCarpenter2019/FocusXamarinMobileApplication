@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FocusXamarinForms20082020V1.Views.EditInjuredPersonPage"
+             x:Class="FocusXamarinMobileApplication.Views.EditInjuredPersonPage"
              NavigationPage.HasNavigationBar="false"
              Title="Add/Edit Injured Person"
              BackgroundColor="{StaticResource mainBgColor}">

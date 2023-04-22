@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class MeasureTypeSelectionPage : ContentPage, IFormsPage
 {
@@ -7,7 +7,7 @@ public partial class MeasureTypeSelectionPage : ContentPage, IFormsPage
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.MeasureTypePageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MeasureTypePageViewModel;
 
         BindingContext = _vm;
     }

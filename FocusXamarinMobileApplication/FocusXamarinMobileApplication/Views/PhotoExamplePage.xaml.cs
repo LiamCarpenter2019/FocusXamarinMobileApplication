@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class PhotoExamplePage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class PhotoExamplePage : ContentPage, IFormsPage
     {
         InitializeComponent();
 
-        _vm = App.ViewModelLocator.PhotoExamplePageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PhotoExamplePageViewModel;
 
         BindingContext = _vm;
     }

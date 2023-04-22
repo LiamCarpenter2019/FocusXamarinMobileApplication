@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class LogInPage : ContentPage, IFormsPage
 {
@@ -11,7 +11,7 @@ public partial class LogInPage : ContentPage, IFormsPage
         InitializeComponent();
 
         // BindingContext = 
-        _vm = App.ViewModelLocator.LoginPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.LoginPageViewModel;
 
         BindingContext = _vm;
     }

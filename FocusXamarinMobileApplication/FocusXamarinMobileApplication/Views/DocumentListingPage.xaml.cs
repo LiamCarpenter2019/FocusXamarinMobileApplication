@@ -4,7 +4,7 @@ using Device = Xamarin.Forms.Device;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class DocumentListingPage : ContentPage, IFormsPage
 {
@@ -16,7 +16,7 @@ public partial class DocumentListingPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.DocumentListingPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DocumentListingPageViewModel;
         BindingContext = _vm;
 
         listView.ItemTapped += (sender, e) =>

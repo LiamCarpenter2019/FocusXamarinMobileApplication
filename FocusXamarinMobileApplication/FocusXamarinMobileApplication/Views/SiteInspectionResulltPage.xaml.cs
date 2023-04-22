@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class SiteInspectionResultPage : ContentPage, IFormsPage
 {
@@ -10,7 +10,7 @@ public partial class SiteInspectionResultPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.SiteInspectionResultPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SiteInspectionResultPageViewModel;
 
         BindingContext = _vm;
     }

@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class DesignMapPage : ContentPage
 {
@@ -8,7 +8,7 @@ public partial class DesignMapPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.DesignMapPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DesignMapPageViewModel;
 
         BindingContext = _vm;
 

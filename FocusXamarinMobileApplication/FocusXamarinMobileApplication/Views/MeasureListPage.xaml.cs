@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class MeasureListPage : ContentPage, IFormsPage
 {
@@ -8,7 +8,7 @@ public partial class MeasureListPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.MeasureListPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MeasureListPageViewModel;
 
         BindingContext = _vm;
     }

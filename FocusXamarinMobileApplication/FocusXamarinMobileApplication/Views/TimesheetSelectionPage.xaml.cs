@@ -4,7 +4,7 @@ using ItemTappedEventArgs = Syncfusion.ListView.XForms.ItemTappedEventArgs;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Views;
+namespace FocusXamarinMobileApplication.Views;
 
 public partial class TimesheetSelectionPage : ContentPage, IFormsPage
 {
@@ -14,7 +14,7 @@ public partial class TimesheetSelectionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = App.ViewModelLocator.TimesheetsSelectionPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.TimesheetsSelectionPageViewModel;
 
         BindingContext = _vm;
 

@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinForms20082020V1.Views;
+﻿namespace FocusXamarinMobileApplication.Views;
 
 public partial class DailySiteInspectionPage : ContentPage
 {
@@ -10,7 +10,7 @@ public partial class DailySiteInspectionPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = App.ViewModelLocator.DailySiteInspectionPageViewModel;
+        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DailySiteInspectionPageViewModel;
 
         BindingContext = _vm;
     }
