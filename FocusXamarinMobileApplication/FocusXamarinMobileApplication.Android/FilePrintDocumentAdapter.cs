@@ -6,7 +6,7 @@ using Debug = System.Diagnostics.Debug;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Droid;
+namespace FocusXamarinMobileApplication.Droid;
 
 public class FilePrintDocumentAdapter : PrintDocumentAdapter
 {

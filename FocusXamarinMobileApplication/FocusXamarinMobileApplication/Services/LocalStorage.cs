@@ -515,102 +515,102 @@ public class LocalStorage : ILocalStorage
             switch (document.DocType)
             {
                 case "CompanyDocs":
-                {
-                    localFolderName = "CompanyDocs";
-
-                    var result1 = await DoesDocExistOnTablet(localFolderName, DocLibraryPathArray[filenameIndex]);
-
-                    if (result1)
                     {
-                        returnValue = 1;
-                    }
-                    else
-                    {
-                        // Go get from Sharepoint Doc Lib
-                        var imageByteArray = DownloadSharePointFile(document, clientContext);
-                        if (imageByteArray != null && imageByteArray.Length > 1000)
+                        localFolderName = "CompanyDocs";
+
+                        var result1 = await DoesDocExistOnTablet(localFolderName, DocLibraryPathArray[filenameIndex]);
+
+                        if (result1)
                         {
-                            await StoreImagesLocallyAndUpdatePath(localFolderName, DocLibraryPathArray[filenameIndex],
-                                imageByteArray);
-                            returnValue = 5;
+                            returnValue = 1;
                         }
                         else
                         {
-                            NavigationalParameters.MissingDocuments.Add(document);
-                        }
-                        //remoteFolderName = $"CompanyDocs{document.FolderPath.Replace("\\", "/")}/";
-                        //var updateDocResult1 = await UpdateFileFromAzure(document.FileName, localFolderName, remoteFolderName);
+                            // Go get from Sharepoint Doc Lib
+                            var imageByteArray = DownloadSharePointFile(document, clientContext);
+                            if (imageByteArray != null && imageByteArray.Length > 1000)
+                            {
+                                await StoreImagesLocallyAndUpdatePath(localFolderName, DocLibraryPathArray[filenameIndex],
+                                    imageByteArray);
+                                returnValue = 5;
+                            }
+                            else
+                            {
+                                NavigationalParameters.MissingDocuments.Add(document);
+                            }
+                            //remoteFolderName = $"CompanyDocs{document.FolderPath.Replace("\\", "/")}/";
+                            //var updateDocResult1 = await UpdateFileFromAzure(document.FileName, localFolderName, remoteFolderName);
 
-                        //if (updateDocResult1.ToLower() == "good")
-                        //{
-                        //    returnValue = 1;
-                        //}
-                        //else
-                        //{
-                        //    NavigationalParameters.MissingDocuments.Add(document);
-                        //}
+                            //if (updateDocResult1.ToLower() == "good")
+                            //{
+                            //    returnValue = 1;
+                            //}
+                            //else
+                            //{
+                            //    NavigationalParameters.MissingDocuments.Add(document);
+                            //}
+                        }
                     }
-                }
                     break;
                 case "JobDocs":
-                {
-                    localFolderName = "JobPackFiles";
-
-                    var result = await DoesDocExistOnTablet(localFolderName, DocLibraryPathArray[filenameIndex]);
-
-                    if (result)
                     {
-                        returnValue = 1;
-                    }
-                    else
-                    {
-                        // Go get from Sharepoint Doc Lib
-                        var imageByteArray = DownloadSharePointFile(document, clientContext);
-                        if (imageByteArray != null && imageByteArray.Length > 1000)
+                        localFolderName = "JobPackFiles";
+
+                        var result = await DoesDocExistOnTablet(localFolderName, DocLibraryPathArray[filenameIndex]);
+
+                        if (result)
                         {
-                            await StoreImagesLocallyAndUpdatePath(localFolderName, DocLibraryPathArray[filenameIndex],
-                                imageByteArray);
-                            returnValue = 5;
+                            returnValue = 1;
                         }
                         else
                         {
-                            NavigationalParameters.MissingDocuments.Add(document);
-                        }
-                        //remoteFolderName = $"JobPackFiles/{SortJobPackPath(document.FolderPath, document.QNumber)}";
-                        //var updateDocResult2 = await UpdateFileFromAzure(document.FileName, localFolderName, remoteFolderName);
+                            // Go get from Sharepoint Doc Lib
+                            var imageByteArray = DownloadSharePointFile(document, clientContext);
+                            if (imageByteArray != null && imageByteArray.Length > 1000)
+                            {
+                                await StoreImagesLocallyAndUpdatePath(localFolderName, DocLibraryPathArray[filenameIndex],
+                                    imageByteArray);
+                                returnValue = 5;
+                            }
+                            else
+                            {
+                                NavigationalParameters.MissingDocuments.Add(document);
+                            }
+                            //remoteFolderName = $"JobPackFiles/{SortJobPackPath(document.FolderPath, document.QNumber)}";
+                            //var updateDocResult2 = await UpdateFileFromAzure(document.FileName, localFolderName, remoteFolderName);
 
-                        //if (updateDocResult2.ToLower() == "good")
-                        //{
-                        //    returnValue = 1;
-                        //}
-                        //else
-                        //{
-                        //    NavigationalParameters.MissingDocuments.Add(document);
-                        //}
+                            //if (updateDocResult2.ToLower() == "good")
+                            //{
+                            //    returnValue = 1;
+                            //}
+                            //else
+                            //{
+                            //    NavigationalParameters.MissingDocuments.Add(document);
+                            //}
+                        }
                     }
-                }
                     break;
                 case "PlantDocs":
-                {
-                    localFolderName = "PlantDocs";
-                    var result2 = await DoesDocExistOnTablet(document.DocType, document.FileName);
-
-                    if (result2)
                     {
-                        returnValue = 1;
-                    }
-                    else
-                    {
-                        remoteFolderName = $"PlantFiles/{SortPlantDocPath(document.FolderPath, document.PlantId)}";
-                        var updateDocResult3 =
-                            await UpdateFileFromAzure(document.FileName, localFolderName, remoteFolderName);
+                        localFolderName = "PlantDocs";
+                        var result2 = await DoesDocExistOnTablet(document.DocType, document.FileName);
 
-                        if (updateDocResult3.ToLower() == "good")
+                        if (result2)
+                        {
                             returnValue = 1;
+                        }
                         else
-                            NavigationalParameters.MissingDocuments.Add(document);
+                        {
+                            remoteFolderName = $"PlantFiles/{SortPlantDocPath(document.FolderPath, document.PlantId)}";
+                            var updateDocResult3 =
+                                await UpdateFileFromAzure(document.FileName, localFolderName, remoteFolderName);
+
+                            if (updateDocResult3.ToLower() == "good")
+                                returnValue = 1;
+                            else
+                                NavigationalParameters.MissingDocuments.Add(document);
+                        }
                     }
-                }
                     break;
                 default:
                     localFolderName = "OperativeDocs";
@@ -672,45 +672,45 @@ public class LocalStorage : ILocalStorage
                     switch (item.DocType)
                     {
                         case "CompanyDocs":
-                        {
-                            localFolderName = "CompanyDocs";
+                            {
+                                localFolderName = "CompanyDocs";
 
-                            remoteFolderName =
-                                $"CompanyDocs{item.FolderPath.Replace("\\", "/")}/";
-                            var updateDocResult1 =
-                                await UpdateFileFromAzure(
-                                    item.FileName, localFolderName,
-                                    remoteFolderName);
+                                remoteFolderName =
+                                    $"CompanyDocs{item.FolderPath.Replace("\\", "/")}/";
+                                var updateDocResult1 =
+                                    await UpdateFileFromAzure(
+                                        item.FileName, localFolderName,
+                                        remoteFolderName);
 
-                            if (updateDocResult1.ToLower() == "good") returnValue++;
-                        }
+                                if (updateDocResult1.ToLower() == "good") returnValue++;
+                            }
                             break;
                         case "JobDocs":
-                        {
-                            localFolderName = "JobPackFiles";
-                            remoteFolderName =
-                                $"JobPackFiles/{SortJobPackPath(item.FolderPath, item.QNumber)}";
-                            var updateDocResult2 =
-                                await UpdateFileFromAzure(
-                                    item.FileName, localFolderName,
-                                    remoteFolderName);
+                            {
+                                localFolderName = "JobPackFiles";
+                                remoteFolderName =
+                                    $"JobPackFiles/{SortJobPackPath(item.FolderPath, item.QNumber)}";
+                                var updateDocResult2 =
+                                    await UpdateFileFromAzure(
+                                        item.FileName, localFolderName,
+                                        remoteFolderName);
 
-                            if (updateDocResult2.ToLower() == "good") returnValue++;
-                        }
+                                if (updateDocResult2.ToLower() == "good") returnValue++;
+                            }
                             break;
                         case "PlantDocs":
-                        {
-                            localFolderName = "PlantDocs";
+                            {
+                                localFolderName = "PlantDocs";
 
-                            remoteFolderName =
-                                $"PlantFiles/{SortPlantDocPath(item.FolderPath, item.PlantId)}";
-                            var updateDocResult3 =
-                                await UpdateFileFromAzure(
-                                    item.FileName, localFolderName,
-                                    remoteFolderName);
+                                remoteFolderName =
+                                    $"PlantFiles/{SortPlantDocPath(item.FolderPath, item.PlantId)}";
+                                var updateDocResult3 =
+                                    await UpdateFileFromAzure(
+                                        item.FileName, localFolderName,
+                                        remoteFolderName);
 
-                            if (updateDocResult3.ToLower() == "good") returnValue++;
-                        }
+                                if (updateDocResult3.ToLower() == "good") returnValue++;
+                            }
                             break;
                         default:
                             localFolderName = "OperativeDocs";

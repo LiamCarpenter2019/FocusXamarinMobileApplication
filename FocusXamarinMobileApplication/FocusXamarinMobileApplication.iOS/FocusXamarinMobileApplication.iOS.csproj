@@ -76,8 +76,12 @@
     <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HybridWebViewRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PreviewControllerDS.cs" />
+    <Compile Include="SaveIOS.cs" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +149,9 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>5.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Data.Edm">
+      <Version>5.8.5</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Graph">
       <Version>4.53.0</Version>
     </PackageReference>
@@ -184,5 +191,24 @@
       <Project>{8599AD0E-FE1D-4EAA-AE78-769B147D24CD}</Project>
       <Name>FocusXamarinMobileApplication</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png" />
+    <Content Include="Content\Docs.html" />
+    <Content Include="Content\index.html" />
+    <Content Include="Content\mapTemplate.html" />
+    <Content Include="Content\OS.html" />
   </ItemGroup>
 </Project>

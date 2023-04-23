@@ -4,7 +4,7 @@ using WebView = Android.Webkit.WebView;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Droid;
+namespace FocusXamarinMobileApplication.Droid;
 
 public class JavascriptWebViewClient : FormsWebViewClient
 {

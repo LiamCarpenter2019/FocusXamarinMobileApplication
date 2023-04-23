@@ -3,7 +3,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using FocusXamarinForms20082020V1.iOS;
+using FocusXamarinMobileApplication.iOS;
 using QuickLook;
 using UIKit;
 using Xamarin.Forms;
@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SaveIOS))]
 
-namespace FocusXamarinForms20082020V1.iOS;
+namespace FocusXamarinMobileApplication.iOS;
 
 internal class SaveIOS : ISave
 {

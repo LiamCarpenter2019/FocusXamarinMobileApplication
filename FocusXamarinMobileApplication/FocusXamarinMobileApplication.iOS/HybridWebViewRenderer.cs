@@ -1,8 +1,10 @@
 ﻿#region
 
 using System.IO;
-using FocusXamarinForms20082020V1.Helpers;
-using FocusXamarinForms20082020V1.iOS;
+using FocusXamarinMobileApplication.Helpers;
+using FocusXamarinMobileApplication.iOS;
+using FocusXamarinMobileApplication.Helpers;
+using FocusXamarinMobileApplication.iOS;
 using Foundation;
 using WebKit;
 using Xamarin.Forms;
@@ -12,7 +14,7 @@ using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(HybridWebView), typeof(HybridWebViewRenderer))]
 
-namespace FocusXamarinForms20082020V1.iOS;
+namespace FocusXamarinMobileApplication.iOS;
 
 public class HybridWebViewRenderer : WkWebViewRenderer, IWKScriptMessageHandler
 {

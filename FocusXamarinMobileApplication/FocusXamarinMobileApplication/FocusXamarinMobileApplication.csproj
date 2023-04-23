@@ -46,6 +46,7 @@
     <PackageReference Include="Microsoft.AppCenter" Version="5.0.1" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Data.Edm" Version="5.8.5" />
     <PackageReference Include="Microsoft.Graph" Version="4.53.0" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.47.2" />
     <PackageReference Include="Microsoft.SharePointOnline.CSOM" Version="16.1.23508.12000" />
@@ -53,6 +54,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="SharePoint.Client.Office.Tools" Version="15.0.4907.1002" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Syncfusion.Licensing" Version="21.1.41" />
     <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="21.1.41" />

@@ -7,7 +7,7 @@ using QuickLook;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.iOS;
+namespace FocusXamarinMobileApplication.iOS;
 
 public class PreviewControllerDS : QLPreviewControllerDataSource
 {
