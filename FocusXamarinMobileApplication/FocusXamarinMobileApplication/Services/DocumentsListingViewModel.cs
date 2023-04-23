@@ -33,13 +33,13 @@ namespace FocusXamarinMobileApplication.Services
                 NavigationalParameters.NavigationParameter = null;
               //  //NavigationalParameters.ReturnPage = Locator.DocumentListingPageViewModel;
              //   NavigationalParameters.PassedInfo = new MenuPage();
-                await NavigateTo(new MenuSelectionPage());
+                await NavigateTo(ViewModelLocator.MenuSelectionPage);
                 NavigationalParameters.PreviousPageKey = "";
             }
             else
             {
                 NavigationalParameters.NavigationParameter = null;
-               await NavigateBack();
+                NavigateBack();
             }
         }
 

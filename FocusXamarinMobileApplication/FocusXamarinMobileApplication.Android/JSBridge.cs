@@ -5,7 +5,7 @@ using Object = Java.Lang.Object;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Droid;
+namespace FocusXamarinMobileApplication.Droid;
 
 public class JSBridge : Object
 {

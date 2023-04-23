@@ -1,6 +1,6 @@
 ﻿[assembly: ExportRenderer(typeof(HybridWebView), typeof(HybridWebViewRenderer))]
 
-namespace FocusXamarinForms20082020V1.Droid;
+namespace FocusXamarinMobileApplication.Droid;
 
 public class HybridWebViewRenderer : WebViewRenderer
 {

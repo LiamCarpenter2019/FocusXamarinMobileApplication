@@ -11,7 +11,7 @@ using Uri = Android.Net.Uri;
 
 [assembly: Dependency(typeof(SaveAndroid))]
 
-namespace FocusXamarinForms20082020V1.Droid;
+namespace FocusXamarinMobileApplication.Droid;
 
 internal class SaveAndroid : ISave
 {

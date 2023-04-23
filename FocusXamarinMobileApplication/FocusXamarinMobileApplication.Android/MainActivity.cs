@@ -15,9 +15,9 @@ using Platform = Xamarin.Essentials.Platform;
 
 #endregion
 
-namespace FocusXamarinForms20082020V1.Droid;
+namespace FocusXamarinMobileApplication.Droid;
 
-[Activity(Label = "FocusXamarinForms20082020V1", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
+[Activity(Label = "FocusXamarinMobileApplication", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
     ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode |
                            ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
 public class MainActivity : FormsAppCompatActivity

@@ -7,6 +7,7 @@ using FocusXamarinMobileApplication.Views;
 using FocusXamarinMobileApplication.Services;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
+using Person = FocusXamarinMobileApplication.Models.Person;
 
 namespace FocusXamarinMobileApplication.ViewModels
 {

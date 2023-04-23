@@ -6,7 +6,7 @@ using WebView = Android.Webkit.WebView;
 
 [assembly: ExportRenderer(typeof(PdfView), typeof(PdfViewRenderer))]
 
-namespace FocusXamarinForms20082020V1.Droid;
+namespace FocusXamarinMobileApplication.Droid;
 
 public class PdfViewRenderer : WebViewRenderer
 {

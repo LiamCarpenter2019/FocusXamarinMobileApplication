@@ -1,4 +1,7 @@
-﻿namespace FocusXamarinMobileApplication.Helpers;
+﻿
+using WebView = Xamarin.Forms.WebView;
+
+namespace FocusXamarinMobileApplication.Helpers;
 
 public class PdfView : WebView
 {
