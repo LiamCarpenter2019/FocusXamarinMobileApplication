@@ -9,7 +9,7 @@ public partial class MapDrawingComboPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.FormsMapPageViewModel;
+        _vm = App.ViewModelLocator.FormsMapPageViewModel;
         BindingContext = _vm;
         MoveToPosition(null, null);
 

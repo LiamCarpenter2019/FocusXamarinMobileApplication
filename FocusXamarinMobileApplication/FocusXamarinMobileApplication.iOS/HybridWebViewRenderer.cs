@@ -3,8 +3,6 @@
 using System.IO;
 using FocusXamarinMobileApplication.Helpers;
 using FocusXamarinMobileApplication.iOS;
-using FocusXamarinMobileApplication.Helpers;
-using FocusXamarinMobileApplication.iOS;
 using Foundation;
 using WebKit;
 using Xamarin.Forms;

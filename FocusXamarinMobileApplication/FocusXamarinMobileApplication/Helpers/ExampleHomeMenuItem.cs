@@ -1,4 +1,4 @@
-﻿namespace FocusXamarinMobileApplication.Helpers;
+﻿namespace FocusXamarinMobileApplication.ViewModels;
 
 public enum MenuItemType
 {

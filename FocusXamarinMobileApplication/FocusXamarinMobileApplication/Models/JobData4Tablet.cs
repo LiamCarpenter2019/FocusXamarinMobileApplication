@@ -1,4 +1,8 @@
-﻿namespace FocusXamarinMobileApplication.Models;
+﻿#region
+
+#endregion
+
+namespace FocusXamarinMobileApplication.Models;
 
 //[Table("JobData")]
 public class JobData4Tablet : BusinessEntityBase

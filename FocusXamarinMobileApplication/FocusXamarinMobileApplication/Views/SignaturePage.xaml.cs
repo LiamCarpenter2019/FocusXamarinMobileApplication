@@ -1,8 +1,8 @@
 ﻿#region
 
-#endregion
-
 using SignaturePad.Forms;
+
+#endregion
 
 namespace FocusXamarinMobileApplication.Views;
 
@@ -35,14 +35,14 @@ public partial class SignaturePage : ContentPage, IFormsPage
 
     private async void UserSelectedCommand(object sender, SelectedItemChangedEventArgs e)
     {
-        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpg);
+        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpeg);
 
         _vm.UserSelected.Execute(null);
     }
 
     private async void SaveCommand(object sender, EventArgs e)
     {
-        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpg);
+        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpeg);
 
         _vm.Save.Execute(null);
     }

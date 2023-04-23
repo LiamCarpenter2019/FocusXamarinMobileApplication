@@ -1,6 +1,4 @@
-﻿using JsonSerializer = System.Text.Json.JsonSerializer;
-
-namespace FocusXamarinMobileApplication.Services;
+﻿namespace FocusXamarinMobileApplication.Services;
 
 internal class TestTokenAuth : IDisposable
 {

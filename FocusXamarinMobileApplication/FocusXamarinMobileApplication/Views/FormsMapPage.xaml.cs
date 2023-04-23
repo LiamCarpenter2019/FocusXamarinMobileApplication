@@ -266,7 +266,7 @@ public partial class FormsMapPage : ContentPage
                                 NavigationalParameters.SelectedAsset.latitude =
                                     _vm.CurrentPosition.Latitude.ToString();
                                 NavigationalParameters.SelectedAsset.SavedToServer = false;
-                               App.Database.SaveItem(NavigationalParameters.SelectedAsset);
+                                App.Database.SaveItem(NavigationalParameters.SelectedAsset);
                             }
                         }
                         else

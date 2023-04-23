@@ -71,7 +71,7 @@ public class LoginPageViewModel : FBaseViewModel, INotifyPropertyChanged
         set
         {
             _harmonixLogo = value;
-            OnPropertyChanged("HarmonixLogo");
+            OnPropertyChanged();
         }
     }
 

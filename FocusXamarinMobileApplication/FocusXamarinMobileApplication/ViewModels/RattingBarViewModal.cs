@@ -1,4 +1,9 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using FocusXamarinMobileApplication.Views;
+using GalaSoft.MvvmLight.Views;
+using Xamarin.Forms;
 
 namespace FocusXamarinMobileApplication.ViewModels
 {

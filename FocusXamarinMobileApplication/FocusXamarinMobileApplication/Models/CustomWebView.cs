@@ -1,4 +1,7 @@
-﻿namespace FocusXamarinMobileApplication.Models
+﻿using Xamarin.Forms;
+using WebView = FocusXamarinMobileApplication.Views.WebView;
+
+namespace FocusXamarinMobileApplication.Models
 {
     public class CustomWebView : WebView
     {

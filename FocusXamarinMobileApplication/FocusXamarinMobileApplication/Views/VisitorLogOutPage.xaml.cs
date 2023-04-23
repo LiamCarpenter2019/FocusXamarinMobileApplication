@@ -1,8 +1,8 @@
 ﻿#region
 
-#endregion
-
 using SignaturePad.Forms;
+
+#endregion
 
 namespace FocusXamarinMobileApplication.Views;
 
@@ -32,7 +32,7 @@ public partial class VisitorLogOutPage : ContentPage, IFormsPage
 
     private async void SaveBtn_Clicked(object sender, EventArgs e)
     {
-        _vm.Image = await VisitorSignatureOutPad.GetImageStreamAsync(SignatureImageFormat.Jpg);
+        _vm.Image = await VisitorSignatureOutPad.GetImageStreamAsync(SignatureImageFormat.Jpeg);
 
         _vm.Submit.Execute(null);
     }

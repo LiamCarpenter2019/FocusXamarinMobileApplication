@@ -1,4 +1,6 @@
-﻿namespace FocusXamarinMobileApplication.Models
+﻿using System.Collections.Generic;
+
+namespace FocusXamarinMobileApplication.Models
 {
     public class Authorisation
     {
@@ -8,7 +10,7 @@
         public enum ReasonType { OPERATIVE, SUPERVISOR };
         public ReasonType Reason { get; set; }
 
-       // public List<SignatureDetail> Signatures { get; set; }
+        public List<SignatureDetail> Signatures { get; set; }
         public bool PinAutorised { get; set; }
     }
 }

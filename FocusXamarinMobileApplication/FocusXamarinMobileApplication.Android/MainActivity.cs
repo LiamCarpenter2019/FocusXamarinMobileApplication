@@ -1,8 +1,23 @@
-﻿using Xamarin;
+﻿#region
 
-namespace FocusXamarinMobileApplication.Droid;
+using Android;
+using Android.App;
+using Android.Content.PM;
+using Android.OS;
+using Android.Runtime;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.Identity.Client;
+using Syncfusion.Licensing;
+using Xamarin;
+using Platform = Xamarin.Essentials.Platform;
 
-[Activity(Label = "FocusXamarinMobileApplication", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
+#endregion
+
+namespace FocusXamarinForms20082020V1.Droid;
+
+[Activity(Label = "FocusXamarinForms20082020V1", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
     ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode |
                            ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
 public class MainActivity : FormsAppCompatActivity

@@ -1,4 +1,6 @@
-﻿
+﻿#region
+
+#endregion
 
 namespace FocusXamarinMobileApplication.Models;
 

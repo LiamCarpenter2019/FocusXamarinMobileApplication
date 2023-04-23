@@ -1,4 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using FocusXamarinMobileApplication.Helpers;
+using FocusXamarinMobileApplication.Models;
+using FocusXamarinMobileApplication.Services.Interfaces;
+using FocusXamarinMobileApplication.ViewModels;
 using FocusXamarinMobileApplication.Views;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
 
 namespace FocusXamarinMobileApplication.Services
 {
@@ -29,7 +39,7 @@ namespace FocusXamarinMobileApplication.Services
             else
             {
                 NavigationalParameters.NavigationParameter = null;
-                NavigateBack();
+               await NavigateBack();
             }
         }
 

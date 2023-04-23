@@ -1,4 +1,10 @@
-﻿using Application = Xamarin.Forms.Application;
+﻿using FocusXamarinMobileApplication.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+using FocusXamarinMobileApplication.Helpers;
 
 namespace FocusXamarinMobileApplication.Views
 {
@@ -40,7 +46,7 @@ namespace FocusXamarinMobileApplication.Views
             var signout = await DisplayAlert("Sign out?", "Do you want to sign out?", "Yes", "No");
             if (signout)
             {
-                await (Application.Current as Microsoft.SharePoint.Client.App).SignOut();
+                await (Application.Current as App).SignOut();
             }
         }
 
@@ -54,7 +60,7 @@ namespace FocusXamarinMobileApplication.Views
                 }
                 else
                 {
-                    await (Application.Current as Microsoft.SharePoint.Client.App).SignIn();
+                    await (Application.Current as App).SignIn();
                 }
             }
             catch (Exception ex)

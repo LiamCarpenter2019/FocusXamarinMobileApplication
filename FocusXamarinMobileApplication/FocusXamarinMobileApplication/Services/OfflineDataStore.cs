@@ -6,7 +6,7 @@ using Person = FocusXamarinMobileApplication.Models.Person;
 
 namespace FocusXamarinMobileApplication.Services;
 
-public class OfflineDataStore : IDataStore<>
+public class OfflineDataStore : IDataStore
 {
     #region IDataStore implementation
 

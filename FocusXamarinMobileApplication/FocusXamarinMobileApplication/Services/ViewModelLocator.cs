@@ -1,6 +1,4 @@
-﻿using FocusXamarinMobileApplication.Views;
-
-namespace FocusXamarinMobileApplication.Services;
+﻿namespace FocusXamarinMobileApplication.Services;
 
 public class ViewModelLocator
 {
@@ -128,6 +126,7 @@ public class ViewModelLocator
         navigation.Configure(InputMeasurePage, typeof(InputMeasurePage));
         navigation.Configure(InvestigateDamagePage, typeof(InvestigateDamagePage));
         navigation.Configure(MainListPage, typeof(MainListPage));
+        navigation.Configure(MapDrawingComboPage, typeof(MapDrawingComboPage));
         navigation.Configure(MapWithPinsPage, typeof(MapWithPinsPage));
         navigation.Configure(MeasureApprovalPage, typeof(MeasureApprovalPage));
         navigation.Configure(MeasureListPage, typeof(MeasureListPage));
@@ -139,6 +138,7 @@ public class ViewModelLocator
         navigation.Configure(PermitPage, typeof(PermitPage));
         navigation.Configure(PhotoSelectionPage, typeof(PhotoSelectionPage));
         navigation.Configure(PhotoPage, typeof(PhotoPage));
+        navigation.Configure(MapDrawingComboPage, typeof(MapDrawingComboPage));
         navigation.Configure(PlantChecksPage, typeof(PlantChecksPage));
         navigation.Configure(PlantDetailsPage, typeof(PlantDetailsPage));
         navigation.Configure(PlantIssuePage, typeof(PlantIssuePage));
@@ -224,6 +224,7 @@ public class ViewModelLocator
         SimpleIoc.Default.Register<InvestigateDamagePageViewModel>();
         SimpleIoc.Default.Register<InvestigateDamagePageViewModel>();
         SimpleIoc.Default.Register<InvestigationDetail2PageViewModel>();
+        SimpleIoc.Default.Register<ItemDetailPageViewModel>();
         SimpleIoc.Default.Register<LoginPageViewModel>();
         SimpleIoc.Default.Register<MainListPageViewModel>();
         SimpleIoc.Default.Register<MeasureApprovalPageViewModel>();
@@ -691,6 +692,15 @@ public class ViewModelLocator
         }
     }
 
+    public ItemDetailPageViewModel ItemDetailPageViewModel
+    {
+        get
+        {
+            if (!SimpleIoc.Default.IsRegistered<ItemDetailPageViewModel>())
+                SimpleIoc.Default.Register<ItemDetailPageViewModel>();
+            return SimpleIoc.Default.GetInstance<ItemDetailPageViewModel>();
+        }
+    }
 
     public LoginPageViewModel LoginPageViewModel
     {

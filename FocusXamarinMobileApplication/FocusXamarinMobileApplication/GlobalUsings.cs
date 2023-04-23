@@ -27,6 +27,7 @@ global using FocusXamarinMobileApplication.Models;
 global using FocusXamarinMobileApplication.Services;
 global using FocusXamarinMobileApplication.Services.Interfaces;
 global using FocusXamarinMobileApplication.ViewModels;
+global using FocusXamarinMobileApplication.Views;
 global using GalaSoft.MvvmLight.Command;
 global using GalaSoft.MvvmLight.Ioc;
 global using GalaSoft.MvvmLight.Views;
@@ -44,4 +45,6 @@ global using Xamarin.Essentials;
 global using Xamarin.Forms;
 global using Xamarin.Forms.Maps;
 global using Xamarin.Forms.Xaml;
+global using JsonSerializer = System.Text.Json.JsonSerializer;
+
 #endregion

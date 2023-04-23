@@ -1,5 +1,9 @@
 ﻿#region
 
+using FocusXamarinMobileApplication.Services;
+using System.Xml.Linq;
+using Xamarin.Essentials;
+using Xamarin.Forms.Maps;
 using Constants = FocusXamarinMobileApplication.Services.Constants;
 
 #endregion

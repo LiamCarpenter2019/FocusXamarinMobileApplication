@@ -1,5 +1,6 @@
 ﻿#region
 
+using FocusXamarinMobileApplication.Models;
 //using Syncfusion.XlsIO.Parser.Biff_Records;
 using Audit = FocusXamarinMobileApplication.Models.Audit;
 using Location = FocusXamarinMobileApplication.Models.Location;
@@ -456,7 +457,7 @@ public class Assignments : IAssignments
             .FirstOrDefault(x => x.AssignmentId == selectedAnswer.AssignmentId
                                  && x.QuestionId == selectedAnswer.QuestionId);
 
-        if (answerExsists != null) selectedAnswer.RemoteTableId = answerExsists.Id;
+        if (answerExsists != null) selectedAnswer.Id = answerExsists.Id;
 
         App.Database.SaveItem(selectedAnswer);
     }

@@ -1,9 +1,9 @@
 ﻿#region
 
-#endregion
-
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+
+#endregion
 
 namespace FocusXamarinMobileApplication.ViewModels;
 

@@ -1,4 +1,7 @@
-﻿namespace FocusXamarinMobileApplication.ViewModels;
+﻿using System.Security.Claims;
+using FocusXamarinMobileApplication.Helpers;
+
+namespace FocusXamarinMobileApplication.ViewModels;
 
 public class MeasureListPageViewModel : FBaseViewModel, INotifyPropertyChanged
 {
@@ -345,7 +348,7 @@ public class MeasureListPageViewModel : FBaseViewModel, INotifyPropertyChanged
                     SynCode = NavigationalParameters.CurrentRate?.RemoteTableId.ToString(),
                     PostedByGanger = DateTime.Now,
                     PostedByGangerName = NavigationalParameters.CurrentSelectedJob?.GangLeaderName,
-                    ClaimHeader = NavigationalParameters.CurrentRate?.Header,
+                    ClaimHeader = NavigationalParameters.CurrentRate.Header,
                     ClaimDesc = NavigationalParameters.CurrentRate.Description,
                     BaseUnit = NavigationalParameters.CurrentRate.BaseUnit,
                     ClaimType = NavigationalParameters.SelectedAsset.BuildingStandard

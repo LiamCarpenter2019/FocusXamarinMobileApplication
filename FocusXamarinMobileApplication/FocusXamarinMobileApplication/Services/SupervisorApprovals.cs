@@ -1,3 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+using FocusXamarinMobileApplication.Helpers;
+using FocusXamarinMobileApplication.Models;
+using MethodTimer;
+
 namespace FocusXamarinMobileApplication.Services
 {
     public class SupervisorApprovals
@@ -22,19 +31,19 @@ namespace FocusXamarinMobileApplication.Services
 
         //[Time] public static JobData4Tablet CurrentJob { get; set; }
 
-      //  [Time]
-        //public bool GetItemsForApproval(JobData4Tablet job)
-        //{
-        //    var da = CheckDiaryApproval(job);
-        //    var cta = CheckTimesheetApproval(job);
-        //    var cwta = CheckWorkItemApproval(job);
-        //    var clt = CheckLateralApproval(job);
+        [Time]
+        public bool GetItemsForApproval(JobData4Tablet job)
+        {
+            var da = CheckDiaryApproval(job);
+            var cta = CheckTimesheetApproval(job);
+            var cwta = CheckWorkItemApproval(job);
+            var clt = CheckLateralApproval(job);
 
-        //    if (da || cta || cwta || clt)
-        //        return true;
+            if (da || cta || cwta || clt)
+                return true;
 
-        //    return false;
-        //}
+            return false;
+        }
 
         [Time]
         public bool BypassCheck(JobData4Tablet job)

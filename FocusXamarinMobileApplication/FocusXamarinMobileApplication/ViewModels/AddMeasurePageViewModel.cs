@@ -1,6 +1,5 @@
 #region
 
-using FocusXamarinMobileApplication.Views;
 using Person = FocusXamarinMobileApplication.Models.Person;
 
 #endregion

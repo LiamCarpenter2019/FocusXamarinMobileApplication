@@ -1,5 +1,6 @@
 ﻿#region
 
+using FocusXamarinMobileApplication.Helpers;
 using Syncfusion.ListView.XForms;
 using Device = Xamarin.Forms.Device;
 using ScrollToPosition = Xamarin.Forms.ScrollToPosition;

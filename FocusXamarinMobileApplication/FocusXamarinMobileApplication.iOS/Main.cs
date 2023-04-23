@@ -1,5 +1,4 @@
 ﻿#region
-
 using System;
 using FocusXamarinMobileApplication.Helpers;
 using Microsoft.AppCenter.Analytics;

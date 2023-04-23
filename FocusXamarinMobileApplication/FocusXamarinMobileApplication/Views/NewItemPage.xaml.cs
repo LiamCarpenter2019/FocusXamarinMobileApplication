@@ -1,4 +1,12 @@
-﻿namespace FocusXamarinMobileApplication.Views
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+using FocusXamarinMobileApplication.Models;
+
+namespace FocusXamarinMobileApplication.Views
 {
     public partial class NewItemPage : ContentPage
     {
