@@ -10,7 +10,7 @@ public partial class OrderListPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.OrderListPageViewModel;
+        _vm = App.ViewModelLocator.OrderListPageViewModel;
 
         BindingContext = _vm;
 

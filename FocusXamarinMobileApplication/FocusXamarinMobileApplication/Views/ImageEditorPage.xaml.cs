@@ -16,7 +16,7 @@ public partial class ImageEditorPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ImageEditorPageViewModel;
+        _vm = App.ViewModelLocator.ImageEditorPageViewModel;
 
         BindingContext = _vm;
     }

@@ -10,7 +10,7 @@ public partial class SiteInspectionRatingFailurePage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SiteInspectionRatingFailurePageViewModel;
+        _vm = App.ViewModelLocator.SiteInspectionRatingFailurePageViewModel;
 
         BindingContext = _vm;
     }

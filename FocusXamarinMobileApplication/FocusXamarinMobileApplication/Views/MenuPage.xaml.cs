@@ -1,4 +1,6 @@
-﻿namespace FocusXamarinMobileApplication.Views
+﻿using Application = Xamarin.Forms.Application;
+
+namespace FocusXamarinMobileApplication.Views
 {
     public partial class MenuPage : ContentPage
     {

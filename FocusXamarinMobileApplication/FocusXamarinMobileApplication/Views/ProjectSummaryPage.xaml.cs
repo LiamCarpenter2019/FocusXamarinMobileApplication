@@ -8,7 +8,7 @@ public partial class ProjectSummaryPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ProjectSummaryPageViewModel;
+        _vm = App.ViewModelLocator.ProjectSummaryPageViewModel;
 
         _vm.ScreenLoaded.Execute(null);
 

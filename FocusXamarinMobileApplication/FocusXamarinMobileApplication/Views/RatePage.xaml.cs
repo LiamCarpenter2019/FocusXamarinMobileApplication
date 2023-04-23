@@ -6,7 +6,7 @@ public partial class RatePage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DfePageViewModel;
+        _vm = App.ViewModelLocator.DfePageViewModel;
 
         BindingContext = _vm;
     }

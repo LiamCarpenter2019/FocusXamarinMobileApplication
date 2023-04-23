@@ -14,7 +14,7 @@ public partial class GangSelectPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.GangSelectPageViewModel;
+        _vm = App.ViewModelLocator.GangSelectPageViewModel;
 
         BindingContext = _vm;
     }

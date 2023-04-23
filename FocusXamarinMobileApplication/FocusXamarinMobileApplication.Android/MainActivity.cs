@@ -26,8 +26,8 @@ public class MainActivity : FormsAppCompatActivity
 
     protected override void OnCreate(Bundle savedInstanceState)
     {
-        TabLayoutResource = Android.Resource.Layout.Tabbar;
-        ToolbarResource = Android.Resource.Layout.Toolbar;
+        TabLayoutResource = Resource.Layout.Tabbar;
+        ToolbarResource = Resource.Layout.Toolbar;
         SyncfusionLicenseProvider.RegisterLicense(
             "Mgo+DSMBaFt+QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRcQl5gSX9bd0BhXn5ZeHM=;Mgo+DSMBPh8sVXJ1S0d+X1RPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9gSX1QdkRrWHpcd3VcRWg=;ORg4AjUWIQA/Gnt2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5QdUViUX5bcnNXR2Rb;MTU2NDQzNEAzMjMxMmUzMTJlMzMzNUdJK1owK1BEUVBvdlkrYy9VRWJyaVUwZmZuN0hpV3dVMElRUHYyZXFoOE09;MTU2NDQzNUAzMjMxMmUzMTJlMzMzNUwrZE1JQzVSR1gzZnk2dEgzTmEyRVliaEVJYm5OU3RvL2V3Ry9XcWY3dUU9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RDX3xKf0x/TGpQb19xflBPallYVBYiSV9jS31TdUZjWHdfdXZSRWFVVg==;MTU2NDQzN0AzMjMxMmUzMTJlMzMzNUxZOEhjNG9lbHltSTB3NWN2YTlQNllwbE5kU0N5dWhhSVpBazcrVHJyV1k9;MTU2NDQzOEAzMjMxMmUzMTJlMzMzNVl6UHc1UzEzNVVGUUFlamlRVElVUXpibFloMlYwdVVuQnE1R0dFbnM2cUk9;Mgo+DSMBMAY9C3t2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5QdUViUX5bcnNRR2Vb;MTU2NDQ0MEAzMjMxMmUzMTJlMzMzNWVnSFN0VmM0SVowT3hHTUcxUkp1RllMWDk4dzR6cWdxdzQ4M2VUMzY3anc9;MTU2NDQ0MUAzMjMxMmUzMTJlMzMzNWVrYzlBY1JYaFh4MEJEQXhhSzRPYzRRSGxuOGZnb0lnQkl5SENmeWVTUk09;MTU2NDQ0MkAzMjMxMmUzMTJlMzMzNUxZOEhjNG9lbHltSTB3NWN2YTlQNllwbE5kU0N5dWhhSVpBazcrVHJyV1k9");
         base.OnCreate(savedInstanceState);

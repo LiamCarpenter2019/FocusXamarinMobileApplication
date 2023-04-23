@@ -10,7 +10,7 @@ public partial class SupervisorMeasuresApprovalsPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SupervisorMeasuresApprovalsPageViewModel;
+        _vm = App.ViewModelLocator.SupervisorMeasuresApprovalsPageViewModel;
 
         BindingContext = _vm;
     }

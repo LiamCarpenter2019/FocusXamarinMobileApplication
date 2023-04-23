@@ -10,7 +10,7 @@ public partial class MainListPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MainListPageViewModel;
+        _vm = App.ViewModelLocator.MainListPageViewModel;
 
         BindingContext = _vm;
 

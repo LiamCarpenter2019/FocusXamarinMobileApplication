@@ -17,7 +17,7 @@ public partial class DiarySelectionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DiarySelectPageViewModel;
+        _vm = App.ViewModelLocator.DiarySelectPageViewModel;
         BindingContext = _vm;
     }
 

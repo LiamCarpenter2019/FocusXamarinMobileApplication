@@ -8,7 +8,7 @@ public partial class ReInstatementPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ReInstatementPageViewModel;
+        _vm = App.ViewModelLocator.ReInstatementPageViewModel;
 
         BindingContext = _vm;
 

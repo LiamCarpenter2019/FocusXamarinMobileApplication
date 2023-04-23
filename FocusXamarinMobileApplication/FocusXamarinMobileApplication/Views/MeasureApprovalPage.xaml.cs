@@ -6,7 +6,7 @@ public partial class MeasureApprovalPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        BindingContext = Microsoft.SharePoint.Client.App.ViewModelLocator.MeasureApprovalPageViewModel;
+        BindingContext = App.ViewModelLocator.MeasureApprovalPageViewModel;
     }
 
     public void RefreshPage()

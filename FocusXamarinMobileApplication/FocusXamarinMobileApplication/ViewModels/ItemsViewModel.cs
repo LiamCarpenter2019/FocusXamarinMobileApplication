@@ -1,4 +1,6 @@
-﻿namespace FocusXamarinMobileApplication.ViewModels
+﻿using FocusXamarinMobileApplication.Views;
+
+namespace FocusXamarinMobileApplication.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {

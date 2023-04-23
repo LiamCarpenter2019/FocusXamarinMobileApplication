@@ -16,7 +16,7 @@ public partial class CameraViewPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PhotoPageViewModel;
+        _vm = App.ViewModelLocator.PhotoPageViewModel;
         BindingContext = _vm;
         PhotoList = new List<Pictures4Tablet>();
         //AddImageButton.WidthRequest = ButtonWidth;

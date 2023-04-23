@@ -10,7 +10,7 @@ public partial class InvestigateDamagePage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.InvestigateDamagePageViewModel;
+        _vm = App.ViewModelLocator.InvestigateDamagePageViewModel;
 
         BindingContext = _vm;
     }

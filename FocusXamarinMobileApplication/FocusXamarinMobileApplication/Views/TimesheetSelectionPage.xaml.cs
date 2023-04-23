@@ -14,7 +14,7 @@ public partial class TimesheetSelectionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.TimesheetsSelectionPageViewModel;
+        _vm = App.ViewModelLocator.TimesheetsSelectionPageViewModel;
 
         BindingContext = _vm;
 

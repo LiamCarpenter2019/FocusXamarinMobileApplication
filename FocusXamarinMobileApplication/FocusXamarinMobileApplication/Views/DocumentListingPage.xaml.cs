@@ -16,7 +16,7 @@ public partial class DocumentListingPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DocumentListingPageViewModel;
+        _vm = App.ViewModelLocator.DocumentListingPageViewModel;
         BindingContext = _vm;
 
         listView.ItemTapped += (sender, e) =>

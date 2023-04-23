@@ -8,7 +8,7 @@ public partial class RaiseCviMeasurePage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.RaiseCviMeasurePageViewModel;
+        _vm = App.ViewModelLocator.RaiseCviMeasurePageViewModel;
         BindingContext = _vm;
     }
 

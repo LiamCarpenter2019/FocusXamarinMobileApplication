@@ -8,7 +8,7 @@ public partial class TimesheetPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.TimesheetsPageViewModel;
+        _vm = App.ViewModelLocator.TimesheetsPageViewModel;
 
         BindingContext = _vm;
 

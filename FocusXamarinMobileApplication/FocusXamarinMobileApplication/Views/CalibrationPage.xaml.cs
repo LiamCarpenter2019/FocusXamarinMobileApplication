@@ -10,7 +10,7 @@ public partial class CalibrationPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.CalibrationPageViewModel;
+        _vm = App.ViewModelLocator.CalibrationPageViewModel;
 
         BindingContext = _vm;
     }

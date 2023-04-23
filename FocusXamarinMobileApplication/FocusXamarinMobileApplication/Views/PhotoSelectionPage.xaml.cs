@@ -8,7 +8,7 @@ public partial class PhotoSelectionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PhotoSelectionPageViewModel;
+        _vm = App.ViewModelLocator.PhotoSelectionPageViewModel;
 
         BindingContext = _vm;
     }

@@ -2,6 +2,8 @@
 
 #endregion
 
+using SignaturePad.Forms;
+
 namespace FocusXamarinMobileApplication.Views;
 
 public partial class VisitorLogPage : ContentPage, IFormsPage
@@ -10,7 +12,7 @@ public partial class VisitorLogPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.VisitorLogPageViewModel;
+        _vm = App.ViewModelLocator.VisitorLogPageViewModel;
 
         BindingContext = _vm;
     }
@@ -31,7 +33,7 @@ public partial class VisitorLogPage : ContentPage, IFormsPage
 
     private async void SaveBtn_Clicked(object sender, EventArgs e)
     {
-        _vm.Image = await VisitorSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpeg);
+        _vm.Image = await VisitorSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpg);
 
         _vm.Submit.Execute(null);
     }

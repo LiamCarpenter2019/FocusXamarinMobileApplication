@@ -12,7 +12,7 @@ public partial class FormsMapPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.FormsMapPageViewModel;
+        _vm = App.ViewModelLocator.FormsMapPageViewModel;
 
         BindingContext = _vm;
 
@@ -266,7 +266,7 @@ public partial class FormsMapPage : ContentPage
                                 NavigationalParameters.SelectedAsset.latitude =
                                     _vm.CurrentPosition.Latitude.ToString();
                                 NavigationalParameters.SelectedAsset.SavedToServer = false;
-                                Microsoft.SharePoint.Client.App.Database.SaveItem(NavigationalParameters.SelectedAsset);
+                               App.Database.SaveItem(NavigationalParameters.SelectedAsset);
                             }
                         }
                         else
@@ -278,7 +278,7 @@ public partial class FormsMapPage : ContentPage
                                 NavigationalParameters.SelectedEndPoint.latitude =
                                     _vm.CurrentPosition.Latitude.ToString();
                                 NavigationalParameters.SelectedEndPoint.SavedToServer = false;
-                                Microsoft.SharePoint.Client.App.Database.SaveItem(NavigationalParameters.SelectedEndPoint);
+                                App.Database.SaveItem(NavigationalParameters.SelectedEndPoint);
                             }
                         }
                     }

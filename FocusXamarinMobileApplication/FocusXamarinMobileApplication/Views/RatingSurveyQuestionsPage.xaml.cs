@@ -10,7 +10,7 @@ public partial class RatingSurveyQuestionsPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.RatingSurveyQuestionsPageViewModel;
+        _vm = App.ViewModelLocator.RatingSurveyQuestionsPageViewModel;
 
         BindingContext = _vm;
 

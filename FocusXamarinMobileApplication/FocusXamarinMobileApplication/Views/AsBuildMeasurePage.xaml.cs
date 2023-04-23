@@ -10,7 +10,7 @@ public partial class AsBuildMeasurePage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.AsBuildMeasurePageViewModel;
+        _vm = App.ViewModelLocator.AsBuildMeasurePageViewModel;
 
         BindingContext = _vm;
     }

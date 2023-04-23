@@ -6,7 +6,7 @@ public partial class UtilityDamagesNavPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.UtilityDamagesNavPageViewModel;
+        _vm = App.ViewModelLocator.UtilityDamagesNavPageViewModel;
         BindingContext = _vm;
     }
 

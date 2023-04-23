@@ -10,7 +10,7 @@ public partial class SelectEndPointPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SelectEndPointPageViewModel;
+        _vm = App.ViewModelLocator.SelectEndPointPageViewModel;
 
         BindingContext = _vm;
 

@@ -10,7 +10,7 @@ public partial class SiteInspectionResultPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SiteInspectionResultPageViewModel;
+        _vm = App.ViewModelLocator.SiteInspectionResultPageViewModel;
 
         BindingContext = _vm;
     }

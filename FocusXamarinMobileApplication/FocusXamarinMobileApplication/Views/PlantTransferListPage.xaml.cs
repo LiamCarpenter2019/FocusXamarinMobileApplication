@@ -8,7 +8,7 @@ public partial class PlantTransferListPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PlantTransferListPageViewModel;
+        _vm = App.ViewModelLocator.PlantTransferListPageViewModel;
         BindingContext = _vm;
 
 

@@ -9,7 +9,7 @@ public partial class CommercialListPage : ContentPage, IFormsPage
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.CommercialListPageViewModel;
+        _vm = App.ViewModelLocator.CommercialListPageViewModel;
 
         BindingContext = _vm;
     }

@@ -9,7 +9,7 @@ public partial class PermitPage : ContentPage, IFormsPage
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
 
-        BindingContext = Microsoft.SharePoint.Client.App.ViewModelLocator.PermitPageViewModel;
+        BindingContext = App.ViewModelLocator.PermitPageViewModel;
     }
 
     public void RefreshPage()

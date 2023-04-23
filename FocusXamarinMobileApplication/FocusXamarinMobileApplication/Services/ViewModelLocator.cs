@@ -128,7 +128,6 @@ public class ViewModelLocator
         navigation.Configure(InputMeasurePage, typeof(InputMeasurePage));
         navigation.Configure(InvestigateDamagePage, typeof(InvestigateDamagePage));
         navigation.Configure(MainListPage, typeof(MainListPage));
-        navigation.Configure(MapDrawingComboPage, typeof(MapDrawingComboPage));
         navigation.Configure(MapWithPinsPage, typeof(MapWithPinsPage));
         navigation.Configure(MeasureApprovalPage, typeof(MeasureApprovalPage));
         navigation.Configure(MeasureListPage, typeof(MeasureListPage));
@@ -140,7 +139,6 @@ public class ViewModelLocator
         navigation.Configure(PermitPage, typeof(PermitPage));
         navigation.Configure(PhotoSelectionPage, typeof(PhotoSelectionPage));
         navigation.Configure(PhotoPage, typeof(PhotoPage));
-        navigation.Configure(MapDrawingComboPage, typeof(MapDrawingComboPage));
         navigation.Configure(PlantChecksPage, typeof(PlantChecksPage));
         navigation.Configure(PlantDetailsPage, typeof(PlantDetailsPage));
         navigation.Configure(PlantIssuePage, typeof(PlantIssuePage));

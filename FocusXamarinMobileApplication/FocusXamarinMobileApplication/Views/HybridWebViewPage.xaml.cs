@@ -13,7 +13,7 @@ public partial class HybridWebViewPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.HybridWebViewPageViewModel;
+        _vm = App.ViewModelLocator.HybridWebViewPageViewModel;
 
         BindingContext = _vm;
 

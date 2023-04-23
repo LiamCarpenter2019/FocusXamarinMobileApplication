@@ -8,7 +8,7 @@ public partial class MyPlantScreenPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MyPlantScreenPageViewModel;
+        _vm = App.ViewModelLocator.MyPlantScreenPageViewModel;
 
         BindingContext = _vm;
 

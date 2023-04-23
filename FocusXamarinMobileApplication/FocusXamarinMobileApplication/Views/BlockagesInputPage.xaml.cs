@@ -10,7 +10,7 @@ public partial class BlockagesInputPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.BlockageInputPageViewModel;
+        _vm = App.ViewModelLocator.BlockageInputPageViewModel;
 
         //  NavigationalParameters.ReturnPage = "";
 

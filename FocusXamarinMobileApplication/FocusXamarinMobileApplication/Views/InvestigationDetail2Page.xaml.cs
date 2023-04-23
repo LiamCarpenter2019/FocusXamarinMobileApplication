@@ -10,7 +10,7 @@ public partial class InvestigationDetail2Page : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);  
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.InvestigationDetail2PageViewModel;
+        _vm = App.ViewModelLocator.InvestigationDetail2PageViewModel;
 
         BindingContext = _vm;
     }

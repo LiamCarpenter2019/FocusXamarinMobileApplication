@@ -10,7 +10,7 @@ public partial class DailySiteInspectionPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DailySiteInspectionPageViewModel;
+        _vm = App.ViewModelLocator.DailySiteInspectionPageViewModel;
 
         BindingContext = _vm;
     }

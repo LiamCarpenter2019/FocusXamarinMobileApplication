@@ -10,7 +10,7 @@ public partial class SupervisorProjectPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SupervisorProjectPageViewModel;
+        _vm = App.ViewModelLocator.SupervisorProjectPageViewModel;
 
         BindingContext = _vm;
 

@@ -10,7 +10,7 @@ public partial class TaskListPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.TaskListPageViewModel;
+        _vm = App.ViewModelLocator.TaskListPageViewModel;
 
         BindingContext = _vm;
     }

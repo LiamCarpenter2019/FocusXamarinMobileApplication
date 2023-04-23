@@ -2,6 +2,8 @@
 
 #endregion
 
+using SignaturePad.Forms;
+
 namespace FocusXamarinMobileApplication.Views;
 
 public partial class VisitorLogOutPage : ContentPage, IFormsPage
@@ -10,7 +12,7 @@ public partial class VisitorLogOutPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.VisitorLogOutPageViewModel;
+        _vm = App.ViewModelLocator.VisitorLogOutPageViewModel;
 
         BindingContext = _vm;
     }
@@ -30,7 +32,7 @@ public partial class VisitorLogOutPage : ContentPage, IFormsPage
 
     private async void SaveBtn_Clicked(object sender, EventArgs e)
     {
-        _vm.Image = await VisitorSignatureOutPad.GetImageStreamAsync(SignatureImageFormat.Jpeg);
+        _vm.Image = await VisitorSignatureOutPad.GetImageStreamAsync(SignatureImageFormat.Jpg);
 
         _vm.Submit.Execute(null);
     }

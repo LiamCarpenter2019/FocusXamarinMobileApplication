@@ -10,7 +10,7 @@ public partial class AddChamberPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.AddChamberPageViewModel;
+        _vm = App.ViewModelLocator.AddChamberPageViewModel;
 
         BindingContext = _vm;
     }

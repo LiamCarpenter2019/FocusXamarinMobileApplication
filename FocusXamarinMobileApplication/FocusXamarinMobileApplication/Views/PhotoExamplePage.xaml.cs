@@ -8,7 +8,7 @@ public partial class PhotoExamplePage : ContentPage, IFormsPage
     {
         InitializeComponent();
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PhotoExamplePageViewModel;
+        _vm = App.ViewModelLocator.PhotoExamplePageViewModel;
 
         BindingContext = _vm;
     }

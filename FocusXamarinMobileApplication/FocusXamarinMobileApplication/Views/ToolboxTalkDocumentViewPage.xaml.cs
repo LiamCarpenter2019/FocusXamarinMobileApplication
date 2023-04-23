@@ -16,7 +16,7 @@ public partial class ToolboxTalkDocumentViewPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ToolboxTalkDocumentPageViewModel;
+        _vm = App.ViewModelLocator.ToolboxTalkDocumentPageViewModel;
 
         BindingContext = _vm;
 

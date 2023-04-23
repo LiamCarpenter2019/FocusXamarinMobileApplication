@@ -9,7 +9,7 @@ public partial class RaiseCviDetailsPage : ContentPage, IFormsPage
         InitializeComponent();
 
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.RaiseCviDetailsPageViewModel;
+        _vm = App.ViewModelLocator.RaiseCviDetailsPageViewModel;
         BindingContext = _vm;
     }
 

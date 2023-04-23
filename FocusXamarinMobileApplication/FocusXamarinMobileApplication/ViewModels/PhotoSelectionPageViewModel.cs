@@ -2,6 +2,9 @@
 
 #endregion
 
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+
 namespace FocusXamarinMobileApplication.ViewModels;
 
 public class PhotoSelectionPageViewModel : FBaseViewModel, INotifyPropertyChanged

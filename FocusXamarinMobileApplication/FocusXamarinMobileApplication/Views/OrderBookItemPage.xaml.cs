@@ -10,7 +10,7 @@ public partial class OrderBookItemPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.OrderBookItemPageViewModel;
+        _vm = App.ViewModelLocator.OrderBookItemPageViewModel;
 
         BindingContext = _vm;
     }

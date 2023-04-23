@@ -18,7 +18,7 @@ public partial class RegisterNewEventPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.RegisterNewEventPageViewModel;
+        _vm = App.ViewModelLocator.RegisterNewEventPageViewModel;
 
         BindingContext = _vm;
     }

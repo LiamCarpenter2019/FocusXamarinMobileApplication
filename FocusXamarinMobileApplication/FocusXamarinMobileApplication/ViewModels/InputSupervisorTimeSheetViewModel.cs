@@ -1,4 +1,7 @@
-﻿namespace FocusXamarinMobileApplication.ViewModels
+﻿using FocusXamarinMobileApplication.Views;
+using Person = FocusXamarinMobileApplication.Models.Person;
+
+namespace FocusXamarinMobileApplication.ViewModels
 {
     public class InputSupervisorTimeSheetViewModel : FBaseViewModel
     {

@@ -10,7 +10,7 @@ public partial class EventManagementSelectionPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.EventManagementSelectionPageViewModel;
+        _vm = App.ViewModelLocator.EventManagementSelectionPageViewModel;
 
         BindingContext = _vm;
     }

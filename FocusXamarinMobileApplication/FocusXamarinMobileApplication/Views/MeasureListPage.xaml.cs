@@ -8,7 +8,7 @@ public partial class MeasureListPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MeasureListPageViewModel;
+        _vm = App.ViewModelLocator.MeasureListPageViewModel;
 
         BindingContext = _vm;
     }

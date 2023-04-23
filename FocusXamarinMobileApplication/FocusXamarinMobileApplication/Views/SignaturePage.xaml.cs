@@ -2,6 +2,8 @@
 
 #endregion
 
+using SignaturePad.Forms;
+
 namespace FocusXamarinMobileApplication.Views;
 
 public partial class SignaturePage : ContentPage, IFormsPage
@@ -12,7 +14,7 @@ public partial class SignaturePage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SignaturePageViewModel;
+        _vm = App.ViewModelLocator.SignaturePageViewModel;
 
         BindingContext = _vm;
     }
@@ -33,14 +35,14 @@ public partial class SignaturePage : ContentPage, IFormsPage
 
     private async void UserSelectedCommand(object sender, SelectedItemChangedEventArgs e)
     {
-        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpeg);
+        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpg);
 
         _vm.UserSelected.Execute(null);
     }
 
     private async void SaveCommand(object sender, EventArgs e)
     {
-        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpeg);
+        _vm.Signature = await AuthSignatureInPad.GetImageStreamAsync(SignatureImageFormat.Jpg);
 
         _vm.Save.Execute(null);
     }

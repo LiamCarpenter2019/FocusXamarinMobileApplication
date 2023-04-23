@@ -1,3 +1,5 @@
+using FocusXamarinMobileApplication.Views;
+
 namespace FocusXamarinMobileApplication.Services
 {
    public class DocumentsListingViewModel : FBaseViewModel
@@ -27,7 +29,7 @@ namespace FocusXamarinMobileApplication.Services
             else
             {
                 NavigationalParameters.NavigationParameter = null;
-               await NavigateBack();
+                NavigateBack();
             }
         }
 

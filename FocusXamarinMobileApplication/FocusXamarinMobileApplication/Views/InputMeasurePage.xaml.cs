@@ -12,7 +12,7 @@ public partial class InputMeasurePage : ContentPage, IFormsPage
 
         NavigationalParameters.ReturnPage = "";
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.InputMeasurePageViewModel;
+        _vm = App.ViewModelLocator.InputMeasurePageViewModel;
 
         BindingContext = _vm;
     }

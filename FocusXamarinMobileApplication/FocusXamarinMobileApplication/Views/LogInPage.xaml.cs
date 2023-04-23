@@ -11,7 +11,7 @@ public partial class LogInPage : ContentPage, IFormsPage
         InitializeComponent();
 
         // BindingContext = 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.LoginPageViewModel;
+        _vm = App.ViewModelLocator.LoginPageViewModel;
 
         BindingContext = _vm;
     }

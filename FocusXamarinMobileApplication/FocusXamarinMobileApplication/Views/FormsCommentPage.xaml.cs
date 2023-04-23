@@ -10,7 +10,7 @@ public partial class FormsCommentPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.FormsCommentPageViewModel;
+        _vm = App.ViewModelLocator.FormsCommentPageViewModel;
 
         BindingContext = _vm;
     }

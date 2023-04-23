@@ -16,7 +16,7 @@ public partial class EditInjuredPersonPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.InjuredPersonViewModel;
+        _vm = App.ViewModelLocator.InjuredPersonViewModel;
         BindingContext = _vm;
     }
 

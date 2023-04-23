@@ -7,7 +7,7 @@ public partial class MeasureTypeSelectionPage : ContentPage, IFormsPage
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MeasureTypePageViewModel;
+        _vm = App.ViewModelLocator.MeasureTypePageViewModel;
 
         BindingContext = _vm;
     }

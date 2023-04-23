@@ -25,7 +25,7 @@ public partial class ProjectImagesPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ProjectImagesPageViewModel;
+        _vm = App.ViewModelLocator.ProjectImagesPageViewModel;
         BindingContext = _vm;
     }
 

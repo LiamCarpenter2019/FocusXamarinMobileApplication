@@ -8,7 +8,7 @@ public partial class AdditionalRisksPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.AdditionalRisksPageViewModel;
+        _vm = App.ViewModelLocator.AdditionalRisksPageViewModel;
 
         BindingContext = _vm;
     }

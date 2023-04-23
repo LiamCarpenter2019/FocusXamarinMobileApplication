@@ -6,7 +6,7 @@ public partial class FuelConsumptionPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.FuelConsumptionPageViewModel;
+        _vm = App.ViewModelLocator.FuelConsumptionPageViewModel;
         BindingContext = _vm;
     }
 

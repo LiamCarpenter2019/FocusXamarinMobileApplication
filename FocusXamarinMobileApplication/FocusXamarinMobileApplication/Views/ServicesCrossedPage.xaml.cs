@@ -8,7 +8,7 @@ public partial class ServicesCrossedPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ServicesCrossedPageViewModel;
+        _vm = App.ViewModelLocator.ServicesCrossedPageViewModel;
 
         BindingContext = _vm;
 

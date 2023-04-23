@@ -8,7 +8,7 @@ public partial class PlantTransferInPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PlantTansferInPageViewModel;
+        _vm = App.ViewModelLocator.PlantTansferInPageViewModel;
 
         BindingContext = _vm;
 

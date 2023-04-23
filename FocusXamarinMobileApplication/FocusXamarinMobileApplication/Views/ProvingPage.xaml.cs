@@ -9,7 +9,7 @@ public partial class ProvingPage : ContentPage, IFormsPage
         InitializeComponent();
 
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ProvingPageViewModel;
+        _vm = App.ViewModelLocator.ProvingPageViewModel;
         BindingContext = _vm;
     }
 

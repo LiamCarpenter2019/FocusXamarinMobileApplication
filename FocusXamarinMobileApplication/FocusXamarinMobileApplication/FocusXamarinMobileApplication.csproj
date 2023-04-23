@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
   </PropertyGroup>
@@ -14,10 +14,18 @@
         <LangVersion>preview</LangVersion>
     </PropertyGroup>
     <ItemGroup>
+      <Compile Remove="Models\MenuViewModel.cs" />
+      <Compile Remove="Services\DocumentsListingViewModel.cs" />
       <Compile Remove="Services\OfflineDataStore.cs" />
+      <Compile Remove="ViewModels\InputSupervisorTimeSheetViewModel.cs" />
       <Compile Remove="ViewModels\ItemDetailPageViewModel.cs" />
+      <Compile Remove="ViewModels\RattingBarViewModal.cs" />
       <Compile Remove="Views\AboutPage.xaml.cs" />
+      <Compile Remove="Views\ItemDetailPage.xaml.cs" />
+      <Compile Remove="Views\ItemsPage.xaml.cs" />
+      <Compile Remove="Views\MainPage.xaml.cs" />
       <Compile Remove="Views\MapDrawingComboPage.xaml.cs" />
+      <Compile Remove="Views\MenuPage.xaml.cs" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Remove="Views\AboutPage.xaml" />
@@ -25,8 +33,12 @@
       <EmbeddedResource Remove="Views\DamageDetails2.xaml" />
       <EmbeddedResource Remove="Views\DesignMap.xaml" />
       <EmbeddedResource Remove="Views\EditInjuredPerson.xaml" />
+      <EmbeddedResource Remove="Views\ItemDetailPage.xaml" />
+      <EmbeddedResource Remove="Views\ItemsPage.xaml" />
+      <EmbeddedResource Remove="Views\MainPage.xaml" />
       <EmbeddedResource Remove="Views\MapDrawingCombo.xaml" />
       <EmbeddedResource Remove="Views\MapDrawingComboPage.xaml" />
+      <EmbeddedResource Remove="Views\MenuPage.xaml" />
       <EmbeddedResource Remove="Views\Notes.xaml" />
     </ItemGroup>
   <ItemGroup>
@@ -34,22 +46,24 @@
     <PackageReference Include="Microsoft.AppCenter" Version="5.0.1" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Graph" Version="5.7.0" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.53.0" />
+    <PackageReference Include="Microsoft.Graph" Version="4.53.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.47.2" />
     <PackageReference Include="Microsoft.SharePointOnline.CSOM" Version="16.1.23508.12000" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
-    <PackageReference Include="signaturepad" Version="1.5.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Syncfusion.Licensing" Version="21.1.41" />
     <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="21.1.41" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="21.1.41" />
     <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="21.1.41" />
+    <PackageReference Include="Syncfusion.Xamarin.SfSignaturePad" Version="21.1.41" />
     <PackageReference Include="What3WordsV3API" Version="3.0.0.2" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="1.5.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.5" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2578" />
@@ -107,7 +121,7 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EditInjuredPersonPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\EventManagementSelectionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -142,19 +156,10 @@
     <EmbeddedResource Update="Views\InvestigationDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ItemDetailPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ItemsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\LogInPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MainListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MapWithPinsPage.xaml">
@@ -169,14 +174,11 @@
     <EmbeddedResource Update="Views\MeasureTypeSelectionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MenuPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\MenuSelectionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MethodologyPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MyPlantScreenPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -275,7 +277,7 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SelectSurveyTypePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ServicesCrossedPage.xaml">
       <Generator>MSBuild:Compile</Generator>

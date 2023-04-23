@@ -6,7 +6,7 @@ public partial class PlantChecksPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PlantChecksPageViewModel;
+        _vm = App.ViewModelLocator.PlantChecksPageViewModel;
 
         BindingContext = _vm;
 

@@ -6,7 +6,7 @@ public partial class VisitorLogListPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.VisitorLogListPageViewModel;
+        _vm = App.ViewModelLocator.VisitorLogListPageViewModel;
 
 
         BindingContext = _vm;

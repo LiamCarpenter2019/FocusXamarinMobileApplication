@@ -6,7 +6,7 @@ public partial class SelectPreSitePage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SelectPreSitePageViewModel;
+        _vm = App.ViewModelLocator.SelectPreSitePageViewModel;
 
         BindingContext = _vm;
 

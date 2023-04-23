@@ -8,7 +8,7 @@ public partial class SettingsPage : ContentPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SettingsPageViewModel;
+        _vm = App.ViewModelLocator.SettingsPageViewModel;
 
         BindingContext = _vm;
     }

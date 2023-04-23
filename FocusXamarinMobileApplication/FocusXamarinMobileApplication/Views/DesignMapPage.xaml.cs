@@ -8,7 +8,7 @@ public partial class DesignMapPage : ContentPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DesignMapPageViewModel;
+        _vm = App.ViewModelLocator.DesignMapPageViewModel;
 
         BindingContext = _vm;
 

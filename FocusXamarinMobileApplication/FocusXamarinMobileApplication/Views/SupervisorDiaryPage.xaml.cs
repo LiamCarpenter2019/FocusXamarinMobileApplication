@@ -10,7 +10,7 @@ public partial class SupervisorDiaryPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SupervisorDiaryPageViewModel;
+        _vm = App.ViewModelLocator.SupervisorDiaryPageViewModel;
 
         BindingContext = _vm;
     }

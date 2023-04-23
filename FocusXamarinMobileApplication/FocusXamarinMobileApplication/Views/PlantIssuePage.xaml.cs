@@ -10,7 +10,7 @@ public partial class PlantIssuePage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.PlantIssuesPageViewModel;
+        _vm = App.ViewModelLocator.PlantIssuesPageViewModel;
 
         BindingContext = _vm;
     }

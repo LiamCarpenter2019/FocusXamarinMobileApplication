@@ -14,7 +14,7 @@ public partial class DocumentViewPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DocumentViewPageViewModel;
+        _vm = App.ViewModelLocator.DocumentViewPageViewModel;
         BindingContext = _vm;
         pdfViewerControl.DocumentSaveInitiated += pdfViewerControl_DocumentSaveInitiated;
     }

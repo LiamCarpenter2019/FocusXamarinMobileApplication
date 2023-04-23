@@ -10,7 +10,7 @@ public partial class DailyChecksIssuePage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.DailyChecksIssuePageViewModel;
+        _vm = App.ViewModelLocator.DailyChecksIssuePageViewModel;
 
         BindingContext = _vm;
     }

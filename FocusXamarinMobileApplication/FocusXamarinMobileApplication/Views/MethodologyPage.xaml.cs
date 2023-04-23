@@ -8,7 +8,7 @@ public partial class MethodologyPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.MethodologyPageViewModel;
+        _vm = App.ViewModelLocator.MethodologyPageViewModel;
         BindingContext = _vm;
     }
 

@@ -8,7 +8,7 @@ public partial class StockFuelPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.StockFuelPageViewModel;
+        _vm = App.ViewModelLocator.StockFuelPageViewModel;
         BindingContext = _vm;
     }
 

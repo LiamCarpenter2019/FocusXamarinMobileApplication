@@ -11,7 +11,7 @@ public partial class AddWitnessPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.AddWitnessPageViewModel;
+        _vm = App.ViewModelLocator.AddWitnessPageViewModel;
 
         BindingContext = _vm;
         //_vm = new LoginPageViewModel(Navigation);

@@ -8,7 +8,7 @@ public partial class SelectProjectPage : ContentPage, IFormsPage
     {
         InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.ProjectsPageViewModel;
+        _vm = App.ViewModelLocator.ProjectsPageViewModel;
 
         BindingContext = _vm;
 

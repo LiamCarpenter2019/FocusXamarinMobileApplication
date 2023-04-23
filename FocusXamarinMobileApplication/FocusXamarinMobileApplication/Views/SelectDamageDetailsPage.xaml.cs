@@ -10,7 +10,7 @@ public partial class SelectDamageDetailsPage : ContentPage, IFormsPage
 
         NavigationPage.SetHasNavigationBar(this, false);
 
-        _vm = Microsoft.SharePoint.Client.App.ViewModelLocator.SelectDamageDetailsPageViewModel;
+        _vm = App.ViewModelLocator.SelectDamageDetailsPageViewModel;
 
         BindingContext = _vm;
     }
