@@ -17,8 +17,13 @@
       <Compile Remove="Models\Authorisation.cs" />
       <Compile Remove="Models\MenuViewModel.cs" />
       <Compile Remove="Services\OfflineDataStore.cs" />
+      <Compile Remove="ViewModels\InputSupervisorTimeSheetViewModel.cs" />
       <Compile Remove="ViewModels\ItemDetailPageViewModel.cs" />
+      <Compile Remove="ViewModels\MainPageViewModel.cs" />
+      <Compile Remove="ViewModels\RattingBarViewModal.cs" />
       <Compile Remove="Views\ItemDetailPage.xaml.cs" />
+      <Compile Remove="Views\ItemsPage.xaml.cs" />
+      <Compile Remove="Views\MainPage.xaml.cs" />
       <Compile Remove="Views\MapDrawingComboPage.xaml.cs" />
       <Compile Remove="Views\MenuPage.xaml.cs" />
     </ItemGroup>
@@ -28,6 +33,8 @@
       <EmbeddedResource Remove="Views\DesignMap.xaml" />
       <EmbeddedResource Remove="Views\EditInjuredPerson.xaml" />
       <EmbeddedResource Remove="Views\ItemDetailPage.xaml" />
+      <EmbeddedResource Remove="Views\ItemsPage.xaml" />
+      <EmbeddedResource Remove="Views\MainPage.xaml" />
       <EmbeddedResource Remove="Views\MapDrawingCombo.xaml" />
       <EmbeddedResource Remove="Views\MapDrawingComboPage.xaml" />
       <EmbeddedResource Remove="Views\MenuPage.xaml" />

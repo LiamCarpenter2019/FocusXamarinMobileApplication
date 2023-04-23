@@ -283,7 +283,7 @@ namespace FocusXamarinMobileApplication.ViewModels
 
                                     _userService.UpdateSupervisorDailyProjectLabour(SupervisorDailyDiary);
 
-                                    await NavigateTo(new MenuSelectionPage());
+                                    await NavigateTo(ViewModelLocator.MenuSelectionPage);
                                 }
                                 else
                                 {
