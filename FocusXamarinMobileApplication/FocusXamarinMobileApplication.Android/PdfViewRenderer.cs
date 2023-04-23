@@ -1,6 +1,6 @@
 ﻿#region
 
-using FocusXamarinForms20082020V1.Droid;
+using FocusXamarinMobileApplication.Droid;
 using WebView = Android.Webkit.WebView;
 
 #endregion
