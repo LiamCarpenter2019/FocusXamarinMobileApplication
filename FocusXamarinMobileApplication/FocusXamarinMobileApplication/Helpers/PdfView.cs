@@ -1,5 +1,4 @@
-﻿
-using WebView = Xamarin.Forms.WebView;
+﻿using WebView = FocusXamarinMobileApplication.Views.WebView;
 
 namespace FocusXamarinMobileApplication.Helpers;
 

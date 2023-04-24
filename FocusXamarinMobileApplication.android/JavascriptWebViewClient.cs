@@ -1,10 +1,4 @@
-﻿#region
-
-using WebView = Android.Webkit.WebView;
-
-#endregion
-
-namespace FocusXamarinMobileApplication.Droid;
+﻿namespace FocusXamarinMobileApplication.Droid;
 
 public class JavascriptWebViewClient : FormsWebViewClient
 {

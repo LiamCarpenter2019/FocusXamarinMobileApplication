@@ -1,68 +1,105 @@
 ﻿[assembly: ExportRenderer(typeof(PdfView), typeof(PdfViewRenderer))]
 
-namespace FocusXamarinMobileApplication.Droid;
-
-public class PdfViewRenderer : WebViewRenderer
+namespace FocusXamarinMobileApplication.Droid
 {
-    protected override void OnElementChanged(ElementChangedEventArgs<WebView> e)
+    /// <summary>
+    /// The pdf view renderer.
+    /// </summary>
+    [Obsolete]
+    public class PdfViewRenderer : WebViewRenderer
     {
-        base.OnElementChanged(e);
-        if (e.NewElement == null) return;
-        var pdfView = Element as PdfView;
-        if (pdfView == null) return;
-        if (string.IsNullOrWhiteSpace(pdfView.Uri) == false)
-            Control.SetWebChromeClient(new PdfWebChromeClient
-            {
-                Uri = pdfView.Uri,
-                FileName = GetFileNameFromUri(pdfView.Uri)
-            });
-        Control.Settings.AllowFileAccess = true;
-        Control.Settings.AllowUniversalAccessFromFileURLs = true;
-        LoadFile(pdfView.Uri);
-    }
-
-    private static string GetFileNameFromUri(string uri)
-    {
-        var lastIndexOf = uri?.LastIndexOf("/", StringComparison.InvariantCultureIgnoreCase);
-        return lastIndexOf > 0 ? uri.Substring(lastIndexOf.Value, uri.Length - lastIndexOf.Value) : string.Empty;
-    }
-
-    protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
-    {
-        base.OnElementPropertyChanged(sender, e);
-
-        if (e.PropertyName != PdfView.UriProperty.PropertyName) return;
-        var pdfView = Element as PdfView;
-        if (pdfView == null) return;
-        if (string.IsNullOrWhiteSpace(pdfView.Uri) == false)
-            Control.SetWebChromeClient(new PdfWebChromeClient
-            {
-                Uri = pdfView.Uri,
-                FileName = GetFileNameFromUri(pdfView.Uri)
-            });
-        LoadFile(pdfView.Uri);
-    }
-
-    private void LoadFile(string uri)
-    {
-        if (string.IsNullOrWhiteSpace(uri)) return;
-        Control.LoadUrl($"file:///android_asset/pdfjs/web/viewer.html?file=file://{uri}");
-    }
-
-    internal class PdfWebChromeClient : WebChromeClient
-    {
-        public string Uri { private get; set; }
-        public string FileName { private get; set; }
-
-        public override bool OnJsAlert(WebView view, string url, string message, JsResult result)
+        /// <summary>
+        /// On element changed.
+        /// </summary>
+        /// <param name="e">The E.</param>
+        protected override void OnElementChanged(ElementChangedEventArgs<WebView> e)
         {
-            if (message != "PdfViewer_app_scheme:print") return base.OnJsAlert(view, url, message, result);
-            using (var printManager = Forms.Context.GetSystemService(Context.PrintService) as PrintManager)
-            {
-                printManager?.Print(FileName, new FilePrintDocumentAdapter(FileName, Uri), null);
-            }
+            base.OnElementChanged(e);
+            if (e.NewElement == null) return;
+            var pdfView = Element as PdfView;
+            if (pdfView == null) return;
+            if (string.IsNullOrWhiteSpace(pdfView.Uri) == false)
+                Control.SetWebChromeClient(new PdfWebChromeClient
+                {
+                    Uri = pdfView.Uri,
+                    FileName = GetFileNameFromUri(pdfView.Uri)
+                });
+            Control.Settings.AllowFileAccess = true;
+            Control.Settings.AllowUniversalAccessFromFileURLs = true;
+            LoadFile(pdfView.Uri);
+        }
 
-            return true;
+        /// <summary>
+        /// Get the file name from uri.
+        /// </summary>
+        /// <param name="uri">The uri.</param>
+        /// <returns>A string.</returns>
+        private static string GetFileNameFromUri(string uri)
+        {
+            var lastIndexOf = uri?.LastIndexOf("/", StringComparison.InvariantCultureIgnoreCase);
+            return lastIndexOf > 0 ? uri.Substring(lastIndexOf.Value, uri.Length - lastIndexOf.Value) : string.Empty;
+        }
+
+        /// <summary>
+        /// On element property changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The E.</param>
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            if (e.PropertyName != PdfView.UriProperty.PropertyName) return;
+            var pdfView = Element as PdfView;
+            if (pdfView == null) return;
+            if (string.IsNullOrWhiteSpace(pdfView.Uri) == false)
+                Control.SetWebChromeClient(new PdfWebChromeClient
+                {
+                    Uri = pdfView.Uri,
+                    FileName = GetFileNameFromUri(pdfView.Uri)
+                });
+            LoadFile(pdfView.Uri);
+        }
+
+        /// <summary>
+        /// Load file.
+        /// </summary>
+        /// <param name="uri">The uri.</param>
+        private void LoadFile(string uri)
+        {
+            if (string.IsNullOrWhiteSpace(uri)) return;
+            Control.LoadUrl($"file:///android_asset/pdfjs/web/viewer.html?file=file://{uri}");
+        }
+
+        internal class PdfWebChromeClient : WebChromeClient
+        {
+            /// <summary>
+            /// Gets or Sets the uri.
+            /// </summary>
+            public string Uri { private get; set; }
+            /// <summary>
+            /// Gets or Sets the file name.
+            /// </summary>
+            public string FileName { private get; set; }
+
+            /// <summary>
+            /// On js alert.
+            /// </summary>
+            /// <param name="view">The view.</param>
+            /// <param name="url">The url.</param>
+            /// <param name="message">The message.</param>
+            /// <param name="result">The result.</param>
+            /// <returns>A bool.</returns>
+            public override bool OnJsAlert(WebView view, string url, string message, JsResult result)
+            {
+                if (message != "PdfViewer_app_scheme:print") return base.OnJsAlert(view, url, message, result);
+                using (var printManager = Forms.Context.GetSystemService(Context.PrintService) as PrintManager)
+                {
+                    printManager?.Print(FileName, new FilePrintDocumentAdapter(FileName, Uri), null);
+                }
+
+                return true;
+            }
         }
     }
 }

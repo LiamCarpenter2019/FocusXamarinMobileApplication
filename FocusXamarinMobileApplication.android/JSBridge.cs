@@ -1,29 +1,24 @@
-﻿#region
+﻿using Java.Interop;
 
-using FocusXamarinMobileApplication.Helpers;
-using Java.Interop;
-using Object = Java.Lang.Object;
-
-#endregion
-
-namespace FocusXamarinMobileApplication.Droid;
-
-public class JSBridge : Object
+namespace FocusXamarinMobileApplication.Droid
 {
-    private readonly WeakReference<HybridWebViewRenderer> hybridWebViewRenderer;
-
-    public JSBridge(HybridWebViewRenderer hybridRenderer)
+    public class JSBridge : Object
     {
-        hybridWebViewRenderer = new WeakReference<HybridWebViewRenderer>(hybridRenderer);
-    }
+        private readonly WeakReference<HybridWebViewRenderer> hybridWebViewRenderer;
 
-    [JavascriptInterface]
-    [Export("invokeAction")]
-    public void InvokeAction(string data)
-    {
-        HybridWebViewRenderer hybridRenderer;
+        public JSBridge(HybridWebViewRenderer hybridRenderer)
+        {
+            hybridWebViewRenderer = new WeakReference<HybridWebViewRenderer>(hybridRenderer);
+        }
 
-        if (hybridWebViewRenderer != null && hybridWebViewRenderer.TryGetTarget(out hybridRenderer))
-            ((HybridWebView)hybridRenderer.Element).InvokeAction(data);
+        [JavascriptInterface]
+        [Export("invokeAction")]
+        public void InvokeAction(string data)
+        {
+            HybridWebViewRenderer hybridRenderer;
+
+            if (hybridWebViewRenderer != null && hybridWebViewRenderer.TryGetTarget(out hybridRenderer))
+                ((HybridWebView)hybridRenderer.Element).InvokeAction(data);
+        }
     }
 }
