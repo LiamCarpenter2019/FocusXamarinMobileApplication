@@ -1,25 +1,82 @@
-﻿using Android.App;
+﻿#region
+
+using Android;
+using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
-using AndroidX.AppCompat.App;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.Identity.Client;
+using Syncfusion.Licensing;
+using Xamarin;
+using Xamarin.Forms.Platform.Android;
+using Platform = Xamarin.Essentials.Platform;
 
-namespace FocusXamarinMobileApplication.android
+#endregion
+
+namespace FocusXamarinMobileApplication.Droid;
+
+[Activity(Label = "FocusXamarinMobileApplication", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
+    ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode |
+                           ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+public class MainActivity : FormsAppCompatActivity
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity
-    {
-        protected override void OnCreate(Bundle savedInstanceState)
-        {
-            base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
-        }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+    private const int RequestLocationsId = 0;
 
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
+    private readonly string[] LocationPermissions =
+    {
+        Manifest.Permission.AccessCoarseLocation,
+        Manifest.Permission.AccessFineLocation
+    };
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
+        if ((int)Build.VERSION.SdkInt >= 23)
+            if (CheckSelfPermission(Manifest.Permission.AccessFineLocation) != Permission.Granted)
+                RequestPermissions(LocationPermissions, RequestLocationsId);
+    }
+
+    protected override void OnCreate(Bundle savedInstanceState)
+    {
+        TabLayoutResource = Resource.Layout.Tabbar;
+        ToolbarResource = Resource.Layout.Toolbar;
+        SyncfusionLicenseProvider.RegisterLicense(
+            "Mgo+DSMBaFt+QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRcQl5gSX9bd0BhXn5ZeHM=;Mgo+DSMBPh8sVXJ1S0d+X1RPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9gSX1QdkRrWHpcd3VcRWg=;ORg4AjUWIQA/Gnt2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5QdUViUX5bcnNXR2Rb;MTU2NDQzNEAzMjMxMmUzMTJlMzMzNUdJK1owK1BEUVBvdlkrYy9VRWJyaVUwZmZuN0hpV3dVMElRUHYyZXFoOE09;MTU2NDQzNUAzMjMxMmUzMTJlMzMzNUwrZE1JQzVSR1gzZnk2dEgzTmEyRVliaEVJYm5OU3RvL2V3Ry9XcWY3dUU9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RDX3xKf0x/TGpQb19xflBPallYVBYiSV9jS31TdUZjWHdfdXZSRWFVVg==;MTU2NDQzN0AzMjMxMmUzMTJlMzMzNUxZOEhjNG9lbHltSTB3NWN2YTlQNllwbE5kU0N5dWhhSVpBazcrVHJyV1k9;MTU2NDQzOEAzMjMxMmUzMTJlMzMzNVl6UHc1UzEzNVVGUUFlamlRVElVUXpibFloMlYwdVVuQnE1R0dFbnM2cUk9;Mgo+DSMBMAY9C3t2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5QdUViUX5bcnNRR2Vb;MTU2NDQ0MEAzMjMxMmUzMTJlMzMzNWVnSFN0VmM0SVowT3hHTUcxUkp1RllMWDk4dzR6cWdxdzQ4M2VUMzY3anc9;MTU2NDQ0MUAzMjMxMmUzMTJlMzMzNWVrYzlBY1JYaFh4MEJEQXhhSzRPYzRRSGxuOGZnb0lnQkl5SENmeWVTUk09;MTU2NDQ0MkAzMjMxMmUzMTJlMzMzNUxZOEhjNG9lbHltSTB3NWN2YTlQNllwbE5kU0N5dWhhSVpBazcrVHJyV1k9");
+        base.OnCreate(savedInstanceState);
+
+        Platform.Init(this, savedInstanceState);
+        Forms.Init(this, savedInstanceState);
+        FormsMaps.Init(this, savedInstanceState);
+        LoadApplication(new App());
+
+        AppCenter.Start("06866c2b-2713-4586-b055-e581cb1cf41c",
+            typeof(Analytics), typeof(Crashes));
+
+        App.ParentWindow = this;
+    }
+
+    public override void OnRequestPermissionsResult(int requestCode, string[] permissions,
+        [GeneratedEnum] Permission[] grantResults)
+    {
+        Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == RequestLocationsId)
+            if (grantResults.Length == 1 && grantResults[0] == (int)Permission.Granted)
+            {
+                //Permission granted - disply a message;                    
+            }
+
+        base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+    {
+        base.OnActivityResult(requestCode, resultCode, data);
+        AuthenticationContinuationHelper
+            .SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
     }
 }

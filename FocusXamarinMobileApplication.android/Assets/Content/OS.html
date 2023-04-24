@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>OS Names API | Reverse Geocoding Example | Mapbox GL JS</title>
+    <link rel="stylesheet" href="https://labs.os.uk/public/os-api-branding/v0.2.0/os-api-branding.css"/>
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.css"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            bottom: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://labs.os.uk/public/os-api-branding/v0.2.0/os-api-branding.js"></script>
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.1/mapbox-gl.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.0/proj4.js"></script>
+<script>
+    var apiKey = 'lnmYq2rdeJwFSuy3k8IjFFoDa9lkFaKo';
+
+    var nameServiceUrl = 'https://api.os.uk/search/names/v1',
+        tileServiceUrl = 'https://api.os.uk/maps/raster/v1/zxy';
+
+    // Define the EPSG:27700 (British National Grid) projection.
+
+    proj4.defs('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +towgs84=446.448,-125.157,542.06,0.15,0.247,0.842,-20.489 +units=m +no_defs');
+
+    // Create a map style object using the ZXY service.
+
+    var style = {
+        "version": 8,
+        "sources": {
+            "raster-tiles": {
+                "type": "raster",
+                "tiles": [tileServiceUrl + "/Outdoor_3857/{z}/{x}/{y}.png?key=" + apiKey],
+                "tileSize": 256,
+                "maxzoom": 20
+            }
+        },
+        "layers": [
+            {
+                "id": "os-maps-zxy",
+                "type": "raster",
+                "source": "raster-tiles"
+            }
+        ]
+    };
+
+    // Initialize the map object.
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        minZoom: 7,
+        maxZoom: 20,
+        style: style,
+        maxBounds: [
+            [-10.76418, 49.528423],
+            [1.9134116, 61.331151]
+        ],
+        center: [-0.33769011, 53.744422],
+        zoom: 15
+    });
+
+    //map.dragRotate.disable(); // Disable map rotation using right click + drag.
+    //map.touchZoomRotate.disableRotation(); // Disable map rotation using touch rotation gesture.
+
+
+    // Add navigation control (excluding compass button) to the map.
+
+    map.addControl(new mapboxgl.NavigationControl({
+        showCompass: false,
+    }));
+
+    // Add click event handler.
+
+    map.on('click',
+        function(e) {
+            var coord = e.lngLat;
+
+            // Transform the coordinates of the clicked point into British National Grid.
+            // The precision of the coordinates should be two decimal places.
+
+            var bngCoord = proj4('EPSG:27700', coord.toArray());
+            bngCoord = bngCoord.map(function(key) {
+                return Number(key.toFixed(2));
+            });
+
+            // Define request parameters.
+
+            var params = {
+                key: apiKey,
+                point: bngCoord.toString()
+            };
+
+            var queryString = Object.keys(params).map(function(key) {
+                return key + '=' + params[key];
+            }).join('&');
+
+            fetch(nameServiceUrl + '/nearest?' + queryString)
+                .then(response => response.json())
+                .then(data => {
+
+                    var marker = new mapboxgl.Marker({ color: '#38f' })
+                        .setLngLat(coord)
+                        .addTo(map);
+
+                    // Create a popup.
+
+                    var popup = new mapboxgl.Popup({ anchor: 'bottom', offset: 25 })
+                        .setLngLat(coord)
+                        .setHTML('<div style="padding:0 8px;">' + coord + '</div>')
+                        .addTo(map);
+
+                    popup.on('close',
+                        function() {
+                            marker.remove();
+                        });
+
+                    map.panTo(coord);
+                });
+
+            invokeCSharpAction(coord.toArray());
+        });
+</script>
+
+</body>
+</html>
