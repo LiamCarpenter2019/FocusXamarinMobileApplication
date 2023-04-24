@@ -185,11 +185,9 @@ public class ViewModelLocator
         navigation.Configure(StockFuelPage, typeof(StockFuelPage));
         navigation.Configure(RatingSurveyQuestionsPage, typeof(RatingSurveyQuestionsPage));
         navigation.Configure(HybridWebViewPage, typeof(HybridWebViewPage));
-        navigation.Configure(PdfViewPage, typeof(PdfViewPage));
         navigation.Configure(SelectEndPointPage, typeof(SelectEndPointPage));
         navigation.Configure(AsBuildMeasurePage, typeof(AsBuildMeasurePage));
         navigation.Configure(PhotoExamplePage, typeof(PhotoExamplePage));
-
 
         SimpleIoc.Default.Register<AddChamberPageViewModel>();
         SimpleIoc.Default.Register<AddHomesCviPageViewModel>();

@@ -1,8 +1,6 @@
-﻿using WebView = FocusXamarinMobileApplication.Views.WebView;
+﻿namespace FocusXamarinMobileApplication.Helpers;
 
-namespace FocusXamarinMobileApplication.Helpers;
-
-public class PdfView : WebView
+public class PdfView : Xamarin.Forms.WebView
 {
     public static readonly BindableProperty UriProperty =
         BindableProperty.Create(nameof(Uri), typeof(string), typeof(PdfView));

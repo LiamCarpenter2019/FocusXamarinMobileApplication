@@ -1,4 +1,7 @@
-﻿[assembly: ExportRenderer(typeof(HybridWebView), typeof(HybridWebViewRenderer))]
+﻿using FocusXamarinMobileApplication.Droid;
+using FocusXamarinMobileApplication.Helpers;
+
+[assembly: ExportRenderer(typeof(HybridWebView), typeof(HybridWebViewRenderer))]
 
 namespace FocusXamarinMobileApplication.Droid;
 
@@ -12,7 +15,7 @@ public class HybridWebViewRenderer : WebViewRenderer
         _context = context;
     }
 
-    protected override void OnElementChanged(ElementChangedEventArgs<WebView> e)
+    protected override void OnElementChanged(ElementChangedEventArgs<WebView_> e)
     {
         base.OnElementChanged(e);
 

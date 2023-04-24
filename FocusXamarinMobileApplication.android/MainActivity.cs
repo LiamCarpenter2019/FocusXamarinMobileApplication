@@ -1,5 +1,4 @@
 ﻿#region
-
 using Android;
 using Android.App;
 using Android.Content.PM;
@@ -11,7 +10,6 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.Identity.Client;
 using Syncfusion.Licensing;
 using Xamarin;
-using Xamarin.Forms.Platform.Android;
 using Platform = Xamarin.Essentials.Platform;
 
 #endregion

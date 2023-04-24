@@ -9,7 +9,7 @@ using Uri = Android.Net.Uri;
 
 #endregion
 
-[assembly: Dependency(typeof(SaveAndroid))]
+[assembly: Dependency(typeof(FocusXamarinMobileApplication.Droid.SaveAndroid))]
 
 namespace FocusXamarinMobileApplication.Droid;
 
